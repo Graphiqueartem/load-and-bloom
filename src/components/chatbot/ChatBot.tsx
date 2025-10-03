@@ -128,7 +128,7 @@ const ChatBot = () => {
       {!isOpen && (
         <Button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-24 right-6 z-50 h-14 w-14 rounded-full bg-accent text-accent-foreground shadow-lg hover:bg-accent/90"
+          className="fixed bottom-24 right-4 sm:right-6 z-50 h-14 w-14 rounded-full bg-accent text-accent-foreground shadow-lg hover:bg-accent/90"
           size="icon"
         >
           <MessageCircle className="h-6 w-6" />
@@ -137,7 +137,7 @@ const ChatBot = () => {
 
       {/* Chat Window */}
       {isOpen && (
-        <Card className="fixed bottom-24 right-6 z-50 w-96 shadow-2xl">
+        <Card className="fixed bottom-24 right-4 left-4 sm:left-auto sm:right-6 z-50 sm:w-96 max-w-[calc(100vw-2rem)] shadow-2xl">
           <CardHeader className="bg-accent text-accent-foreground">
             <div className="flex items-center justify-between">
               <CardTitle className="text-lg font-poppins">LoveDanceLive Assistant</CardTitle>
