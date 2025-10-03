@@ -32,64 +32,61 @@ const Contact = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-muted/30">
+    <div className="page-gradient-bg">
       {/* Hero Section */}
-      <div className="bg-primary text-primary-foreground py-12 sm:py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="flex justify-center mb-6">
-            <div className="bg-white/10 backdrop-blur-sm rounded-full p-4">
-              <Mail className="h-12 w-12 text-white" />
-            </div>
-          </div>
-          <h1 className="text-3xl sm:text-4xl md:text-6xl font-poppins font-bold mb-4">
-            Contact Us - Help & Support
-          </h1>
-          <p className="text-lg sm:text-xl font-open-sans text-primary-foreground/90 max-w-2xl mx-auto">
-            Questions? Reach out anytime. We're here to help you dance your best.
-          </p>
+      <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="w-full h-full bg-gradient-to-r from-neon-pink/90 via-primary/85 to-turquoise/90"></div>
         </div>
-      </div>
+        
+        <div className="relative z-10 container mx-auto px-3 sm:px-4 lg:px-6 text-center">
+          <div className="max-w-4xl mx-auto space-y-4 sm:space-y-6 animate-fade-in">
+            <div className="flex justify-center mb-4">
+              <div className="bg-white/10 backdrop-blur-sm rounded-full p-4 animate-scale-in">
+                <Mail className="h-12 w-12 text-white" />
+              </div>
+            </div>
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-poppins font-bold text-white drop-shadow-lg">
+              We're Here to Help
+            </h1>
+            <p className="text-lg sm:text-xl font-open-sans text-white/95 max-w-2xl mx-auto">
+              Get in touch with the LoveDanceLive team.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* Main Content */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-        {/* Overview */}
-        <div className="max-w-4xl mx-auto mb-12 sm:mb-16 text-center">
-          <h2 className="text-2xl sm:text-3xl font-poppins font-bold text-foreground mb-6">
-            Get in Touch
-          </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            Questions? Reach out anytime. We're here to help you dance your best.
-          </p>
+      <div className="container mx-auto px-3 sm:px-4 lg:px-6 py-8 sm:py-10">
+        {/* Main Copy */}
+        <div className="max-w-4xl mx-auto mb-8 sm:mb-10">
+          <Card className="bg-gradient-to-br from-white to-muted/30 border-0 shadow-xl hover:shadow-2xl transition-all duration-300 animate-fade-in">
+            <CardContent className="p-6 sm:p-10">
+              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed text-center">
+                Have questions? Reach out to us anytime. Our team is ready to help with registrations, uploads, or general inquiries.
+              </p>
+            </CardContent>
+          </Card>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12 sm:mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8 sm:mb-10">
           {/* Contact Form */}
-          <Card className="bg-white border-0 shadow-lg">
+          <Card className="bg-gradient-to-br from-turquoise/10 to-turquoise/5 border-0 shadow-xl hover:shadow-2xl transition-all duration-300">
             <CardHeader>
               <CardTitle className="text-2xl font-poppins font-bold text-foreground flex items-center">
                 <MessageCircle className="h-6 w-6 mr-2 text-primary" />
-                Send us a Message
+                Contact Form
               </CardTitle>
             </CardHeader>
             <CardContent className="p-6">
               <form className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="firstName">First Name</Label>
-                    <Input id="firstName" placeholder="Enter your first name" />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="lastName">Last Name</Label>
-                    <Input id="lastName" placeholder="Enter your last name" />
-                  </div>
+                <div className="space-y-2">
+                  <Label htmlFor="name">Name</Label>
+                  <Input id="name" placeholder="Enter your name" />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email Address</Label>
+                  <Label htmlFor="email">Email</Label>
                   <Input id="email" type="email" placeholder="Enter your email address" />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="subject">Subject</Label>
-                  <Input id="subject" placeholder="What's this about?" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="message">Message</Label>
@@ -99,8 +96,8 @@ const Contact = () => {
                     className="min-h-[120px]"
                   />
                 </div>
-                <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
-                  Send Message
+                <Button type="submit" className="w-full hover:shadow-lg transform hover:-translate-y-0.5 transition-all">
+                  Contact Us
                 </Button>
               </form>
             </CardContent>
@@ -108,71 +105,98 @@ const Contact = () => {
 
           {/* Contact Information */}
           <div className="space-y-6">
-            <Card className="bg-turquoise/10 border-0">
-              <CardContent className="p-6">
-                <div className="flex items-start space-x-4">
-                  <Mail className="h-6 w-6 text-turquoise mt-1" />
+            <Card className="bg-gradient-to-br from-neon-pink/10 to-baby-pink/5 border-0 shadow-xl">
+              <CardContent className="p-6 space-y-4">
+                <div className="flex items-start gap-4">
+                  <div className="gradient-icon-bg w-fit">
+                    <Mail className="h-6 w-6 text-white" />
+                  </div>
                   <div>
-                    <h3 className="font-semibold text-foreground mb-1">Email Us</h3>
-                    <p className="text-muted-foreground">hello@lovedancelive.com</p>
-                    <p className="text-muted-foreground">support@lovedancelive.com</p>
+                    <h3 className="font-semibold text-foreground">Email</h3>
+                    <p className="text-sm text-muted-foreground">info@lovedancelive.com</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="gradient-icon-bg w-fit">
+                    <Phone className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-foreground">Phone</h3>
+                    <p className="text-sm text-muted-foreground">+1 (555) 123-4567</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="gradient-icon-bg w-fit">
+                    <MapPin className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-foreground">Office</h3>
+                    <p className="text-sm text-muted-foreground">123 Dance Street, London, UK</p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="bg-baby-pink/10 border-0">
+            <Card className="bg-gradient-to-br from-light-blue/10 to-turquoise/5 border-0 shadow-xl">
               <CardContent className="p-6">
-                <div className="flex items-start space-x-4">
-                  <Phone className="h-6 w-6 text-baby-pink mt-1" />
-                  <div>
-                    <h3 className="font-semibold text-foreground mb-1">Call Us</h3>
-                    <p className="text-muted-foreground">+1 (555) 123-DANCE</p>
-                    <p className="text-sm text-muted-foreground">Mon-Fri, 9am-6pm EST</p>
-                  </div>
+                <h3 className="text-xl font-poppins font-bold text-foreground mb-4">Support Hours</h3>
+                <div className="space-y-2 text-sm text-muted-foreground">
+                  <p>Monday - Friday: 9:00 AM - 6:00 PM GMT</p>
+                  <p>Saturday: 10:00 AM - 4:00 PM GMT</p>
+                  <p>Sunday: Closed</p>
                 </div>
               </CardContent>
             </Card>
-
-            <Card className="bg-light-blue/10 border-0">
-              <CardContent className="p-6">
-                <div className="flex items-start space-x-4">
-                  <MapPin className="h-6 w-6 text-light-blue mt-1" />
-                  <div>
-                    <h3 className="font-semibold text-foreground mb-1">Global Headquarters</h3>
-                    <p className="text-muted-foreground">123 Dance Street</p>
-                    <p className="text-muted-foreground">New York, NY 10001</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90">
-                <Link to="/performance-review-form">Contact Us</Link>
-              </Button>
-              <Button variant="outline" asChild>
-                <Link to="#faq">View FAQ</Link>
-              </Button>
-            </div>
           </div>
         </div>
 
         {/* FAQ Section */}
-        <div id="faq" className="max-w-4xl mx-auto">
-          <h3 className="text-2xl sm:text-3xl font-poppins font-bold text-foreground text-center mb-8">
-            Frequently Asked Questions
-          </h3>
-          <div className="space-y-4">
+        <div className="mb-8 sm:mb-10">
+          <div className="text-center mb-8">
+            <div className="inline-block">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold gradient-text-hero mb-4">
+                FAQ
+              </h2>
+              <div className="h-1.5 w-32 bg-gradient-to-r from-turquoise to-neon-pink mx-auto rounded-full"></div>
+            </div>
+            <p className="text-base sm:text-lg text-muted-foreground mt-6 max-w-3xl mx-auto">
+              Quick answers to common questions.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto space-y-4">
             {faqs.map((faq, index) => (
-              <Card key={index} className="bg-white border-0 shadow-sm">
+              <Card key={index} className="bg-gradient-to-br from-primary/5 to-accent/5 border-0 shadow-lg hover:shadow-xl transition-all duration-300">
                 <CardContent className="p-6">
-                  <h4 className="font-semibold text-foreground mb-3">{faq.question}</h4>
-                  <p className="text-muted-foreground">{faq.answer}</p>
+                  <h3 className="text-lg font-poppins font-bold text-foreground mb-2">
+                    {faq.question}
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    {faq.answer}
+                  </p>
                 </CardContent>
               </Card>
             ))}
           </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className="text-center">
+          <Card className="bg-gradient-to-br from-primary/10 via-primary/5 to-secondary/10 border-primary/20 max-w-2xl mx-auto shadow-lg hover:shadow-xl transition-shadow animate-scale-in">
+            <CardContent className="p-6 sm:p-10">
+              <h3 className="text-2xl sm:text-3xl font-poppins font-bold text-foreground mb-6">
+                Still Have Questions?
+              </h3>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <Button size="lg" asChild className="hover:shadow-lg transform hover:-translate-y-0.5 transition-all">
+                  <Link to="/performance-review-form">Contact Us</Link>
+                </Button>
+                <Button size="lg" variant="outline" asChild className="hover:shadow-lg transform hover:-translate-y-0.5 transition-all">
+                  <Link to="/how-to-enter">How to Enter</Link>
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </div>

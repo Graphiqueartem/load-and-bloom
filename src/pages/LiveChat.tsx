@@ -11,76 +11,112 @@ const LiveChat = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="page-gradient-bg">
       <WelcomeModal pageName="live-chat" />
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl sm:text-5xl font-poppins font-bold mb-6 bg-gradient-to-r from-primary via-neon-pink to-accent bg-clip-text text-transparent">
-            Live Event Chat - Join the Conversation
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Feel the energy during live battles! Chat, cheer, and connect with fans and dancers worldwide in real time.
-          </p>
+      {/* Hero Section */}
+      <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="w-full h-full bg-gradient-to-r from-neon-pink/90 via-primary/85 to-turquoise/90"></div>
         </div>
+        
+        <div className="relative z-10 container mx-auto px-3 sm:px-4 lg:px-6 text-center">
+          <div className="max-w-4xl mx-auto space-y-4 sm:space-y-6 animate-fade-in">
+            <div className="flex justify-center mb-4">
+              <div className="bg-white/10 backdrop-blur-sm rounded-full p-4 animate-scale-in">
+                <MessageSquare className="h-12 w-12 text-white" />
+              </div>
+            </div>
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-poppins font-bold text-white drop-shadow-lg">
+              Be Part of the Moment
+            </h1>
+            <p className="text-lg sm:text-xl font-open-sans text-white/95 max-w-2xl mx-auto">
+              Chat with dancers and fans during live streams.
+            </p>
+          </div>
+        </div>
+      </section>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
-          <Card className="border-2 border-primary/20 hover:border-primary/40 transition-colors">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Video className="h-6 w-6 text-neon-pink" />
-                Live Event Features
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-3 text-muted-foreground">
-                <li className="flex items-center gap-2">
-                  <Zap className="h-4 w-4 text-accent" />
-                  Real-time chat during performances
-                </li>
-                <li className="flex items-center gap-2">
-                  <MessageSquare className="h-4 w-4 text-accent" />
-                  Q&A with judges and performers
-                </li>
-                <li className="flex items-center gap-2">
-                  <Globe className="h-4 w-4 text-accent" />
-                  Global audience interaction
-                </li>
-              </ul>
-            </CardContent>
-          </Card>
-
-          <Card className="border-2 border-accent/20 hover:border-accent/40 transition-colors">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <MessageSquare className="h-6 w-6 text-primary" />
-                Chat Guidelines
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-3 text-muted-foreground">
-                <li>• Be respectful and supportive</li>
-                <li>• Encourage all performers</li>
-                <li>• Follow community guidelines</li>
-                <li>• Keep conversations relevant</li>
-              </ul>
+      {/* Main Content */}
+      <div className="container mx-auto px-3 sm:px-4 lg:px-6 py-8 sm:py-10">
+        {/* Main Copy */}
+        <div className="max-w-4xl mx-auto mb-8 sm:mb-10">
+          <Card className="bg-gradient-to-br from-white to-muted/30 border-0 shadow-xl hover:shadow-2xl transition-all duration-300 animate-fade-in">
+            <CardContent className="p-6 sm:p-10">
+              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed text-center">
+                Our live chat brings the global audience together in real-time. Celebrate, support, and connect while watching events unfold.
+              </p>
             </CardContent>
           </Card>
         </div>
 
+        {/* Features Grid */}
+        <div className="mb-8 sm:mb-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
+            <Card className="bg-gradient-to-br from-turquoise/10 to-turquoise/5 border-0 shadow-xl hover:shadow-2xl transition-all duration-300">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-poppins font-bold text-foreground mb-4 flex items-center gap-2">
+                  <Video className="h-6 w-6 text-primary" />
+                  Live Event Features
+                </h3>
+                <ul className="space-y-3 text-muted-foreground text-sm">
+                  <li className="flex items-center gap-2">
+                    <Zap className="h-4 w-4 text-primary" />
+                    Real-time chat during performances
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <MessageSquare className="h-4 w-4 text-primary" />
+                    Q&A with judges and performers
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Globe className="h-4 w-4 text-primary" />
+                    Global audience interaction
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-gradient-to-br from-neon-pink/10 to-baby-pink/5 border-0 shadow-xl hover:shadow-2xl transition-all duration-300">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-poppins font-bold text-foreground mb-4 flex items-center gap-2">
+                  <MessageSquare className="h-6 w-6 text-accent" />
+                  Chat Guidelines
+                </h3>
+                <ul className="space-y-3 text-muted-foreground text-sm">
+                  <li className="flex items-start gap-2">
+                    <div className="h-2 w-2 rounded-full bg-accent mt-1.5 flex-shrink-0"></div>
+                    <span>Be respectful and supportive</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <div className="h-2 w-2 rounded-full bg-accent mt-1.5 flex-shrink-0"></div>
+                    <span>Encourage all performers</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <div className="h-2 w-2 rounded-full bg-accent mt-1.5 flex-shrink-0"></div>
+                    <span>Follow community guidelines</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
+        {/* CTA Section */}
         <div className="text-center">
-          <Card className="max-w-2xl mx-auto bg-gradient-to-r from-primary/5 to-neon-pink/5 border-2 border-primary/20">
-            <CardContent className="p-8">
-              <Video className="h-12 w-12 text-neon-pink mx-auto mb-4" />
-              <h3 className="text-2xl font-poppins font-bold mb-4">No Live Events Currently</h3>
-              <p className="text-muted-foreground mb-6">
+          <Card className="bg-gradient-to-br from-primary/10 via-primary/5 to-secondary/10 border-primary/20 max-w-2xl mx-auto shadow-lg hover:shadow-xl transition-shadow animate-scale-in">
+            <CardContent className="p-6 sm:p-10 text-center">
+              <Video className="h-12 w-12 text-neon-pink mx-auto mb-6" />
+              <h3 className="text-2xl sm:text-3xl font-poppins font-bold text-foreground mb-4">
+                No Live Events Currently
+              </h3>
+              <p className="text-base sm:text-lg text-muted-foreground mb-6">
                 Live chat will be available during our events. Check our competitions schedule for upcoming live performances!
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" asChild>
-                  <a href="/competitions">View Competitions</a>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <Button size="lg" asChild className="hover:shadow-lg transform hover:-translate-y-0.5 transition-all">
+                  <Link to="/competitions">View Competitions</Link>
                 </Button>
-                <Button variant="outline" size="lg" asChild>
-                  <Link to="/registration">Get Notifications</Link>
+                <Button size="lg" variant="outline" asChild className="hover:shadow-lg transform hover:-translate-y-0.5 transition-all">
+                  <Link to="/registration">Join Live Chat</Link>
                 </Button>
               </div>
             </CardContent>

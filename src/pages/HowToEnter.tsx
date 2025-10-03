@@ -6,171 +6,179 @@ import { Link } from 'react-router-dom';
 
 const HowToEnter = () => {
   return (
-    <div className="min-h-screen bg-muted/30">
+    <div className="page-gradient-bg">
       {/* Hero Section */}
-      <div className="bg-primary text-primary-foreground py-12 sm:py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="flex justify-center mb-6">
-            <div className="bg-white/10 backdrop-blur-sm rounded-full p-4">
-              <Play className="h-12 w-12 text-white" />
-            </div>
-          </div>
-          <h1 className="text-3xl sm:text-4xl md:text-6xl font-poppins font-bold mb-4">
-            How to Enter
-          </h1>
-          <p className="text-lg sm:text-xl font-open-sans text-primary-foreground/90 max-w-2xl mx-auto">
-            Live & Online Submission
-          </p>
+      <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="w-full h-full bg-gradient-to-r from-neon-pink/90 via-primary/85 to-turquoise/90"></div>
         </div>
-      </div>
+        
+        <div className="relative z-10 container mx-auto px-3 sm:px-4 lg:px-6 text-center">
+          <div className="max-w-4xl mx-auto space-y-4 sm:space-y-6 animate-fade-in">
+            <div className="flex justify-center mb-4">
+              <div className="bg-white/10 backdrop-blur-sm rounded-full p-4 animate-scale-in">
+                <Play className="h-12 w-12 text-white" />
+              </div>
+            </div>
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-poppins font-bold text-white drop-shadow-lg">
+              Your Journey Starts Here
+            </h1>
+            <p className="text-lg sm:text-xl font-open-sans text-white/95 max-w-2xl mx-auto">
+              Simple steps to showcase your talent.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* Main Content */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-        {/* Overview */}
-        <div className="max-w-4xl mx-auto mb-12 sm:mb-16 text-center">
-          <h2 className="text-2xl sm:text-3xl font-poppins font-bold text-foreground mb-6">
-            Ready to Take the Stage?
-          </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            Ready to take the stage? Register for live events in Mexico City, Sydney, Johannesburg, Seoul, or London. Can't make it? Upload your dance video online from anywhere. Upgrade with a premium critique for expert feedback.
-          </p>
+      <div className="container mx-auto px-3 sm:px-4 lg:px-6 py-8 sm:py-10">
+        {/* Main Copy */}
+        <div className="max-w-4xl mx-auto mb-8 sm:mb-10">
+          <Card className="bg-gradient-to-br from-white to-muted/30 border-0 shadow-xl hover:shadow-2xl transition-all duration-300 animate-fade-in">
+            <CardContent className="p-6 sm:p-10">
+              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed text-center">
+                Joining LoveDanceLive is easy, whether you're performing live or submitting online.
+              </p>
+            </CardContent>
+          </Card>
         </div>
 
         {/* Entry Options */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12 sm:mb-16">
-          {/* Live Events */}
-          <Card className="hover:shadow-xl transition-all duration-300 bg-turquoise/10 border-0">
-            <CardHeader className="text-center pb-4">
-              <div className="bg-turquoise p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <Play className="h-8 w-8 text-white" />
-              </div>
-              <CardTitle className="text-2xl font-poppins font-bold text-foreground">Live Events</CardTitle>
-            </CardHeader>
-            <CardContent className="p-6">
-              <div className="space-y-4 mb-6">
-                <p className="text-muted-foreground">
-                  Register your performance slot and get ready for your moment on stage.
-                </p>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>• Choose your regional event (Mexico City, Sydney, Johannesburg, Seoul, London)</li>
-                  <li>• Select your performance category and time slot</li>
-                  <li>• Attend mandatory safety briefing</li>
-                  <li>• Compete live in front of expert judges</li>
-                  <li>• Network with dancers and industry professionals</li>
-                </ul>
-              </div>
-              <Button 
-                className="w-full bg-turquoise text-white hover:bg-turquoise/90" 
-                asChild
-              >
-                <Link to="/registration">Register for Live Event</Link>
-              </Button>
-            </CardContent>
-          </Card>
+        <div className="mb-8 sm:mb-10">
+          <div className="text-center mb-8">
+            <div className="inline-block">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold gradient-text-hero mb-4">
+                Entry Options
+              </h2>
+              <div className="h-1.5 w-32 bg-gradient-to-r from-turquoise to-neon-pink mx-auto rounded-full"></div>
+            </div>
+          </div>
 
-          {/* Online Submission */}
-          <Card className="hover:shadow-xl transition-all duration-300 bg-baby-pink/10 border-0">
-            <CardHeader className="text-center pb-4">
-              <div className="bg-baby-pink p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <Upload className="h-8 w-8 text-white" />
-              </div>
-              <CardTitle className="text-2xl font-poppins font-bold text-foreground">Online Submission</CardTitle>
-            </CardHeader>
-            <CardContent className="p-6">
-              <div className="space-y-4 mb-6">
-                <p className="text-muted-foreground">
-                  Upload your dance video, choose premium critique if you want expert feedback, and wait for the judges' verdict.
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
+            {/* Live Event Entry */}
+            <Card className="bg-gradient-to-br from-turquoise/10 to-turquoise/5 border-0 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-fade-in">
+              <CardContent className="p-8 text-center">
+                <div className="gradient-icon-bg w-fit mx-auto mb-6">
+                  <Star className="h-12 w-12 text-white" />
+                </div>
+                <h3 className="text-2xl font-poppins font-bold text-foreground mb-4">Live Event Entry</h3>
+                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-6">
+                  Choose your regional city, register your slot, and step into the spotlight.
                 </p>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>• Record your performance (up to 5 minutes)</li>
-                  <li>• Upload video file (MP4, MOV, AVI - max 500MB)</li>
-                  <li>• Fill out performer details and dance category</li>
-                  <li>• Optional: Add premium critique for detailed feedback</li>
-                  <li>• Track your submission status online</li>
-                </ul>
-              </div>
-              <Button 
-                className="w-full bg-baby-pink text-white hover:bg-baby-pink/90" 
-                asChild
-              >
-                <Link to="/performance-review-form">Submit Online Video</Link>
-              </Button>
-            </CardContent>
-          </Card>
+                <Button size="lg" asChild className="hover:shadow-lg transform hover:-translate-y-0.5 transition-all w-full">
+                  <Link to="/events">Register for Live Event</Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Online Submission */}
+            <Card className="bg-gradient-to-br from-neon-pink/10 to-baby-pink/5 border-0 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-fade-in" style={{ animationDelay: '0.1s' }}>
+              <CardContent className="p-8 text-center">
+                <div className="gradient-icon-bg w-fit mx-auto mb-6">
+                  <Upload className="h-12 w-12 text-white" />
+                </div>
+                <h3 className="text-2xl font-poppins font-bold text-foreground mb-4">Online Submission</h3>
+                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-6">
+                  Upload your performance video, choose premium critique if desired, and let the judges review.
+                </p>
+                <Button size="lg" asChild variant="secondary" className="hover:shadow-lg transform hover:-translate-y-0.5 transition-all w-full">
+                  <Link to="/registration">Submit Online Video</Link>
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
         </div>
 
         {/* Premium Critiques */}
-        <div className="mb-12 sm:mb-16">
-          <Card className="bg-accent/10 border-accent/20 max-w-4xl mx-auto">
-            <CardHeader className="text-center pb-4">
-              <div className="bg-accent p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <Star className="h-8 w-8 text-accent-foreground" />
-              </div>
-              <CardTitle className="text-2xl font-poppins font-bold text-foreground">Premium Critiques</CardTitle>
-            </CardHeader>
-            <CardContent className="p-8">
-              <p className="text-lg text-muted-foreground text-center mb-8">
-                Get detailed, personalized feedback from our expert panel of professional dancers and choreographers.
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                <div className="text-center">
-                  <h4 className="font-semibold text-foreground mb-2">Technique Analysis</h4>
-                  <p className="text-sm text-muted-foreground">Detailed breakdown of your technical skills and areas for improvement</p>
-                </div>
-                <div className="text-center">
-                  <h4 className="font-semibold text-foreground mb-2">Performance Notes</h4>
-                  <p className="text-sm text-muted-foreground">Insights on stage presence, expression, and audience connection</p>
-                </div>
-                <div className="text-center">
-                  <h4 className="font-semibold text-foreground mb-2">Growth Roadmap</h4>
-                  <p className="text-sm text-muted-foreground">Personalized recommendations for your dance journey</p>
-                </div>
-              </div>
-              <div className="text-center">
-                <Button size="lg" asChild className="bg-accent text-accent-foreground hover:bg-accent/90">
-                  <Link to="/performance-review-form">Learn About Premium Critiques</Link>
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
+        <div className="mb-8 sm:mb-10">
+          <div className="text-center mb-8">
+            <div className="inline-block">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold gradient-text-hero mb-4">
+                Premium Critiques
+              </h2>
+              <div className="h-1.5 w-32 bg-gradient-to-r from-turquoise to-neon-pink mx-auto rounded-full"></div>
+            </div>
+            <p className="text-base sm:text-lg text-muted-foreground mt-6 max-w-3xl mx-auto">
+              Receive expert feedback with detailed video commentary to help you grow.
+            </p>
+          </div>
+
+          <div className="max-w-3xl mx-auto">
+            <Card className="bg-gradient-to-br from-baby-pink/10 via-background to-light-blue/10 border-0 shadow-xl hover:shadow-2xl transition-all duration-300">
+              <CardContent className="p-8 sm:p-10 text-center">
+                <h3 className="text-2xl font-poppins font-bold text-foreground mb-4">
+                  Expert Feedback for Growth
+                </h3>
+                <p className="text-base sm:text-lg text-muted-foreground mb-6">
+                  Upgrade your submission to receive personalized video critique from our panel of professional judges and choreographers.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
         </div>
 
         {/* Rules & Guidelines */}
+        <div className="mb-8 sm:mb-10">
+          <div className="text-center mb-8">
+            <div className="inline-block">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold gradient-text-hero mb-4">
+                Rules & Guidelines
+              </h2>
+              <div className="h-1.5 w-32 bg-gradient-to-r from-turquoise to-neon-pink mx-auto rounded-full"></div>
+            </div>
+            <p className="text-base sm:text-lg text-muted-foreground mt-6 max-w-3xl mx-auto">
+              Clear standards to keep the competition fair and fun.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <Card className="bg-gradient-to-br from-light-blue/10 via-background to-turquoise/10 border-0 shadow-xl hover:shadow-2xl transition-all duration-300">
+              <CardContent className="p-8 sm:p-10">
+                <div className="space-y-4 text-muted-foreground text-sm sm:text-base">
+                  <div className="flex items-start gap-3">
+                    <div className="h-2 w-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                    <p>Videos must be between 1-3 minutes in length</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="h-2 w-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                    <p>Original choreography or performance required</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="h-2 w-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                    <p>HD quality (minimum 720p) recommended</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="h-2 w-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                    <p>All dance styles welcome</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="h-2 w-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                    <p>Age categories: Junior (12-17), Adult (18+)</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
+        {/* CTA Section */}
         <div className="text-center">
-          <Card className="bg-primary/5 border-primary/20 max-w-4xl mx-auto">
-            <CardHeader className="text-center pb-4">
-              <div className="bg-primary p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <FileText className="h-8 w-8 text-primary-foreground" />
+          <Card className="bg-gradient-to-br from-primary/10 via-primary/5 to-secondary/10 border-primary/20 max-w-2xl mx-auto shadow-lg hover:shadow-xl transition-shadow animate-scale-in">
+            <CardContent className="p-6 sm:p-10">
+              <h3 className="text-2xl sm:text-3xl font-poppins font-bold text-foreground mb-6">
+                Ready to Begin?
+              </h3>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <Button size="lg" asChild className="hover:shadow-lg transform hover:-translate-y-0.5 transition-all">
+                  <Link to="/events">Register for Live Event</Link>
+                </Button>
+                <Button size="lg" asChild variant="secondary" className="hover:shadow-lg transform hover:-translate-y-0.5 transition-all">
+                  <Link to="/registration">Submit Online Video</Link>
+                </Button>
+                <Button size="lg" variant="outline" asChild className="hover:shadow-lg transform hover:-translate-y-0.5 transition-all">
+                  <Link to="/judges">Learn About Premium Critiques</Link>
+                </Button>
               </div>
-              <CardTitle className="text-2xl font-poppins font-bold text-foreground">Rules & Guidelines</CardTitle>
-            </CardHeader>
-            <CardContent className="p-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-                <div>
-                  <h4 className="font-semibold text-foreground mb-3">Performance Requirements</h4>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li>• Original choreography or credited covers</li>
-                    <li>• Performance length: 2-5 minutes</li>
-                    <li>• Age categories: Youth (8-17), Adult (18+)</li>
-                    <li>• Solo, duet, or group performances welcome</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-foreground mb-3">Technical Specifications</h4>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li>• Video formats: MP4, MOV, AVI</li>
-                    <li>• Maximum file size: 500MB</li>
-                    <li>• Minimum resolution: 720p</li>
-                    <li>• Clear audio without distortion</li>
-                  </ul>
-                </div>
-              </div>
-              <p className="text-center text-muted-foreground mt-8 mb-6">
-                Review rules and guidelines to keep your entry smooth and fair.
-              </p>
-              <Button size="lg" variant="outline" asChild>
-                <Link to="/contact">View Full Guidelines</Link>
-              </Button>
             </CardContent>
           </Card>
         </div>

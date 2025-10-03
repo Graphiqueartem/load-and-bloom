@@ -44,191 +44,168 @@ const Workshops = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-muted/30">
+    <div className="page-gradient-bg">
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-primary to-primary/80 text-primary-foreground py-16 sm:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="flex justify-center mb-8">
-            <div className="bg-white/10 backdrop-blur-sm rounded-full p-6">
-              <Users className="h-16 w-16 text-white" />
-            </div>
-          </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-poppins font-bold mb-6">
-            Workshops - Learn From the Best
-          </h1>
-          <p className="text-xl sm:text-2xl font-open-sans text-primary-foreground/90 max-w-3xl mx-auto leading-relaxed">
-            Master Your Craft with Expert Instructors
-          </p>
+      <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="w-full h-full bg-gradient-to-r from-neon-pink/90 via-primary/85 to-turquoise/90"></div>
         </div>
-      </div>
+        
+        <div className="relative z-10 container mx-auto px-3 sm:px-4 lg:px-6 text-center">
+          <div className="max-w-4xl mx-auto space-y-4 sm:space-y-6 animate-fade-in">
+            <div className="flex justify-center mb-4">
+              <div className="bg-white/10 backdrop-blur-sm rounded-full p-4 animate-scale-in">
+                <Users className="h-12 w-12 text-white" />
+              </div>
+            </div>
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-poppins font-bold text-white drop-shadow-lg">
+              Learn. Grow. Dance.
+            </h1>
+            <p className="text-lg sm:text-xl font-open-sans text-white/95 max-w-2xl mx-auto">
+              Workshops with world-class instructors.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* Main Content */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-        {/* Overview */}
-        <div className="max-w-5xl mx-auto mb-16 sm:mb-20 text-center">
-          <h2 className="text-3xl sm:text-4xl font-poppins font-bold text-foreground mb-8">
-            Learn From Top Instructors
-          </h2>
-          <p className="text-xl text-muted-foreground leading-relaxed mb-10 max-w-3xl mx-auto">
-            Learn from top instructors in Mexico City, Sydney, Johannesburg, Seoul, and London. Workshops cover five genres and all skill levels. Can't attend in person? Explore classes online anytime.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button size="lg" variant="default" asChild>
-              <Link to="#schedule">View Workshop Schedule</Link>
-            </Button>
-            <Button size="lg" variant="secondary" asChild>
-              <Link to="/registration">Register for Workshops</Link>
-            </Button>
-          </div>
-        </div>
-
-        {/* Workshop Categories */}
-        <div id="schedule" className="mb-16 sm:mb-20">
-          <h3 className="text-3xl sm:text-4xl font-poppins font-bold text-foreground text-center mb-12">
-            Workshop Categories
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-10">
-            {workshops.map((workshop, index) => {
-              const getCardColor = (color: string) => {
-                switch (color) {
-                  case 'turquoise': return 'bg-turquoise/10 border-turquoise/20';
-                  case 'baby-pink': return 'bg-baby-pink/10 border-baby-pink/20';
-                  case 'accent': return 'bg-accent/10 border-accent/20';
-                  case 'light-blue': return 'bg-light-blue/10 border-light-blue/20';
-                  case 'primary': return 'bg-primary/10 border-primary/20';
-                  default: return 'bg-muted border-border';
-                }
-              };
-
-              const getIconColor = (color: string) => {
-                switch (color) {
-                  case 'turquoise': return 'text-turquoise';
-                  case 'baby-pink': return 'text-baby-pink';
-                  case 'accent': return 'text-accent';
-                  case 'light-blue': return 'text-light-blue';
-                  case 'primary': return 'text-primary';
-                  default: return 'text-foreground';
-                }
-              };
-
-              const getButtonVariant = (color: string) => {
-                switch (color) {
-                  case 'turquoise': return 'secondary';
-                  case 'baby-pink': return 'outline';
-                  case 'accent': return 'default';
-                  case 'light-blue': return 'secondary';
-                  case 'primary': return 'secondary';
-                  default: return 'default';
-                }
-              };
-
-              return (
-                <Card key={index} className={`hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border ${getCardColor(workshop.color)}`}>
-                  <CardHeader className="text-center pb-4">
-                    <Star className={`h-12 w-12 ${getIconColor(workshop.color)} mx-auto mb-3`} />
-                    <CardTitle className="text-xl font-poppins font-bold text-foreground">
-                      {workshop.genre}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="p-4 sm:p-6">
-                    <div className="space-y-4 text-center">
-                      <div>
-                        <p className="font-semibold text-foreground">Instructor</p>
-                        <p className="text-sm text-muted-foreground">{workshop.instructor}</p>
-                      </div>
-                      <div>
-                        <p className="font-semibold text-foreground">Level</p>
-                        <p className="text-sm text-muted-foreground">{workshop.level}</p>
-                      </div>
-                      <div className="flex items-center justify-center text-muted-foreground">
-                        <Clock className="h-4 w-4 mr-2" />
-                        <span className="text-sm">{workshop.duration}</span>
-                      </div>
-                      <Button 
-                        variant={getButtonVariant(workshop.color)}
-                        className="w-full mt-4"
-                        asChild
-                      >
-                        <Link to="/performance-review-form">Register</Link>
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Schedule Information */}
-        <div className="mb-12 sm:mb-16">
-          <Card className="bg-primary/5 border-primary/20 max-w-4xl mx-auto">
-            <CardContent className="p-8 sm:p-12">
-              <div className="text-center mb-8">
-                <Calendar className="h-16 w-16 text-primary mx-auto mb-4" />
-                <h3 className="text-2xl sm:text-3xl font-poppins font-bold text-foreground mb-4">
-                  Workshop Schedule
-                </h3>
-                <p className="text-lg text-muted-foreground">
-                  Workshops are available at every regional event. Each city offers all five genres 
-                  across the event weekend.
-                </p>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                  <h4 className="font-semibold text-foreground mb-4">Weekend Schedule</h4>
-                  <div className="space-y-3 text-sm">
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">Friday Evening</span>
-                      <span className="text-foreground">Hip Hop & Jazz</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">Saturday Morning</span>
-                      <span className="text-foreground">Contemporary & Latin</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">Saturday Afternoon</span>
-                      <span className="text-foreground">Street Dance</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">Sunday</span>
-                      <span className="text-foreground">Open Practice & Q&A</span>
-                    </div>
-                  </div>
-                </div>
-                
-                <div>
-                  <h4 className="font-semibold text-foreground mb-4">What's Included</h4>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li>• Professional instruction from industry experts</li>
-                    <li>• Take-home choreography notes</li>
-                    <li>• Video recording of key sequences</li>
-                    <li>• Networking opportunities with fellow dancers</li>
-                    <li>• Certificate of completion</li>
-                  </ul>
-                </div>
-              </div>
+      <div className="container mx-auto px-3 sm:px-4 lg:px-6 py-8 sm:py-10">
+        {/* Main Copy */}
+        <div className="max-w-4xl mx-auto mb-8 sm:mb-10">
+          <Card className="bg-gradient-to-br from-white to-muted/30 border-0 shadow-xl hover:shadow-2xl transition-all duration-300 animate-fade-in">
+            <CardContent className="p-6 sm:p-10">
+              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed text-center">
+                LoveDanceLive workshops bring dancers face-to-face with industry professionals. Explore different styles, sharpen your technique, and expand your artistry.
+              </p>
             </CardContent>
           </Card>
         </div>
 
-        {/* Instructor Spotlight */}
+        {/* Schedule */}
+        <div className="mb-8 sm:mb-10">
+          <div className="text-center mb-8">
+            <div className="inline-block">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold gradient-text-hero mb-4">
+                Schedule
+              </h2>
+              <div className="h-1.5 w-32 bg-gradient-to-r from-turquoise to-neon-pink mx-auto rounded-full"></div>
+            </div>
+            <p className="text-base sm:text-lg text-muted-foreground mt-6 max-w-3xl mx-auto">
+              View workshops by city and genre.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <Card className="bg-gradient-to-br from-primary/10 via-background to-accent/10 border-0 shadow-xl hover:shadow-2xl transition-all duration-300">
+              <CardContent className="p-8 sm:p-10 text-center">
+                <Calendar className="h-12 w-12 text-primary mx-auto mb-6" />
+                <h3 className="text-2xl font-poppins font-bold text-foreground mb-4">
+                  Workshops Across 5 Cities
+                </h3>
+                <p className="text-base sm:text-lg text-muted-foreground">
+                  Workshops are available at all regional events in Mexico City, Sydney, Johannesburg, Seoul, and London.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
+        {/* Genres */}
+        <div className="mb-8 sm:mb-10">
+          <div className="text-center mb-8">
+            <div className="inline-block">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold gradient-text-hero mb-4">
+                Genres
+              </h2>
+              <div className="h-1.5 w-32 bg-gradient-to-r from-turquoise to-neon-pink mx-auto rounded-full"></div>
+            </div>
+            <p className="text-base sm:text-lg text-muted-foreground mt-6 max-w-3xl mx-auto">
+              Hip-Hop, Contemporary, Jazz, Ballet, Fusion.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-5xl mx-auto">
+            {['Hip-Hop', 'Contemporary', 'Jazz', 'Ballet', 'Fusion'].map((genre, index) => (
+              <Card key={index} className="bg-gradient-to-br from-turquoise/10 to-turquoise/5 border-0 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                <CardContent className="p-6 text-center">
+                  <h3 className="text-lg font-poppins font-bold text-foreground">{genre}</h3>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* Instructors */}
+        <div className="mb-8 sm:mb-10">
+          <div className="text-center mb-8">
+            <div className="inline-block">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold gradient-text-hero mb-4">
+                Instructors
+              </h2>
+              <div className="h-1.5 w-32 bg-gradient-to-r from-turquoise to-neon-pink mx-auto rounded-full"></div>
+            </div>
+            <p className="text-base sm:text-lg text-muted-foreground mt-6 max-w-3xl mx-auto">
+              World-renowned teachers and choreographers sharing their craft.
+            </p>
+          </div>
+
+          <div className="max-w-3xl mx-auto">
+            <Card className="bg-gradient-to-br from-baby-pink/10 via-background to-light-blue/10 border-0 shadow-xl hover:shadow-2xl transition-all duration-300">
+              <CardContent className="p-8 sm:p-10 text-center">
+                <Star className="h-12 w-12 text-baby-pink mx-auto mb-6" />
+                <h3 className="text-2xl font-poppins font-bold text-foreground mb-4">
+                  Learn from Industry Leaders
+                </h3>
+                <p className="text-base sm:text-lg text-muted-foreground">
+                  Our instructors are award-winning dancers, choreographers, and industry leaders with decades of combined experience.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
+        {/* Registration */}
+        <div className="mb-8 sm:mb-10">
+          <div className="text-center mb-8">
+            <div className="inline-block">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold gradient-text-hero mb-4">
+                Registration
+              </h2>
+              <div className="h-1.5 w-32 bg-gradient-to-r from-turquoise to-neon-pink mx-auto rounded-full"></div>
+            </div>
+            <p className="text-base sm:text-lg text-muted-foreground mt-6 max-w-3xl mx-auto">
+              Limited slots — sign up early to secure your place.
+            </p>
+          </div>
+
+          <div className="max-w-3xl mx-auto">
+            <Card className="bg-gradient-to-br from-turquoise/10 via-background to-neon-pink/10 border-0 shadow-xl hover:shadow-2xl transition-all duration-300">
+              <CardContent className="p-8 sm:p-10 text-center">
+                <Clock className="h-12 w-12 text-turquoise mx-auto mb-6" />
+                <h3 className="text-2xl font-poppins font-bold text-foreground mb-4">
+                  Don't Miss Out
+                </h3>
+                <p className="text-base sm:text-lg text-muted-foreground">
+                  Workshop spaces fill quickly. Register early to guarantee your spot with the instructors you want to learn from.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
+        {/* CTA Section */}
         <div className="text-center">
-          <Card className="bg-accent/10 border-accent/20 max-w-2xl mx-auto">
-            <CardContent className="p-8 sm:p-12">
-              <h3 className="text-2xl sm:text-3xl font-poppins font-bold text-foreground mb-4">
-                World-Class Instructors
+          <Card className="bg-gradient-to-br from-primary/10 via-primary/5 to-secondary/10 border-primary/20 max-w-2xl mx-auto shadow-lg hover:shadow-xl transition-shadow animate-scale-in">
+            <CardContent className="p-6 sm:p-10">
+              <h3 className="text-2xl sm:text-3xl font-poppins font-bold text-foreground mb-6">
+                Ready to Learn?
               </h3>
-              <p className="text-lg text-muted-foreground mb-8">
-                Our workshop leaders are award-winning choreographers, competition champions, and industry professionals 
-                who've worked with top artists and dance companies worldwide.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" asChild className="bg-accent text-accent-foreground hover:bg-accent/90">
-                  <Link to="/registration">Book Your Workshop</Link>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <Button size="lg" asChild className="hover:shadow-lg transform hover:-translate-y-0.5 transition-all">
+                  <Link to="/events">View Workshop Schedule</Link>
                 </Button>
-                <Button size="lg" variant="outline" asChild>
-                  <Link to="/judges">Meet Our Instructors</Link>
+                <Button size="lg" variant="outline" asChild className="hover:shadow-lg transform hover:-translate-y-0.5 transition-all">
+                  <Link to="/registration">Register for Workshops</Link>
                 </Button>
               </div>
             </CardContent>
