@@ -5,7 +5,7 @@ import { Menu, X, Play, Heart, ChevronDown, Settings, LogOut } from 'lucide-reac
 import { useAuth } from '@/contexts/AuthContext';
 
 const competitionLinks = [
-  { name: 'Upcoming Events', path: '/competitions/upcoming' },
+  { name: 'Competitions', path: '/competitions' },
   { name: 'How to Enter', path: '/how-to-enter' },
   { name: 'Royal Academy Dance Gala and Masterclass - 2023', path: '/competitions/royal-academy-dance-gala' },
   { name: 'Ibiza - 2023', path: '/competitions/ibiza-2023-gala' },
