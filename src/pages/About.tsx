@@ -5,8 +5,6 @@ import { Heart, Globe, Users, Award } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { usePageContent } from '@/hooks/usePageContent';
 const heroImage = '/lovable-uploads/7b552ba3-15eb-4c78-881a-39a59b4dde8c.png';
-const communityImage1 = '/lovable-uploads/d2c069b1-e51d-49e4-abab-48fe272bce2a.png';
-const communityImage2 = '/lovable-uploads/b0860258-46f0-4e90-abc6-5f88cb2d3f46.png';
 
 const About = () => {
   const { getContent, loading } = usePageContent('about');
@@ -67,26 +65,6 @@ const About = () => {
               </div>
             </CardContent>
           </Card>
-        </div>
-
-        {/* Dance Community Images */}
-        <div className="mb-8 sm:mb-10">
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="aspect-video overflow-hidden rounded-lg shadow-lg group">
-              <img 
-                src={communityImage1} 
-                alt="Group of dancers performing synchronized jump movement"
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-            </div>
-            <div className="aspect-video overflow-hidden rounded-lg shadow-lg group">
-              <img 
-                src={communityImage2} 
-                alt="Acrobatic dance group performing dynamic choreography"
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-            </div>
-          </div>
         </div>
 
         {/* Subsections Grid */}
