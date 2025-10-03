@@ -14,9 +14,9 @@ const Home = () => {
   }
 
   return (
-    <div className="pb-24">
+    <div className="pb-12">
       {/* Hero Section with Video Background */}
-      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img 
             src={heroImage} 
@@ -27,7 +27,7 @@ const Home = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
         </div>
         
-        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative z-10 container mx-auto px-3 sm:px-4 lg:px-6 text-center">
           <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8 animate-fade-in">
             <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-poppins font-bold leading-tight text-white drop-shadow-2xl">
               Where Passion Meets Performance — Live & Online
@@ -67,10 +67,10 @@ const Home = () => {
       </section>
 
       {/* Welcome Copy Section */}
-      <section className="py-12 sm:py-16 bg-gradient-to-b from-background via-baby-pink/5 to-background relative overflow-hidden">
+      <section className="py-8 sm:py-10 bg-gradient-to-b from-background via-baby-pink/5 to-background relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(64,224,208,0.05),transparent_50%)]"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(255,20,147,0.05),transparent_50%)]"></div>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="container mx-auto px-3 sm:px-4 lg:px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-4">
             <p className="text-base sm:text-lg md:text-xl font-open-sans text-foreground leading-relaxed border-l-4 border-accent pl-6 py-4 bg-white/50 backdrop-blur-sm rounded-r-lg shadow-lg">
               Welcome to LoveDanceLive — your global stage for dance. Whether you're stepping into the spotlight in Mexico City, Sydney, Johannesburg, Seoul, London, or sharing your moves online from anywhere in the world, this is your moment. Compete, learn, and connect with a vibrant community that shares your rhythm.
@@ -80,10 +80,10 @@ const Home = () => {
       </section>
 
       {/* About Preview */}
-      <section className="py-12 sm:py-16 bg-gradient-to-br from-muted via-light-blue/10 to-muted relative overflow-hidden">
+      <section className="py-8 sm:py-10 bg-gradient-to-br from-muted via-light-blue/10 to-muted relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="container mx-auto px-3 sm:px-4 lg:px-6 relative z-10">
           <div className="max-w-3xl mx-auto text-center space-y-6 bg-white/60 backdrop-blur-md rounded-2xl p-8 shadow-2xl border border-white/20">
             <div className="inline-block p-3 bg-gradient-to-br from-primary to-turquoise rounded-full mb-4">
               <Trophy className="h-8 w-8 text-white" />
@@ -105,9 +105,9 @@ const Home = () => {
       </section>
 
       {/* Upcoming Events Preview */}
-      <section className="py-12 sm:py-16 bg-gradient-to-b from-background via-turquoise/5 to-background relative">
+      <section className="py-8 sm:py-10 bg-gradient-to-b from-background via-turquoise/5 to-background relative">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiM0MEUwRDAiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDE2YzAgMS4xLS45IDItMiAycy0yLS45LTItMiAuOS0yIDItMiAyIC45IDIgMm0tMTIgMGMwIDEuMS0uOSAyLTIgMnMtMi0uOS0yLTIgLjktMiAyLTIgMiAuOSAyIDJtMjQgMGMwIDEuMS0uOSAyLTIgMnMtMi0uOS0yLTIgLjktMiAyLTIgMiAuOSAyIDJtLTEyIDEyYzAgMS4xLS45IDItMiAycy0yLS45LTItMiAuOS0yIDItMiAyIC45IDIgMm0tMTIgMGMwIDEuMS0uOSAyLTIgMnMtMi0uOS0yLTIgLjktMiAyLTIgMiAuOSAyIDJtMjQgMGMwIDEuMS0uOSAyLTIgMnMtMi0uOS0yLTIgLjktMiAyLTIgMiAuOSAyIDJNMzYgNDBjMCAxLjEtLjkgMi0yIDJzLTItLjktMi0yIC45LTIgMi0yIDIgLjkgMiAybS0xMiAwYzAgMS4xLS45IDItMiAycy0yLS45LTItMiAuOS0yIDItMiAyIC45IDIgMm0yNCAwYzAgMS4xLS45IDItMiAycy0yLS45LTItMiAuOS0yIDItMiAyIC45IDIgMiIvPjwvZz48L2c+PC9zdmc+')] opacity-30"></div>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="container mx-auto px-3 sm:px-4 lg:px-6 relative z-10">
           <div className="text-center space-y-4 sm:space-y-6 mb-8 sm:mb-12">
             <div className="inline-block">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-poppins font-bold text-foreground relative inline-block">
@@ -153,10 +153,10 @@ const Home = () => {
       </section>
 
       {/* Workshops & Online Classes Preview */}
-      <section className="py-12 sm:py-16 bg-gradient-to-tr from-baby-pink/20 via-muted to-light-blue/20 relative overflow-hidden">
+      <section className="py-8 sm:py-10 bg-gradient-to-tr from-baby-pink/20 via-muted to-light-blue/20 relative overflow-hidden">
         <div className="absolute top-1/4 -right-24 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-1/4 -left-24 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="container mx-auto px-3 sm:px-4 lg:px-6 relative z-10">
           <div className="max-w-3xl mx-auto text-center space-y-6 bg-white/70 backdrop-blur-lg rounded-3xl p-8 sm:p-12 shadow-2xl border border-white/50">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-accent to-primary rounded-2xl mb-4 shadow-lg">
               <Play className="h-8 w-8 text-white" />
@@ -178,9 +178,9 @@ const Home = () => {
       </section>
 
       {/* Community Preview */}
-      <section className="py-12 sm:py-16 bg-gradient-to-b from-background via-accent/5 to-background relative">
+      <section className="py-8 sm:py-10 bg-gradient-to-b from-background via-accent/5 to-background relative">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,20,147,0.08),transparent_70%)]"></div>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="container mx-auto px-3 sm:px-4 lg:px-6 relative z-10">
           <div className="max-w-3xl mx-auto text-center space-y-6 bg-gradient-to-br from-white via-baby-pink/10 to-white rounded-3xl p-8 sm:p-12 shadow-2xl border-2 border-accent/20">
             <div className="flex items-center justify-center space-x-2 mb-4">
               <div className="w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center animate-pulse">
@@ -210,9 +210,9 @@ const Home = () => {
       </section>
 
       {/* Sponsors Section */}
-      <section className="py-12 sm:py-16 bg-gradient-to-br from-muted via-background to-muted relative overflow-hidden">
+      <section className="py-8 sm:py-10 bg-gradient-to-br from-muted via-background to-muted relative overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(64,224,208,0.03)_25%,rgba(64,224,208,0.03)_50%,transparent_50%,transparent_75%,rgba(255,20,147,0.03)_75%)] bg-[length:60px_60px]"></div>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="container mx-auto px-3 sm:px-4 lg:px-6 relative z-10">
           <div className="text-center mb-8">
             <h2 className="text-2xl sm:text-3xl font-poppins font-bold text-foreground mb-4 inline-block">
               Our Sponsors
