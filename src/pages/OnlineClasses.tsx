@@ -41,7 +41,12 @@ const OnlineClasses = () => {
       {/* Hero Section */}
       <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <div className="w-full h-full bg-gradient-to-r from-neon-pink/90 via-primary/85 to-turquoise/90"></div>
+          <img 
+            src="/lovable-uploads/58ab5aeb-76c7-47bd-a654-063a4b909aa7.png" 
+            alt="Online dance classes" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-neon-pink/90 via-primary/85 to-turquoise/90"></div>
         </div>
         
         <div className="relative z-10 container mx-auto px-3 sm:px-4 lg:px-6 text-center">

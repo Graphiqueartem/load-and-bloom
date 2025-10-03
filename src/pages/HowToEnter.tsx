@@ -10,7 +10,12 @@ const HowToEnter = () => {
       {/* Hero Section */}
       <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <div className="w-full h-full bg-gradient-to-r from-neon-pink/90 via-primary/85 to-turquoise/90"></div>
+          <img 
+            src="/lovable-uploads/47a64dda-9083-4c59-962a-605d69645979.png" 
+            alt="How to enter competition" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-neon-pink/90 via-primary/85 to-turquoise/90"></div>
         </div>
         
         <div className="relative z-10 container mx-auto px-3 sm:px-4 lg:px-6 text-center">

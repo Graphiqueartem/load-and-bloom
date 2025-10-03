@@ -48,7 +48,12 @@ const Workshops = () => {
       {/* Hero Section */}
       <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <div className="w-full h-full bg-gradient-to-r from-neon-pink/90 via-primary/85 to-turquoise/90"></div>
+          <img 
+            src="/lovable-uploads/b0860258-46f0-4e90-abc6-5f88cb2d3f46.png" 
+            alt="Dance workshops" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-neon-pink/90 via-primary/85 to-turquoise/90"></div>
         </div>
         
         <div className="relative z-10 container mx-auto px-3 sm:px-4 lg:px-6 text-center">
