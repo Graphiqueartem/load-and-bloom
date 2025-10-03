@@ -2,39 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
 
 @layer base {
   :root {
+    /* LoveDanceLive Dance Flow Theme Color Palette - Exact Brand Colors */
+    --turquoise: 174 72% 56%;         /* #40E0D0 - Turquoise */
+    --baby-pink: 350 100% 88%;        /* #FFC0CB - Baby Pink */
+    --neon-pink: 328 100% 54%;        /* #FF1493 - Neon Pink */
+    --light-blue: 195 53% 79%;        /* #ADD8E6 - Light Blue */
+    --teal-gradient: 174 100% 42%;    /* #00B5B8 - Deep teal */
+
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 220 8.9% 46.1%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 220 8.9% 46.1%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 8.9% 46.1%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary: Turquoise */
+    --primary: 174 72% 56%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary: Baby Pink */
+    --secondary: 350 100% 88%;
+    --secondary-foreground: 220 8.9% 46.1%;
 
-    --muted: 210 40% 96.1%;
+    --muted: 210 40% 98%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent: Neon Pink */
+    --accent: 328 100% 54%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 174 72% 56%;
 
     --radius: 0.5rem;
 
