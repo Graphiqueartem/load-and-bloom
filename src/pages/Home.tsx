@@ -74,7 +74,7 @@ const Home = () => {
       </section>
 
       {/* Welcome Copy Section */}
-      <section className="py-10 sm:py-12 bg-gradient-to-br from-primary/5 via-background to-accent/5 relative overflow-hidden">
+      <section className="py-5 bg-gradient-to-br from-primary/5 via-background to-accent/5 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(64,224,208,0.08),transparent_50%)]"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(255,20,147,0.08),transparent_50%)]"></div>
         <div className="absolute top-10 right-10 w-32 h-32 bg-accent/10 rounded-full blur-2xl"></div>
@@ -99,7 +99,7 @@ const Home = () => {
       </section>
 
       {/* About Preview */}
-      <section className="py-10 sm:py-12 bg-gradient-to-br from-turquoise/10 via-background to-primary/10 relative overflow-hidden">
+      <section className="py-5 bg-gradient-to-br from-turquoise/10 via-background to-primary/10 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="container mx-auto px-3 sm:px-4 lg:px-6 relative z-10">
@@ -154,7 +154,7 @@ const Home = () => {
       </section>
 
       {/* Upcoming Events Preview - Carousel */}
-      <section className="py-10 sm:py-12 bg-gradient-to-b from-background via-turquoise/5 to-background relative">
+      <section className="py-5 bg-gradient-to-b from-background via-turquoise/5 to-background relative">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiM0MEUwRDAiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDE2YzAgMS4xLS45IDItMiAycy0yLS45LTItMiAuOS0yIDItMiAyIC45IDIgMm0tMTIgMGMwIDEuMS0uOSAyLTIgMnMtMi0uOS0yLTIgLjktMiAyLTIgMiAuOSAyIDJtMjQgMGMwIDEuMS0uOSAyLTIgMnMtMi0uOS0yLTIgLjktMiAyLTIgMiAuOSAyIDJtLTEyIDEyYzAgMS4xLS45IDItMiAycy0yLS45LTItMiAuOS0yIDItMiAyIC45IDIgMm0tMTIgMGMwIDEuMS0uOSAyLTIgMnMtMi0uOS0yLTIgLjktMiAyLTIgMiAuOSAyIDJtMjQgMGMwIDEuMS0uOSAyLTIgMnMtMi0uOS0yLTIgLjktMiAyLTIgMiAuOSAyIDJNMzYgNDBjMCAxLjEtLjkgMi0yIDJzLTItLjktMi0yIC45LTIgMi0yIDIgLjkgMiAybS0xMiAwYzAgMS4xLS45IDItMiAycy0yLS45LTItMiAuOS0yIDItMiAyIC45IDIgMm0yNCAwYzAgMS4xLS45IDItMiAycy0yLS45LTItMiAuOS0yIDItMiAyIC45IDIgMiIvPjwvZz48L2c+PC9zdmc+')] opacity-30"></div>
         <div className="container mx-auto px-3 sm:px-4 lg:px-6 relative z-10">
           <div className="text-center space-y-4 mb-10">
@@ -221,7 +221,7 @@ const Home = () => {
       </section>
 
       {/* Workshops & Community - Side by Side on Desktop */}
-      <section className="py-10 sm:py-12 bg-gradient-to-br from-baby-pink/10 via-background to-light-blue/10 relative overflow-hidden">
+      <section className="py-5 bg-gradient-to-br from-baby-pink/10 via-background to-light-blue/10 relative overflow-hidden">
         <div className="absolute top-1/4 -right-24 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-1/4 -left-24 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="container mx-auto px-3 sm:px-4 lg:px-6 relative z-10">
@@ -290,7 +290,7 @@ const Home = () => {
       </section>
 
       {/* Sponsors Section */}
-      <section className="py-8 sm:py-10 bg-gradient-to-br from-muted via-background to-muted relative overflow-hidden">
+      <section className="py-5 bg-gradient-to-br from-muted via-background to-muted relative overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(64,224,208,0.03)_25%,rgba(64,224,208,0.03)_50%,transparent_50%,transparent_75%,rgba(255,20,147,0.03)_75%)] bg-[length:60px_60px]"></div>
         <div className="container mx-auto px-3 sm:px-4 lg:px-6 relative z-10">
           <div className="text-center mb-8">

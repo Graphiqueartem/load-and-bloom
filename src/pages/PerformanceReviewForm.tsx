@@ -11,6 +11,7 @@ import JudgeDirectory from '@/components/JudgeDirectory';
 import PerformerAccount from '@/components/PerformerAccount';
 import heroImage from '@/assets/hero-dance.jpg';
 import contemporaryImage from '@/assets/contemporary-dance.jpg';
+import Navigation from '@/components/Navigation';
 const loginHeroImage = '/lovable-uploads/ef992f15-aa19-4054-b55d-bf80e2c37149.png';
 const performanceImage = '/lovable-uploads/d2c069b1-e51d-49e4-abab-48fe272bce2a.png';
 
@@ -49,7 +50,9 @@ const PerformanceReviewForm = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/30">
+    <>
+      <Navigation />
+      <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/30">
       {/* Hero Section with Background Image */}
       <div className="relative bg-primary text-primary-foreground py-16 sm:py-24 overflow-hidden">
         <div className="absolute inset-0">
@@ -243,6 +246,7 @@ const PerformanceReviewForm = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

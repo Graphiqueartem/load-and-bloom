@@ -44,9 +44,9 @@ const About = () => {
       </section>
 
       {/* Main Content */}
-      <div className="container mx-auto px-3 sm:px-4 lg:px-6 py-8 sm:py-10 pb-0">
+      <div className="container mx-auto px-3 sm:px-4 lg:px-6 py-5 pb-0">
         {/* Main Copy Section */}
-        <div className="max-w-4xl mx-auto mb-8 sm:mb-10">
+        <div className="max-w-4xl mx-auto mb-5">
           <Card className="bg-gradient-to-br from-white to-muted/30 border-0 shadow-xl hover:shadow-2xl transition-all duration-300 animate-fade-in">
             <CardContent className="p-6 sm:p-10">
               <div className="text-center mb-6">
@@ -68,7 +68,7 @@ const About = () => {
         </div>
 
         {/* Subsections Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-5">
           <Card className="bg-gradient-to-br from-turquoise/10 to-turquoise/5 border-0 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-fade-in">
             <CardContent className="p-6 text-center">
               <Users className="h-12 w-12 text-turquoise mx-auto mb-4" />

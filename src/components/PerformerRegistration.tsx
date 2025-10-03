@@ -11,6 +11,7 @@ import { Badge } from '@/components/ui/badge';
 import { AuthForm } from '@/components/auth/AuthForm';
 import { toast } from '@/hooks/use-toast';
 import { User, Trophy, Upload, Calendar, Globe, Star } from 'lucide-react';
+import Navigation from './Navigation';
 
 interface RegistrationFormData {
   performerName: string;
@@ -143,7 +144,9 @@ const PerformerRegistration = () => {
   const typeInfo = getRegistrationTypeInfo();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-muted/20 py-12">
+    <>
+      <Navigation />
+      <div className="min-h-screen bg-gradient-to-br from-background to-muted/20 py-12">
       <div className="container mx-auto px-4 max-w-2xl">
         <div className="text-center mb-8">
           <div className={`rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 ${typeInfo.color}`}>
@@ -363,6 +366,7 @@ const PerformerRegistration = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

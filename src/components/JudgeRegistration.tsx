@@ -11,6 +11,7 @@ import { useToast } from '@/hooks/use-toast';
 import { Judge } from '@/types/performance';
 import { X } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
+import Navigation from './Navigation';
 
 interface JudgeRegistrationProps {
   onRegister: (judge: Judge) => void;
@@ -165,7 +166,9 @@ const JudgeRegistration: React.FC<JudgeRegistrationProps> = ({ onRegister, onCan
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8">
+    <>
+      <Navigation />
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8">
       <div className="max-w-4xl mx-auto px-4">
         <Card className="shadow-2xl border-0">
           <CardHeader className="bg-gradient-to-r from-primary to-primary/80 text-white rounded-t-lg">
@@ -410,6 +413,7 @@ const JudgeRegistration: React.FC<JudgeRegistrationProps> = ({ onRegister, onCan
         </Card>
       </div>
     </div>
+    </>
   );
 };
 

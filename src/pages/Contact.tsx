@@ -62,9 +62,9 @@ const Contact = () => {
       </section>
 
       {/* Main Content */}
-      <div className="container mx-auto px-3 sm:px-4 lg:px-6 py-8 sm:py-10 pb-0">
+      <div className="container mx-auto px-3 sm:px-4 lg:px-6 py-5 pb-0">
         {/* Main Copy */}
-        <div className="max-w-4xl mx-auto mb-8 sm:mb-10">
+        <div className="max-w-4xl mx-auto mb-5">
           <Card className="bg-gradient-to-br from-white to-muted/30 border-0 shadow-xl hover:shadow-2xl transition-all duration-300 animate-fade-in">
             <CardContent className="p-6 sm:p-10">
               <p className="text-base sm:text-lg text-muted-foreground leading-relaxed text-center">
