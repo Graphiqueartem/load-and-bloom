@@ -53,7 +53,7 @@ const Home = () => {
               <Button size="lg" className="bg-white text-primary hover:bg-white/90 hover:scale-105 transition-all duration-300 font-semibold px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto shadow-2xl" asChild>
                 <Link to="/registration">
                   <Upload className="h-4 sm:h-5 w-4 sm:w-5 mr-2" />
-                  Submit Dance Video
+                  <Link to="/performance-review-form">Submit Dance Video</Link>
                 </Link>
               </Button>
               <Button size="lg" variant="outline" className="border-2 border-white/80 text-white hover:bg-white hover:text-primary hover:scale-105 transition-all duration-300 font-semibold px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto backdrop-blur-sm" asChild>

@@ -87,7 +87,7 @@ const HowToEnter = () => {
                   Upload your performance video, choose premium critique if desired, and let the judges review.
                 </p>
                 <Button size="lg" asChild variant="secondary" className="hover:shadow-lg transform hover:-translate-y-0.5 transition-all w-full">
-                  <Link to="/registration">Submit Online Video</Link>
+                  <Link to="/performance-review-form">Submit Online Video</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -178,7 +178,7 @@ const HowToEnter = () => {
                   <Link to="/events">Register for Live Event</Link>
                 </Button>
                 <Button size="lg" asChild variant="secondary" className="hover:shadow-lg transform hover:-translate-y-0.5 transition-all">
-                  <Link to="/registration">Submit Online Video</Link>
+                  <Link to="/performance-review-form">Submit Online Video</Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild className="hover:shadow-lg transform hover:-translate-y-0.5 transition-all">
                   <Link to="/judges">Learn About Premium Critiques</Link>

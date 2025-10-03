@@ -146,7 +146,7 @@ const Competitions = () => {
                   Record your performance, upload it to our platform, and let our expert judges review your talent.
                 </p>
                 <Button size="lg" asChild className="hover:shadow-lg transform hover:-translate-y-0.5 transition-all">
-                  <Link to="/registration">Submit Video</Link>
+                  <Link to="/performance-review-form">Submit Video</Link>
                 </Button>
               </CardContent>
             </Card>

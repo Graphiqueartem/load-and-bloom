@@ -16,7 +16,7 @@ const StickyCTA = () => {
               </Link>
             </Button>
             <Button size="sm" asChild className="flex-1 min-w-0 bg-accent text-accent-foreground hover:bg-accent/90 text-xs sm:text-sm px-2 sm:px-3">
-              <Link to="/registration" className="flex items-center justify-center">
+              <Link to="/performance-review-form" className="flex items-center justify-center">
                 <Upload className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 flex-shrink-0" />
                 <span className="truncate hidden xs:inline">Submit Your Dance Video</span>
                 <span className="truncate xs:hidden">Submit Video</span>

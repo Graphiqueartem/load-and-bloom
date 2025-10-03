@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { Toaster } from '@/components/ui/toaster';
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -66,6 +66,17 @@ const pageTitles: { [key: string]: string } = {
   '/account': 'Your Dashboard - Manage Entries & Purchases',
 };
 
+// Scroll to top component
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
   useEffect(() => {
     // Initialize demo data on app start with a delay to ensure API is ready
@@ -93,6 +104,7 @@ function App() {
       <TooltipProvider>
         <AuthProvider>
           <Router>
+            <ScrollToTop />
             <Routes>
               {/* Auth routes (no layout) */}
               <Route path="/auth" element={<Auth />} />
