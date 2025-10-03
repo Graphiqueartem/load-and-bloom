@@ -197,7 +197,13 @@ const PerformerForm: React.FC<PerformerFormProps> = ({ onBack }) => {
           <Button 
             variant="ghost" 
             size="sm" 
-            onClick={() => onBack ? onBack() : navigate(-1)}
+            onClick={() => {
+              if (onBack) {
+                onBack();
+              } else {
+                window.history.back();
+              }
+            }}
             className="hover:bg-primary/10 mb-4"
           >
             <ArrowLeft className="h-4 w-4 mr-2" />

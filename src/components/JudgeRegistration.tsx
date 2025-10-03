@@ -177,7 +177,13 @@ const JudgeRegistration: React.FC<JudgeRegistrationProps> = ({ onRegister, onCan
               <Button 
                 variant="ghost" 
                 size="sm" 
-                onClick={() => onCancel ? onCancel() : navigate(-1)} 
+                onClick={() => {
+                  if (onCancel) {
+                    onCancel();
+                  } else {
+                    window.history.back();
+                  }
+                }} 
                 className="text-white hover:bg-white/20"
               >
                 <ArrowLeft className="h-5 w-5 mr-2" />
@@ -191,7 +197,18 @@ const JudgeRegistration: React.FC<JudgeRegistrationProps> = ({ onRegister, onCan
                   Join our community of professional dance judges
                 </p>
               </div>
-              <Button variant="ghost" size="sm" onClick={() => onCancel ? onCancel() : navigate(-1)} className="text-white hover:bg-white/20">
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                onClick={() => {
+                  if (onCancel) {
+                    onCancel();
+                  } else {
+                    window.history.back();
+                  }
+                }} 
+                className="text-white hover:bg-white/20"
+              >
                 <X className="h-5 w-5" />
               </Button>
             </div>

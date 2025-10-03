@@ -153,7 +153,7 @@ const PerformerRegistration = () => {
           <Button 
             variant="ghost" 
             size="sm" 
-            onClick={() => navigate(-1)}
+            onClick={() => window.history.back()}
             className="hover:bg-primary/10"
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
