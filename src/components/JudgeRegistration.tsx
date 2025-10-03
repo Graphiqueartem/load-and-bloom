@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -9,9 +8,10 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Badge } from '@/components/ui/badge';
 import { useToast } from '@/hooks/use-toast';
 import { Judge } from '@/types/performance';
-import { X } from 'lucide-react';
+import { X, ArrowLeft } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import Navigation from './Navigation';
+import { useNavigate } from 'react-router-dom';
 
 interface JudgeRegistrationProps {
   onRegister: (judge: Judge) => void;
@@ -31,6 +31,7 @@ const AVAILABLE_GENRES = [
 
 const JudgeRegistration: React.FC<JudgeRegistrationProps> = ({ onRegister, onCancel }) => {
   const { toast } = useToast();
+  const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -173,6 +174,15 @@ const JudgeRegistration: React.FC<JudgeRegistrationProps> = ({ onRegister, onCan
         <Card className="shadow-2xl border-0">
           <CardHeader className="bg-gradient-to-r from-primary to-primary/80 text-white rounded-t-lg">
             <div className="flex justify-between items-center">
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                onClick={() => onCancel ? onCancel() : navigate(-1)} 
+                className="text-white hover:bg-white/20"
+              >
+                <ArrowLeft className="h-5 w-5 mr-2" />
+                Back
+              </Button>
               <div className="text-center flex-1">
                 <CardTitle className="text-3xl font-bold mb-2">
                   Create Judge Profile
@@ -181,7 +191,7 @@ const JudgeRegistration: React.FC<JudgeRegistrationProps> = ({ onRegister, onCan
                   Join our community of professional dance judges
                 </p>
               </div>
-              <Button variant="ghost" size="sm" onClick={onCancel} className="text-white hover:bg-white/20">
+              <Button variant="ghost" size="sm" onClick={() => onCancel ? onCancel() : navigate(-1)} className="text-white hover:bg-white/20">
                 <X className="h-5 w-5" />
               </Button>
             </div>

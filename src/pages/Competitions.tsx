@@ -146,7 +146,7 @@ const Competitions = () => {
                   Record your performance, upload it to our platform, and let our expert judges review your talent.
                 </p>
                 <Button size="lg" asChild className="hover:shadow-lg transform hover:-translate-y-0.5 transition-all">
-                  <Link to="/how-to-enter">Submit Video</Link>
+                  <Link to="/registration">Submit Video</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -194,7 +194,7 @@ const Competitions = () => {
                   <Link to="/events">View Event Dates</Link>
                 </Button>
                 <Button size="lg" asChild variant="outline" className="hover:shadow-lg transform hover:-translate-y-0.5 transition-all">
-                  <Link to="/how-to-enter">Register Now</Link>
+                  <Link to="/registration">Register Now</Link>
                 </Button>
               </div>
             </CardContent>

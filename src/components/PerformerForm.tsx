@@ -14,6 +14,8 @@ import GlobalPrizeProgram from './GlobalPrizeProgram';
 import FileUpload from './FileUpload';
 import { AuthGuard } from '@/components/auth/AuthGuard';
 import { databaseService } from '@/services/databaseService';
+import { ArrowLeft } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 interface PerformerFormProps {
   onBack?: () => void;
@@ -22,6 +24,7 @@ interface PerformerFormProps {
 const PerformerForm: React.FC<PerformerFormProps> = ({ onBack }) => {
   const { toast } = useToast();
   const { user, profile } = useAuth();
+  const navigate = useNavigate();
   const [globalCompetitionEnabled, setGlobalCompetitionEnabled] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
@@ -190,7 +193,17 @@ const PerformerForm: React.FC<PerformerFormProps> = ({ onBack }) => {
   return (
     <AuthGuard redirectPath="/auth?mode=performer">
       <div className="bg-background">
-        {onBack && <Navigation onBack={onBack} title="Submit Your Performance" />}
+        <div className="max-w-4xl mx-auto p-4 pt-6">
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            onClick={() => onBack ? onBack() : navigate(-1)}
+            className="hover:bg-primary/10 mb-4"
+          >
+            <ArrowLeft className="h-4 w-4 mr-2" />
+            Back
+          </Button>
+        </div>
       <div className="max-w-4xl mx-auto p-4 sm:p-6 space-y-4 sm:space-y-6">
         {/* Global Competition Toggle */}
         <GlobalPrizeProgram 

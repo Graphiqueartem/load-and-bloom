@@ -4,6 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Calendar, MapPin, DollarSign } from 'lucide-react';
 import { SoldOutOverlay } from '@/components/SoldOutOverlay';
+import { Link } from 'react-router-dom';
 
 interface EventCardProps {
   id: string;
@@ -139,8 +140,10 @@ export const EventCard: React.FC<EventCardProps> = ({
               </Button>
             ) : (
               <>
-                <Button className="flex-1">
-                  {event_type === 'competition' ? 'Register' : 'Join'}
+                <Button className="flex-1" asChild>
+                  <Link to="/registration">
+                    {event_type === 'competition' ? 'Register' : 'Join'}
+                  </Link>
                 </Button>
                 <Button variant="outline" size="sm">
                   Details

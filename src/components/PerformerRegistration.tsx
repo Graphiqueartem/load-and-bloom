@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -10,7 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Badge } from '@/components/ui/badge';
 import { AuthForm } from '@/components/auth/AuthForm';
 import { toast } from '@/hooks/use-toast';
-import { User, Trophy, Upload, Calendar, Globe, Star } from 'lucide-react';
+import { User, Trophy, Upload, Calendar, Globe, Star, ArrowLeft } from 'lucide-react';
 import Navigation from './Navigation';
 
 interface RegistrationFormData {
@@ -27,6 +27,7 @@ interface RegistrationFormData {
 
 const PerformerRegistration = () => {
   const { user, profile, loading } = useAuth();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState<RegistrationFormData>({
     performerName: profile?.name || '',
     email: profile?.email || '',
@@ -148,6 +149,17 @@ const PerformerRegistration = () => {
       <Navigation />
       <div className="min-h-screen bg-gradient-to-br from-background to-muted/20 py-12">
       <div className="container mx-auto px-4 max-w-2xl">
+        <div className="mb-6">
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            onClick={() => navigate(-1)}
+            className="hover:bg-primary/10"
+          >
+            <ArrowLeft className="h-4 w-4 mr-2" />
+            Back
+          </Button>
+        </div>
         <div className="text-center mb-8">
           <div className={`rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 ${typeInfo.color}`}>
             {typeInfo.icon}

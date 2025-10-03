@@ -138,32 +138,38 @@ const Events: React.FC = () => {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="flex flex-wrap gap-4">
-              <div className="flex gap-2">
-                <span className="text-sm font-medium self-center">Status:</span>
-                {(['all', 'upcoming', 'current', 'sold_out'] as const).map((filter) => (
-                  <Button
-                    key={filter}
-                    variant={selectedFilter === filter ? 'default' : 'outline'}
-                    size="sm"
-                    onClick={() => setSelectedFilter(filter)}
-                  >
-                    {filter === 'all' ? 'All Status' : filter.replace('_', ' ').toUpperCase()}
-                  </Button>
-                ))}
+            <div className="flex flex-col gap-3">
+              <div className="flex flex-col sm:flex-row gap-2">
+                <span className="text-sm font-medium whitespace-nowrap">Status:</span>
+                <div className="flex flex-wrap gap-2">
+                  {(['all', 'upcoming', 'current', 'sold_out'] as const).map((filter) => (
+                    <Button
+                      key={filter}
+                      variant={selectedFilter === filter ? 'default' : 'outline'}
+                      size="sm"
+                      onClick={() => setSelectedFilter(filter)}
+                      className="text-xs"
+                    >
+                      {filter === 'all' ? 'All Status' : filter.replace('_', ' ').toUpperCase()}
+                    </Button>
+                  ))}
+                </div>
               </div>
-              <div className="flex gap-2">
-                <span className="text-sm font-medium self-center">Type:</span>
-                {(['all', 'competition', 'workshop', 'masterclass'] as const).map((type) => (
-                  <Button
-                    key={type}
-                    variant={selectedType === type ? 'default' : 'outline'}
-                    size="sm"
-                    onClick={() => setSelectedType(type)}
-                  >
-                    {type === 'all' ? 'All Types' : type.charAt(0).toUpperCase() + type.slice(1)}
-                  </Button>
-                ))}
+              <div className="flex flex-col sm:flex-row gap-2">
+                <span className="text-sm font-medium whitespace-nowrap">Type:</span>
+                <div className="flex flex-wrap gap-2">
+                  {(['all', 'competition', 'workshop', 'masterclass'] as const).map((type) => (
+                    <Button
+                      key={type}
+                      variant={selectedType === type ? 'default' : 'outline'}
+                      size="sm"
+                      onClick={() => setSelectedType(type)}
+                      className="text-xs"
+                    >
+                      {type === 'all' ? 'All Types' : type.charAt(0).toUpperCase() + type.slice(1)}
+                    </Button>
+                  ))}
+                </div>
               </div>
             </div>
           </CardContent>

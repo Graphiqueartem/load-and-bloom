@@ -45,13 +45,13 @@ const Home = () => {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-6 sm:mt-8">
               <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 hover:scale-105 transition-all duration-300 font-semibold px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto shadow-2xl hover:shadow-accent/50" asChild>
-                <Link to="/how-to-enter">
+                <Link to="/registration">
                   <Trophy className="h-4 sm:h-5 w-4 sm:w-5 mr-2" />
                   Enter Competition
                 </Link>
               </Button>
               <Button size="lg" className="bg-white text-primary hover:bg-white/90 hover:scale-105 transition-all duration-300 font-semibold px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto shadow-2xl" asChild>
-                <Link to="/how-to-enter">
+                <Link to="/registration">
                   <Upload className="h-4 sm:h-5 w-4 sm:w-5 mr-2" />
                   Submit Dance Video
                 </Link>
@@ -203,7 +203,7 @@ const Home = () => {
                           </div>
                           <p className="text-sm text-muted-foreground">{event.venue}</p>
                           <Button size="sm" className="w-full hover:scale-105 transition-transform shadow-md hover:shadow-lg" asChild>
-                            <Link to="/how-to-enter">
+                            <Link to="/registration">
                               Register Now
                             </Link>
                           </Button>
