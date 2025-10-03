@@ -111,3 +111,45 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Consistent Design System Utilities */
+@layer utilities {
+  /* Gradient Text - Main Headings */
+  .gradient-text {
+    @apply bg-gradient-to-r from-turquoise via-neon-pink to-neon-pink bg-clip-text text-transparent;
+  }
+  
+  .gradient-text-hero {
+    @apply bg-gradient-to-r from-turquoise to-neon-pink bg-clip-text text-transparent;
+  }
+
+  /* Gradient Underlines for Section Headings */
+  .gradient-underline {
+    @apply relative inline-block;
+  }
+  
+  .gradient-underline::after {
+    content: '';
+    @apply absolute left-0 right-0 -bottom-2 h-1 bg-gradient-to-r from-turquoise to-neon-pink rounded-full;
+  }
+
+  /* Content Cards with Shadow */
+  .content-card {
+    @apply bg-white rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300 p-6 sm:p-10;
+  }
+
+  /* Gradient Icon Background */
+  .gradient-icon-bg {
+    @apply bg-gradient-to-br from-turquoise to-neon-pink p-4 rounded-2xl;
+  }
+
+  /* Highlight Text (like LoveDanceLive in content) */
+  .text-highlight {
+    @apply text-turquoise font-semibold;
+  }
+  
+  /* Page Background Gradient */
+  .page-gradient-bg {
+    @apply bg-gradient-to-b from-background via-muted/20 to-background;
+  }
+}
