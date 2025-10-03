@@ -163,19 +163,19 @@ const UserDashboard: React.FC = () => {
     <AuthGuard>
       <div className="min-h-screen bg-background">
         {/* Header */}
-        <div className="bg-primary text-primary-foreground shadow-lg">
-          <div className="container mx-auto px-4 py-6">
+        <div className="bg-gradient-to-r from-primary via-neon-pink to-accent text-white shadow-lg">
+          <div className="container mx-auto px-4 py-8">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-4">
-                <div className="bg-white/10 p-3 rounded-full">
+                <div className="bg-white/20 backdrop-blur-sm p-3 rounded-full border border-white/30">
                   <User className="h-8 w-8" />
                 </div>
                 <div>
-                  <h1 className="text-2xl font-bold">Welcome back, {profile?.name}</h1>
-                  <p className="text-primary-foreground/80 capitalize">{profile?.role} Dashboard</p>
+                  <h1 className="text-2xl sm:text-3xl font-poppins font-bold">Welcome back, {profile?.name}</h1>
+                  <p className="text-white/90 capitalize text-sm sm:text-base">{profile?.role} Dashboard</p>
                 </div>
               </div>
-              <Button onClick={handleLogout} variant="secondary" size="sm">
+              <Button onClick={handleLogout} variant="secondary" size="sm" className="bg-white/20 backdrop-blur-sm border-white/30 hover:bg-white/30">
                 <LogOut className="h-4 w-4 mr-2" />
                 Logout
               </Button>
@@ -185,12 +185,22 @@ const UserDashboard: React.FC = () => {
 
         {/* Dashboard Content */}
         <div className="container mx-auto px-4 py-8">
+          <div className="max-w-4xl mx-auto text-center mb-8">
+            <h2 className="text-3xl sm:text-4xl font-poppins font-bold mb-2">
+              <span className="gradient-text">Your Dance Hub</span>
+              <span className="gradient-underline"></span>
+            </h2>
+            <p className="text-muted-foreground">Manage everything in one place.</p>
+          </div>
+
           {/* Stats Cards */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-            <Card>
+            <Card className="content-card border-primary/20">
               <CardContent className="p-6">
                 <div className="flex items-center">
-                  <Video className="h-8 w-8 text-primary" />
+                  <div className="gradient-icon-bg p-3 rounded-lg">
+                    <Video className="h-6 w-6 text-white" />
+                  </div>
                   <div className="ml-4">
                     <p className="text-sm text-muted-foreground">Performances</p>
                     <p className="text-2xl font-bold">{performances.length}</p>
@@ -199,10 +209,12 @@ const UserDashboard: React.FC = () => {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="content-card border-accent/20">
               <CardContent className="p-6">
                 <div className="flex items-center">
-                  <Star className="h-8 w-8 text-accent" />
+                  <div className="gradient-icon-bg p-3 rounded-lg">
+                    <Star className="h-6 w-6 text-white" />
+                  </div>
                   <div className="ml-4">
                     <p className="text-sm text-muted-foreground">Reviews Received</p>
                     <p className="text-2xl font-bold">{feedback.length}</p>
@@ -211,10 +223,12 @@ const UserDashboard: React.FC = () => {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="content-card border-neon-pink/20">
               <CardContent className="p-6">
                 <div className="flex items-center">
-                  <DollarSign className="h-8 w-8 text-green-600" />
+                  <div className="gradient-icon-bg p-3 rounded-lg">
+                    <DollarSign className="h-6 w-6 text-white" />
+                  </div>
                   <div className="ml-4">
                     <p className="text-sm text-muted-foreground">Orders</p>
                     <p className="text-2xl font-bold">{orders.length}</p>
@@ -223,10 +237,12 @@ const UserDashboard: React.FC = () => {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="content-card border-primary/20">
               <CardContent className="p-6">
                 <div className="flex items-center">
-                  <Trophy className="h-8 w-8 text-gold" />
+                  <div className="gradient-icon-bg p-3 rounded-lg">
+                    <Trophy className="h-6 w-6 text-white" />
+                  </div>
                   <div className="ml-4">
                     <p className="text-sm text-muted-foreground">Avg. Score</p>
                     <p className="text-2xl font-bold">
@@ -243,7 +259,7 @@ const UserDashboard: React.FC = () => {
 
           {/* Main Content Tabs */}
           <Tabs defaultValue="performances" className="space-y-6">
-            <TabsList className="grid w-full grid-cols-3">
+            <TabsList className="grid w-full grid-cols-3 bg-muted/50">
               <TabsTrigger value="performances">My Performances</TabsTrigger>
               <TabsTrigger value="feedback">Reviews & Feedback</TabsTrigger>
               <TabsTrigger value="orders">Orders & Payments</TabsTrigger>
@@ -251,10 +267,12 @@ const UserDashboard: React.FC = () => {
 
             {/* Performances Tab */}
             <TabsContent value="performances" className="space-y-6">
-              <Card>
+              <Card className="content-card">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <Video className="h-5 w-5" />
+                    <div className="gradient-icon-bg p-2 rounded-lg">
+                      <Video className="h-5 w-5 text-white" />
+                    </div>
                     My Performance Submissions
                   </CardTitle>
                   <CardDescription>
@@ -310,10 +328,12 @@ const UserDashboard: React.FC = () => {
 
             {/* Feedback Tab */}
             <TabsContent value="feedback" className="space-y-6">
-              <Card>
+              <Card className="content-card">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <Star className="h-5 w-5" />
+                    <div className="gradient-icon-bg p-2 rounded-lg">
+                      <Star className="h-5 w-5 text-white" />
+                    </div>
                     Reviews & Feedback
                   </CardTitle>
                   <CardDescription>
@@ -378,10 +398,12 @@ const UserDashboard: React.FC = () => {
 
             {/* Orders Tab */}
             <TabsContent value="orders" className="space-y-6">
-              <Card>
+              <Card className="content-card">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <DollarSign className="h-5 w-5" />
+                    <div className="gradient-icon-bg p-2 rounded-lg">
+                      <DollarSign className="h-5 w-5 text-white" />
+                    </div>
                     Orders & Payments
                   </CardTitle>
                   <CardDescription>
