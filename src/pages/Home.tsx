@@ -4,13 +4,6 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Play, Upload, Trophy, Calendar, ArrowRight, Users, VideoIcon } from 'lucide-react';
 import { Input } from '@/components/ui/input';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 
 const heroImage = '/lovable-uploads/47a64dda-9083-4c59-962a-605d69645979.png';
 
@@ -66,9 +59,9 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Welcome Section - 2 Columns 60/40 */}
+      {/* Dubai Finale + About Section - 2 Columns */}
       <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
+        <div className="w-full px-4">
           <div className="grid md:grid-cols-[60fr_40fr] gap-12 items-center max-w-6xl mx-auto">
             <div className="space-y-6 max-w-[700px]">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold text-foreground">
@@ -107,9 +100,9 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Three Action Tiles - 400x400px Each */}
+      {/* Enter Online + Workshops + Online Classes - 3 Columns */}
       <section className="py-20 bg-gradient-to-br from-turquoise/5 to-baby-pink/5">
-        <div className="container mx-auto px-4">
+        <div className="w-full px-4">
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             
             {/* Compete Live */}
@@ -183,66 +176,52 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Upcoming Events Carousel - 5 Regional Cities */}
+      {/* Regional Events - 5 Cities */}
       <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
+        <div className="w-full px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl sm:text-5xl font-poppins font-bold text-foreground mb-4">
-              Upcoming Events
+              Regional Events
             </h2>
             <div className="h-1.5 w-32 bg-gradient-to-r from-primary via-accent to-primary rounded-full mx-auto"></div>
           </div>
           
-          <div className="max-w-6xl mx-auto px-12">
-            <Carousel
-              opts={{
-                align: "start",
-                loop: true,
-              }}
-              className="w-full"
-            >
-              <CarouselContent>
-                {[
-                  { city: 'Mexico City, Mexico', date: '29 Febrero', venue: 'Teatro de la Ciudad', icon: '🇲🇽' },
-                  { city: 'Sydney, Australia', date: '27 Jullano', venue: 'Opera House', icon: '🇦🇺' },
-                  { city: 'Johannesburg, South Africa', date: '30 Arausto', venue: 'The Teatro', icon: '🇿🇦' },
-                  { city: 'Seoul, South Korea', date: '24 Joubon', venue: 'COEX Artium', icon: '🇰🇷' },
-                  { city: 'London, United Kingdom', date: '24 Leaine', venue: 'Sadler\'s Wells', icon: '🇬🇧' },
-                ].map((event, index) => (
-                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                    <div className="p-1">
-                      <Card className="hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 h-[500px] flex flex-col">
-                        <div className="relative h-64 overflow-hidden rounded-t-lg">
-                          <img 
-                            src="/lovable-uploads/47a64dda-9083-4c59-962a-605d69645979.png" 
-                            alt={event.city}
-                            className="w-full h-full object-cover"
-                          />
-                          <div className="absolute top-4 left-4 text-6xl">{event.icon}</div>
-                        </div>
-                        <CardHeader>
-                          <CardTitle className="text-xl font-poppins">{event.city}</CardTitle>
-                        </CardHeader>
-                        <CardContent className="flex-1 flex flex-col justify-between">
-                          <div className="space-y-3 mb-4">
-                            <div className="flex items-center space-x-2 text-muted-foreground">
-                              <Calendar className="h-4 w-4 text-primary" />
-                              <span className="text-sm font-medium">{event.date}</span>
-                            </div>
-                            <p className="text-sm text-muted-foreground">{event.venue}</p>
-                          </div>
-                          <Button className="w-full bg-neon-pink hover:bg-neon-pink/90 text-white" asChild>
-                            <Link to="/registration">Register Now</Link>
-                          </Button>
-                        </CardContent>
-                      </Card>
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+              {[
+                { city: 'Mexico City, Mexico', date: '29 Febrero', venue: 'Teatro de la Ciudad', icon: '🇲🇽' },
+                { city: 'Sydney, Australia', date: '27 Jullano', venue: 'Opera House', icon: '🇦🇺' },
+                { city: 'Johannesburg, South Africa', date: '30 Arausto', venue: 'The Teatro', icon: '🇿🇦' },
+                { city: 'Seoul, South Korea', date: '24 Joubon', venue: 'COEX Artium', icon: '🇰🇷' },
+                { city: 'London, United Kingdom', date: '24 Leaine', venue: 'Sadler\'s Wells', icon: '🇬🇧' },
+              ].map((event, index) => (
+                <Card key={index} className="hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 h-full flex flex-col">
+                  <div className="relative h-48 overflow-hidden rounded-t-lg">
+                    <img 
+                      src="/lovable-uploads/47a64dda-9083-4c59-962a-605d69645979.png" 
+                      alt={event.city}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute top-4 left-4 text-5xl">{event.icon}</div>
+                  </div>
+                  <CardHeader className="pb-3">
+                    <CardTitle className="text-lg font-poppins">{event.city}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="flex-1 flex flex-col justify-between pt-0">
+                    <div className="space-y-2 mb-4">
+                      <div className="flex items-center space-x-2 text-muted-foreground">
+                        <Calendar className="h-4 w-4 text-primary" />
+                        <span className="text-sm font-medium">{event.date}</span>
+                      </div>
+                      <p className="text-sm text-muted-foreground">{event.venue}</p>
                     </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious className="hidden sm:flex" />
-              <CarouselNext className="hidden sm:flex" />
-            </Carousel>
+                    <Button className="w-full bg-neon-pink hover:bg-neon-pink/90 text-white" asChild>
+                      <Link to="/registration">Register Now</Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
 
           <p className="text-center text-muted-foreground mt-8 max-w-3xl mx-auto">
@@ -253,7 +232,7 @@ const Home = () => {
 
       {/* How It Works - Icon Strip */}
       <section className="py-20 bg-gradient-to-br from-primary/5 via-turquoise/5 to-accent/5">
-        <div className="container mx-auto px-4">
+        <div className="w-full px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl sm:text-5xl font-poppins font-bold text-foreground mb-4">
               How It Works
@@ -301,7 +280,7 @@ const Home = () => {
 
       {/* Workshops & Classes Preview - 2 Columns Reversed */}
       <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
+        <div className="w-full px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div className="order-2 md:order-1">
               <img 
@@ -330,9 +309,9 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Official Updates Area - Light Blue Background */}
+      {/* Official Updates & Highlights */}
       <section className="py-20 bg-light-blue/20">
-        <div className="container mx-auto px-4">
+        <div className="w-full px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div>
               <img 
@@ -371,7 +350,7 @@ const Home = () => {
 
       {/* Results & Videos Preview */}
       <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
+        <div className="w-full px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl sm:text-5xl font-poppins font-bold text-foreground mb-4">
               Celebrate the Journey
@@ -408,26 +387,48 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Sponsors Strip */}
-      <section className="py-16 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-poppins font-bold text-foreground mb-4">
-              Presented with Our Global Partners
-            </h2>
-            <div className="h-1 w-24 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
-          </div>
-          <div className="flex flex-wrap items-center justify-center gap-8 mb-8">
-            {[1, 2, 3, 4, 5].map((sponsor) => (
-              <div key={sponsor} className="w-48 h-20 bg-white rounded-lg shadow-lg flex items-center justify-center hover:shadow-xl transition-shadow">
-                <span className="text-sm text-muted-foreground font-semibold">Sponsor {sponsor}</span>
+      {/* Sponsors + Shop - 2 Columns */}
+      <section className="py-20 bg-muted/30">
+        <div className="w-full px-4">
+          <div className="grid md:grid-cols-2 gap-12 max-w-7xl mx-auto">
+            
+            {/* Sponsors Column */}
+            <div className="space-y-6">
+              <div className="text-center md:text-left">
+                <h2 className="text-3xl font-poppins font-bold text-foreground mb-4">
+                  Sponsors
+                </h2>
+                <div className="h-1 w-24 bg-gradient-to-r from-primary to-accent rounded-full mx-auto md:mx-0"></div>
               </div>
-            ))}
-          </div>
-          <div className="text-center">
-            <Button size="lg" variant="outline" asChild>
-              <Link to="/sponsors">Become a Sponsor</Link>
-            </Button>
+              <div className="flex flex-wrap gap-6">
+                {[1, 2, 3, 4, 5].map((sponsor) => (
+                  <div key={sponsor} className="w-32 h-20 bg-white rounded-lg shadow-lg flex items-center justify-center hover:shadow-xl transition-shadow">
+                    <span className="text-xs text-muted-foreground font-semibold">Logo {sponsor}</span>
+                  </div>
+                ))}
+              </div>
+              <Button size="lg" className="w-full md:w-auto" variant="outline" asChild>
+                <Link to="/sponsors">Become a Sponsor</Link>
+              </Button>
+            </div>
+
+            {/* Shop Column */}
+            <div className="space-y-6">
+              <div className="text-center md:text-left">
+                <h2 className="text-3xl font-poppins font-bold text-foreground mb-4">
+                  Shop
+                </h2>
+                <div className="h-1 w-24 bg-gradient-to-r from-primary to-accent rounded-full mx-auto md:mx-0"></div>
+              </div>
+              <div className="grid grid-cols-3 gap-4">
+                {[1, 2, 3].map((item) => (
+                  <div key={item} className="aspect-square bg-muted rounded-lg shadow-lg hover:shadow-xl transition-shadow"></div>
+                ))}
+              </div>
+              <Button size="lg" className="w-full md:w-auto" asChild>
+                <Link to="/shop">Shop the Collection</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -469,7 +470,7 @@ const Home = () => {
 
       {/* Series Board Preview - Gold Background */}
       <section className="py-20 bg-gradient-to-br from-[#FFD700]/20 to-[#FFA500]/10">
-        <div className="container mx-auto px-4">
+        <div className="w-full px-4">
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <h2 className="text-4xl sm:text-5xl font-poppins font-bold text-foreground">
               Series Board
@@ -489,7 +490,7 @@ const Home = () => {
 
       {/* Newsletter Sign-Up */}
       <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
+        <div className="w-full px-4">
           <div className="max-w-2xl mx-auto text-center space-y-6">
             <h2 className="text-3xl sm:text-4xl font-poppins font-bold text-foreground">
               Stay Updated
@@ -516,7 +517,7 @@ const Home = () => {
 
       {/* Final CTA Band - Pink Background */}
       <section className="py-20 bg-gradient-to-r from-baby-pink/40 via-neon-pink/30 to-baby-pink/40">
-        <div className="container mx-auto px-4">
+        <div className="w-full px-4">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold text-foreground">
               Your journey starts today — Enter your regional competition or submit your dance video online.
