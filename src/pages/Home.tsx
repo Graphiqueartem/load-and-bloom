@@ -4,12 +4,19 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Play, Upload, Trophy, Calendar, ArrowRight, Users, VideoIcon } from 'lucide-react';
 import { Input } from '@/components/ui/input';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const heroImage = '/lovable-uploads/47a64dda-9083-4c59-962a-605d69645979.png';
 
 const Home = () => {
   return (
-    <div className="pb-8">
+    <div className="pb-4 md:pb-8">
       {/* Hero Video Header - Full Width 100vh */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
@@ -60,7 +67,7 @@ const Home = () => {
       </section>
 
       {/* Dubai Finale + About Section - 2 Columns */}
-      <section className="py-16 bg-background">
+      <section className="py-8 md:py-16 bg-background">
         <div className="w-full px-4">
           <div className="grid md:grid-cols-[60fr_40fr] gap-12 items-center max-w-6xl mx-auto">
             <div className="space-y-6 max-w-[700px]">
@@ -101,7 +108,7 @@ const Home = () => {
       </section>
 
       {/* Enter Online + Workshops + Online Classes - 3 Columns */}
-      <section className="py-16 bg-gradient-to-br from-turquoise/5 to-baby-pink/5">
+      <section className="py-8 md:py-16 bg-gradient-to-br from-turquoise/5 to-baby-pink/5">
         <div className="w-full px-4">
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             
@@ -177,17 +184,71 @@ const Home = () => {
       </section>
 
       {/* Regional Events - 5 Cities */}
-      <section className="py-16 bg-background">
+      <section className="py-8 md:py-16 bg-background">
         <div className="w-full px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl sm:text-5xl font-poppins font-bold text-foreground mb-4">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-poppins font-bold text-foreground mb-4">
               Regional Events
             </h2>
             <div className="h-1.5 w-32 bg-gradient-to-r from-primary via-accent to-primary rounded-full mx-auto"></div>
           </div>
           
-          <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+          {/* Mobile Carousel */}
+          <div className="lg:hidden max-w-7xl mx-auto">
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent>
+                {[
+                  { city: 'Mexico City, Mexico', date: '29 Febrero', venue: 'Teatro de la Ciudad', icon: '🇲🇽' },
+                  { city: 'Sydney, Australia', date: '27 Jullano', venue: 'Opera House', icon: '🇦🇺' },
+                  { city: 'Johannesburg, South Africa', date: '30 Arausto', venue: 'The Teatro', icon: '🇿🇦' },
+                  { city: 'Seoul, South Korea', date: '24 Joubon', venue: 'COEX Artium', icon: '🇰🇷' },
+                  { city: 'London, United Kingdom', date: '24 Leaine', venue: 'Sadler\'s Wells', icon: '🇬🇧' },
+                ].map((event, index) => (
+                  <CarouselItem key={index}>
+                    <div className="p-2">
+                      <Card className="hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
+                        <div className="relative h-48 overflow-hidden rounded-t-lg">
+                          <img 
+                            src="/lovable-uploads/47a64dda-9083-4c59-962a-605d69645979.png" 
+                            alt={event.city}
+                            className="w-full h-full object-cover"
+                          />
+                          <div className="absolute top-4 left-4 text-5xl">{event.icon}</div>
+                        </div>
+                        <CardHeader className="pb-3">
+                          <CardTitle className="text-lg font-poppins">{event.city}</CardTitle>
+                        </CardHeader>
+                        <CardContent className="flex-1 flex flex-col justify-between pt-0">
+                          <div className="space-y-2 mb-4">
+                            <div className="flex items-center space-x-2 text-muted-foreground">
+                              <Calendar className="h-4 w-4 text-primary" />
+                              <span className="text-sm font-medium">{event.date}</span>
+                            </div>
+                            <p className="text-sm text-muted-foreground">{event.venue}</p>
+                          </div>
+                          <Button className="w-full bg-neon-pink hover:bg-neon-pink/90 text-white" asChild>
+                            <Link to="/registration">Register Now</Link>
+                          </Button>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
+          </div>
+
+          {/* Desktop Grid */}
+          <div className="hidden lg:block max-w-7xl mx-auto">
+            <div className="grid grid-cols-5 gap-6">
               {[
                 { city: 'Mexico City, Mexico', date: '29 Febrero', venue: 'Teatro de la Ciudad', icon: '🇲🇽' },
                 { city: 'Sydney, Australia', date: '27 Jullano', venue: 'Opera House', icon: '🇦🇺' },
@@ -224,23 +285,23 @@ const Home = () => {
             </div>
           </div>
 
-          <p className="text-center text-foreground mt-8 max-w-3xl mx-auto">
+          <p className="text-center text-foreground mt-6 md:mt-8 max-w-3xl mx-auto text-sm md:text-base">
             These locations rotate each season, so every continent hosts fresh opportunities for local talent.
           </p>
         </div>
       </section>
 
       {/* How It Works - Icon Strip */}
-      <section className="py-16 bg-gradient-to-br from-primary/5 via-turquoise/5 to-accent/5">
+      <section className="py-8 md:py-16 bg-gradient-to-br from-primary/5 via-turquoise/5 to-accent/5">
         <div className="w-full px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl sm:text-5xl font-poppins font-bold text-foreground mb-4">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-poppins font-bold text-foreground mb-4">
               How It Works
             </h2>
             <div className="h-1.5 w-32 bg-gradient-to-r from-primary to-accent rounded-full mx-auto"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 md:gap-8 mb-8 md:mb-12 max-w-6xl mx-auto">
             {[
               { number: '1', icon: Trophy, label: 'Choose Live or Online', desc: 'Select your regional event or submit online' },
               { number: '2', icon: Users, label: 'Prepare Routine', desc: 'Practice your dance performance' },
@@ -290,7 +351,7 @@ const Home = () => {
       </section>
 
       {/* Workshops & Classes Preview - 2 Columns Reversed */}
-      <section className="py-16 bg-background">
+      <section className="py-8 md:py-16 bg-background">
         <div className="w-full px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div className="order-2 md:order-1">
@@ -321,7 +382,7 @@ const Home = () => {
       </section>
 
       {/* Official Updates & Highlights */}
-      <section className="py-16 bg-light-blue/20">
+      <section className="py-8 md:py-16 bg-light-blue/20">
         <div className="w-full px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div>
@@ -360,10 +421,10 @@ const Home = () => {
       </section>
 
       {/* Results & Videos Preview */}
-      <section className="py-16 bg-background">
+      <section className="py-8 md:py-16 bg-background">
         <div className="w-full px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl sm:text-5xl font-poppins font-bold text-foreground mb-4">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-poppins font-bold text-foreground mb-4">
               Celebrate the Journey
             </h2>
             <div className="h-1.5 w-32 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mb-6"></div>
@@ -399,7 +460,7 @@ const Home = () => {
       </section>
 
       {/* Sponsors + Shop - 2 Columns */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-8 md:py-16 bg-muted/30">
         <div className="w-full px-4">
           <div className="grid md:grid-cols-2 gap-12 max-w-7xl mx-auto">
             
@@ -480,7 +541,7 @@ const Home = () => {
       </section>
 
       {/* Series Board Preview - Gold Background */}
-      <section className="py-16 bg-gradient-to-br from-[#FFD700]/20 to-[#FFA500]/10">
+      <section className="py-8 md:py-16 bg-gradient-to-br from-[#FFD700]/20 to-[#FFA500]/10">
         <div className="w-full px-4">
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <h2 className="text-4xl sm:text-5xl font-poppins font-bold text-foreground">
@@ -500,7 +561,7 @@ const Home = () => {
       </section>
 
       {/* Newsletter Sign-Up */}
-      <section className="py-16 bg-background">
+      <section className="py-8 md:py-16 bg-background">
         <div className="w-full px-4">
           <div className="max-w-2xl mx-auto text-center space-y-6">
             <h2 className="text-3xl sm:text-4xl font-poppins font-bold text-foreground">
@@ -527,7 +588,7 @@ const Home = () => {
       </section>
 
       {/* Final CTA Band - Pink Background */}
-      <section className="py-16 bg-gradient-to-r from-baby-pink/40 via-neon-pink/30 to-baby-pink/40">
+      <section className="py-8 md:py-16 bg-gradient-to-r from-baby-pink/40 via-neon-pink/30 to-baby-pink/40">
         <div className="w-full px-4">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold text-foreground">
