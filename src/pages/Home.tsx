@@ -9,7 +9,7 @@ const heroImage = '/lovable-uploads/47a64dda-9083-4c59-962a-605d69645979.png';
 
 const Home = () => {
   return (
-    <div className="pb-12">
+    <div className="pb-8">
       {/* Hero Video Header - Full Width 100vh */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
@@ -27,7 +27,7 @@ const Home = () => {
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-poppins font-bold leading-tight text-white drop-shadow-2xl">
               Where Passion Meets Performance — Live & Online
             </h1>
-            <p className="text-xl sm:text-2xl md:text-3xl font-open-sans text-white/95 drop-shadow-lg max-w-4xl mx-auto">
+            <p className="text-xl sm:text-2xl md:text-3xl font-open-sans text-white drop-shadow-lg max-w-4xl mx-auto">
               Compete live in your continent's regional event or online for your chance to win a Golden Ticket to the Grand Final in Dubai.
             </p>
             
@@ -60,14 +60,14 @@ const Home = () => {
       </section>
 
       {/* Dubai Finale + About Section - 2 Columns */}
-      <section className="py-20 bg-background">
+      <section className="py-16 bg-background">
         <div className="w-full px-4">
           <div className="grid md:grid-cols-[60fr_40fr] gap-12 items-center max-w-6xl mx-auto">
             <div className="space-y-6 max-w-[700px]">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold text-foreground">
                 Welcome to LoveDanceLive — your global stage for dance.
               </h2>
-              <div className="text-lg text-muted-foreground leading-relaxed space-y-4">
+              <div className="text-lg text-foreground leading-relaxed space-y-4">
                 <p>
                   Each season, five regional host cities are chosen across five continents to hold our live qualifiers. This year's venues are <span className="font-semibold text-foreground">Mexico City (Americas), Sydney (Oceania), Johannesburg (Africa), Seoul (Asia), and London (Europe).</span>
                 </p>
@@ -101,7 +101,7 @@ const Home = () => {
       </section>
 
       {/* Enter Online + Workshops + Online Classes - 3 Columns */}
-      <section className="py-20 bg-gradient-to-br from-turquoise/5 to-baby-pink/5">
+      <section className="py-16 bg-gradient-to-br from-turquoise/5 to-baby-pink/5">
         <div className="w-full px-4">
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             
@@ -118,7 +118,7 @@ const Home = () => {
                 <CardTitle className="text-2xl font-poppins">Compete Live</CardTitle>
               </CardHeader>
               <CardContent className="flex-1 flex flex-col justify-between">
-                <p className="text-muted-foreground mb-4">
+                <p className="text-foreground mb-4">
                   Choose your continent's city — Mexico City, Sydney, Johannesburg, Seoul, or London — and feel the energy of the crowd. Regional champions qualify for Dubai.
                 </p>
                 <Button className="w-full" asChild>
@@ -136,7 +136,7 @@ const Home = () => {
                 <CardTitle className="text-2xl font-poppins">Submit Online</CardTitle>
               </CardHeader>
               <CardContent className="flex-1 flex flex-col justify-between">
-                <p className="text-muted-foreground mb-4">
+                <p className="text-foreground mb-4">
                   Upload your routine from anywhere in the world. Top online scores earn Golden Tickets.
                 </p>
                 <Button className="w-full" asChild>
@@ -158,7 +158,7 @@ const Home = () => {
                 <CardTitle className="text-2xl font-poppins">Learn & Improve</CardTitle>
               </CardHeader>
               <CardContent className="flex-1 flex flex-col justify-between">
-                <p className="text-muted-foreground mb-4">
+                <p className="text-foreground mb-4">
                   Train with leading instructors in regional Workshops and Online Classes.
                 </p>
                 <div className="space-y-2">
@@ -177,7 +177,7 @@ const Home = () => {
       </section>
 
       {/* Regional Events - 5 Cities */}
-      <section className="py-20 bg-background">
+      <section className="py-16 bg-background">
         <div className="w-full px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl sm:text-5xl font-poppins font-bold text-foreground mb-4">
@@ -224,14 +224,14 @@ const Home = () => {
             </div>
           </div>
 
-          <p className="text-center text-muted-foreground mt-8 max-w-3xl mx-auto">
+          <p className="text-center text-foreground mt-8 max-w-3xl mx-auto">
             These locations rotate each season, so every continent hosts fresh opportunities for local talent.
           </p>
         </div>
       </section>
 
       {/* How It Works - Icon Strip */}
-      <section className="py-20 bg-gradient-to-br from-primary/5 via-turquoise/5 to-accent/5">
+      <section className="py-16 bg-gradient-to-br from-primary/5 via-turquoise/5 to-accent/5">
         <div className="w-full px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl sm:text-5xl font-poppins font-bold text-foreground mb-4">
@@ -240,23 +240,34 @@ const Home = () => {
             <div className="h-1.5 w-32 bg-gradient-to-r from-primary to-accent rounded-full mx-auto"></div>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-8 mb-12 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12 max-w-6xl mx-auto">
             {[
-              { icon: '1️⃣', label: 'Choose Live or Online' },
-              { icon: '2️⃣', label: 'Prepare Routine' },
-              { icon: '3️⃣', label: 'Perform' },
-              { icon: '4️⃣', label: 'Get Results' },
-              { icon: '5️⃣', label: 'Qualify for Dubai' },
-            ].map((step, index) => (
-              <div key={index} className="flex flex-col items-center text-center w-32">
-                <div className="text-6xl mb-3">{step.icon}</div>
-                <p className="text-sm font-semibold text-foreground">{step.label}</p>
-              </div>
-            ))}
+              { number: '1', icon: Trophy, label: 'Choose Live or Online', desc: 'Select your regional event or submit online' },
+              { number: '2', icon: Users, label: 'Prepare Routine', desc: 'Practice your dance performance' },
+              { number: '3', icon: Play, label: 'Perform', desc: 'Showcase your talent on stage or video' },
+              { number: '4', icon: Calendar, label: 'Get Results', desc: 'Receive your scores and feedback' },
+              { number: '5', icon: ArrowRight, label: 'Qualify for Dubai', desc: 'Win a Golden Ticket to the finals' },
+            ].map((step, index) => {
+              const IconComponent = step.icon;
+              return (
+                <div key={index} className="flex flex-col items-center text-center space-y-3">
+                  <div className="relative">
+                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+                      <IconComponent className="h-10 w-10 text-white" />
+                    </div>
+                    <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-white border-2 border-primary flex items-center justify-center">
+                      <span className="text-lg font-bold text-primary">{step.number}</span>
+                    </div>
+                  </div>
+                  <p className="text-base font-semibold text-foreground">{step.label}</p>
+                  <p className="text-sm text-foreground">{step.desc}</p>
+                </div>
+              );
+            })}
           </div>
 
           <div className="max-w-[900px] mx-auto space-y-6">
-            <p className="text-lg text-muted-foreground leading-relaxed text-center">
+            <p className="text-lg text-foreground leading-relaxed text-center">
               Golden Ticket winners from each continent — whether they performed at this year's regionals in Mexico City, Sydney, Johannesburg, Seoul, or London, or qualified online — attend the three-day Dubai Final with their registered chaperones in private resort suites. Workshops fill Days 1 and 2; the Final Showcase and Awards ignite Day 3. Full details for chaperones and guardians are on our Dubai page.
             </p>
             
@@ -279,7 +290,7 @@ const Home = () => {
       </section>
 
       {/* Workshops & Classes Preview - 2 Columns Reversed */}
-      <section className="py-20 bg-background">
+      <section className="py-16 bg-background">
         <div className="w-full px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div className="order-2 md:order-1">
@@ -293,7 +304,7 @@ const Home = () => {
               <h2 className="text-3xl sm:text-4xl font-poppins font-bold text-foreground">
                 Workshops & Classes Preview
               </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-foreground leading-relaxed">
                 Learn from top teachers at each regional event — Mexico City, Sydney, Johannesburg, Seoul, London — and keep training online all year. At the Dubai Final, Days 1 and 2 feature exclusive masterclasses for finalists and optional guest sessions for chaperones.
               </p>
               <div className="space-y-3">
@@ -310,7 +321,7 @@ const Home = () => {
       </section>
 
       {/* Official Updates & Highlights */}
-      <section className="py-20 bg-light-blue/20">
+      <section className="py-16 bg-light-blue/20">
         <div className="w-full px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div>
@@ -327,7 +338,7 @@ const Home = () => {
                 </h2>
                 <div className="h-1 w-24 bg-gradient-to-r from-primary to-turquoise rounded-full"></div>
               </div>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-foreground leading-relaxed">
                 Follow our coverage throughout the season for photos, videos and stories from each regional city — Mexico City, Sydney, Johannesburg, Seoul, London — plus exclusive clips as we count down to Dubai.
               </p>
               <div className="space-y-3">
@@ -340,7 +351,7 @@ const Home = () => {
                   </a>
                 </Button>
               </div>
-              <p className="text-base text-muted-foreground italic">
+              <p className="text-base text-foreground italic">
                 Get inspired, stay motivated and see the magic unfold each week around the world.
               </p>
             </div>
@@ -349,14 +360,14 @@ const Home = () => {
       </section>
 
       {/* Results & Videos Preview */}
-      <section className="py-20 bg-background">
+      <section className="py-16 bg-background">
         <div className="w-full px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl sm:text-5xl font-poppins font-bold text-foreground mb-4">
               Celebrate the Journey
             </h2>
             <div className="h-1.5 w-32 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mb-6"></div>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg text-foreground max-w-3xl mx-auto">
               Watch highlights from past finals and see what awaits in Dubai. Download your performance or order a Premium Critique for expert feedback.
             </p>
           </div>
@@ -388,7 +399,7 @@ const Home = () => {
       </section>
 
       {/* Sponsors + Shop - 2 Columns */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-16 bg-muted/30">
         <div className="w-full px-4">
           <div className="grid md:grid-cols-2 gap-12 max-w-7xl mx-auto">
             
@@ -469,19 +480,19 @@ const Home = () => {
       </section>
 
       {/* Series Board Preview - Gold Background */}
-      <section className="py-20 bg-gradient-to-br from-[#FFD700]/20 to-[#FFA500]/10">
+      <section className="py-16 bg-gradient-to-br from-[#FFD700]/20 to-[#FFA500]/10">
         <div className="w-full px-4">
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <h2 className="text-4xl sm:text-5xl font-poppins font-bold text-foreground">
               Series Board
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-lg text-foreground leading-relaxed">
               Follow your continent's ranking as regional results arrive. Top ten countries glitter gold until Reveal Day — then names and flags unveil live.
             </p>
             <Button size="lg" className="shadow-lg" asChild>
               <Link to="/competitions">View Series Board</Link>
             </Button>
-            <p className="text-base text-muted-foreground max-w-3xl mx-auto pt-4">
+            <p className="text-base text-foreground max-w-3xl mx-auto pt-4">
               Reveal Days activate as each continent completes its regional final — starting with the Americas (Mexico City) and ending with Europe (London). Regional locations change each season so every continent enjoys new host cities and fresh opportunities.
             </p>
           </div>
@@ -489,13 +500,13 @@ const Home = () => {
       </section>
 
       {/* Newsletter Sign-Up */}
-      <section className="py-20 bg-background">
+      <section className="py-16 bg-background">
         <div className="w-full px-4">
           <div className="max-w-2xl mx-auto text-center space-y-6">
             <h2 className="text-3xl sm:text-4xl font-poppins font-bold text-foreground">
               Stay Updated
             </h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-foreground">
               Get updates on this season's regional events in Mexico City, Sydney, Johannesburg, Seoul, London, and future host-city announcements.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
@@ -508,7 +519,7 @@ const Home = () => {
                 Subscribe
               </Button>
             </div>
-            <p className="text-sm text-muted-foreground italic">
+            <p className="text-sm text-foreground italic">
               Thanks for joining — see you on the dance floor!
             </p>
           </div>
@@ -516,7 +527,7 @@ const Home = () => {
       </section>
 
       {/* Final CTA Band - Pink Background */}
-      <section className="py-20 bg-gradient-to-r from-baby-pink/40 via-neon-pink/30 to-baby-pink/40">
+      <section className="py-16 bg-gradient-to-r from-baby-pink/40 via-neon-pink/30 to-baby-pink/40">
         <div className="w-full px-4">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold text-foreground">
@@ -535,7 +546,7 @@ const Home = () => {
               </Button>
             </div>
 
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-foreground">
               For dancers aged 6 – 21 · Under 18s attend with a registered chaperone.
             </p>
           </div>
