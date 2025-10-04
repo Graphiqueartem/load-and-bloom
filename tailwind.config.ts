@@ -12,9 +12,13 @@ export default {
 	theme: {
 		container: {
 			center: true,
-			padding: '2rem',
+			padding: {
+				DEFAULT: '1rem',
+				sm: '2rem',
+				lg: '5rem', // 80px
+			},
 			screens: {
-				'2xl': '1400px'
+				'2xl': '1200px'
 			}
 		},
 		extend: {
@@ -25,6 +29,7 @@ export default {
 				'neon-pink': 'hsl(var(--neon-pink))',
 				'light-blue': 'hsl(var(--light-blue))',
 				'teal-gradient': 'hsl(var(--teal-gradient))',
+				gold: 'hsl(var(--gold))',
 
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -72,9 +77,9 @@ export default {
 			},
 			fontFamily: {
 				'poppins': ['Poppins', 'sans-serif'],
-				'montserrat': ['Montserrat', 'sans-serif'],
 				'open-sans': ['Open Sans', 'sans-serif'],
-				'lato': ['Lato', 'sans-serif'],
+				'playfair': ['Playfair Display', 'serif'],
+				sans: ['Open Sans', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

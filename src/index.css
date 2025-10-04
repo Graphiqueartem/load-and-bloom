@@ -12,15 +12,16 @@
     --neon-pink: 328 100% 54%;        /* #FF1493 - Neon Pink */
     --light-blue: 195 53% 79%;        /* #ADD8E6 - Light Blue */
     --teal-gradient: 174 100% 42%;    /* #00B5B8 - Deep teal */
+    --gold: 51 100% 50%;              /* #FFD700 - Gold */
 
     --background: 0 0% 100%;
-    --foreground: 220 8.9% 46.1%;
+    --foreground: 0 0% 0%;            /* Black for text */
 
     --card: 0 0% 100%;
-    --card-foreground: 220 8.9% 46.1%;
+    --card-foreground: 0 0% 0%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 8.9% 46.1%;
+    --popover-foreground: 0 0% 0%;
 
     /* Primary: Turquoise */
     --primary: 174 72% 56%;
@@ -28,7 +29,7 @@
 
     /* Secondary: Baby Pink */
     --secondary: 350 100% 88%;
-    --secondary-foreground: 220 8.9% 46.1%;
+    --secondary-foreground: 0 0% 0%;
 
     --muted: 210 40% 98%;
     --muted-foreground: 215.4 16.3% 46.9%;
@@ -108,7 +109,11 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-open-sans;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-poppins font-bold;
   }
 }
 
