@@ -1,15 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Play, Upload, Trophy, ArrowRight, VideoIcon } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Play, Upload, Trophy, Calendar, ArrowRight, Users, VideoIcon } from 'lucide-react';
 import { Input } from '@/components/ui/input';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const heroImage = '/lovable-uploads/47a64dda-9083-4c59-962a-605d69645979.png';
 
 const Home = () => {
   return (
-    <div className="pb-0">
+    <div className="pb-12">
       {/* Hero Video Header - Full Width 100vh */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
@@ -59,227 +66,202 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Dubai Finale + About Section - 2 Columns */}
-      <section className="bg-background border-b border-border">
-        <div className="container mx-auto px-0">
-          <div className="grid md:grid-cols-2">
-            {/* Finale in Dubai - Left */}
-            <div className="bg-white p-8 md:p-16 flex items-center border-r border-border min-h-[500px]">
-              <div className="max-w-2xl mx-auto w-full">
-                <h2 className="text-3xl md:text-5xl font-poppins font-bold text-foreground mb-8">
-                  FINALE IN DUBAI
-                </h2>
-                <div className="flex flex-col md:flex-row gap-6 items-start">
-                  <div className="w-full md:w-48 h-48 bg-turquoise rounded-lg flex-shrink-0"></div>
-                  <div className="space-y-4">
-                    <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                      Our grand finale takes place in spectacular Dubai with incredible prizes to be won.
-                    </p>
-                    <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                      Regional and online winners from Mexico City, Sydney, Johannesburg, Seoul, and London unite for three days of workshops, performances and awards at our official resort.
-                    </p>
-                    <Button size="lg" className="mt-4" asChild>
-                      <Link to="/about">
-                        Learn More
-                        <ArrowRight className="h-4 w-4 ml-2" />
-                      </Link>
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* About - Right */}
-            <div className="bg-muted/30 p-8 md:p-16 flex items-center min-h-[500px]">
-              <div className="max-w-2xl mx-auto space-y-4">
-                <h2 className="text-3xl md:text-5xl font-poppins font-bold text-foreground mb-6">
-                  ABOUT
-                </h2>
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                  Welcome to LoveDanceLive — your global stage for dance. Each season, five regional host cities are chosen across five continents to hold our live qualifiers.
+      {/* Welcome Section - 2 Columns 60/40 */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-[60fr_40fr] gap-12 items-center max-w-6xl mx-auto">
+            <div className="space-y-6 max-w-[700px]">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold text-foreground">
+                Welcome to LoveDanceLive — your global stage for dance.
+              </h2>
+              <div className="text-lg text-muted-foreground leading-relaxed space-y-4">
+                <p>
+                  Each season, five regional host cities are chosen across five continents to hold our live qualifiers. This year's venues are <span className="font-semibold text-foreground">Mexico City (Americas), Sydney (Oceania), Johannesburg (Africa), Seoul (Asia), and London (Europe).</span>
                 </p>
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                  This year's venues are Mexico City (Americas), Sydney (Oceania), Johannesburg (Africa), Seoul (Asia), and London (Europe).
-                </p>
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                <p>
                   Dancers from any country may enter the regional for their own continent or submit online from anywhere in the world.
                 </p>
-                <p className="text-base md:text-lg text-foreground font-semibold">
+                <p>
+                  Regional champions and top online performers receive Golden Tickets to the three-day Grand Final in Dubai, staying with their registered chaperones in private resort suites as part of the finalist experience.
+                </p>
+                <p className="font-semibold text-foreground">
                   LoveDanceLive is where talent meets opportunity, and every rhythm finds its stage.
                 </p>
               </div>
+              <Button size="lg" className="hover:scale-105 transition-all shadow-lg" asChild>
+                <Link to="/about">
+                  Learn More About LoveDanceLive
+                  <ArrowRight className="h-4 w-4 ml-2" />
+                </Link>
+              </Button>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl blur-xl"></div>
+              <img 
+                src="/lovable-uploads/47a64dda-9083-4c59-962a-605d69645979.png" 
+                alt="Diverse teen dancers" 
+                className="relative rounded-2xl shadow-2xl w-full aspect-[3/4] object-cover"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Regional Events - 5 Cities */}
-      <section className="py-16 bg-background border-b border-border">
+      {/* Three Action Tiles - 400x400px Each */}
+      <section className="py-20 bg-gradient-to-br from-turquoise/5 to-baby-pink/5">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 max-w-7xl mx-auto">
-            {[
-              { city: 'MEXICO CITY', date: '29, Febrero', icon: '🇲🇽' },
-              { city: 'SYDNEY', date: '27, Jullano', icon: '🇦🇺' },
-              { city: 'JOHANNESBURG', date: '30, Arausto', icon: '🇿🇦' },
-              { city: 'SEOUL', date: '24, Joubon', icon: '🇰🇷' },
-              { city: 'LONDON', date: '24, Leaine', icon: '🇬🇧' },
-            ].map((event, index) => (
-              <div key={index} className="flex flex-col">
-                <h3 className="text-lg md:text-xl font-poppins font-bold text-foreground mb-4 text-center">
-                  {event.city}
-                </h3>
-                <Card className="flex-1">
-                  <div className="relative h-40 overflow-hidden rounded-t-lg bg-muted flex items-center justify-center">
-                    <div className="text-6xl">{event.icon}</div>
-                  </div>
-                  <CardContent className="p-4 space-y-3">
-                    <div className="text-center">
-                      <p className="text-sm font-medium text-foreground">{event.date}</p>
-                      <p className="text-xs text-muted-foreground mt-1">{event.icon}</p>
-                    </div>
-                    <Button className="w-full bg-neon-pink hover:bg-neon-pink/90 text-white text-sm" asChild>
-                      <Link to="/registration">REGISTER NOW</Link>
-                    </Button>
-                  </CardContent>
-                </Card>
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            
+            {/* Compete Live */}
+            <Card className="group hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden h-[400px] flex flex-col">
+              <div className="relative h-48 overflow-hidden">
+                <img 
+                  src="/lovable-uploads/47a64dda-9083-4c59-962a-605d69645979.png" 
+                  alt="Live stage performance" 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                />
               </div>
-            ))}
+              <CardHeader>
+                <CardTitle className="text-2xl font-poppins">Compete Live</CardTitle>
+              </CardHeader>
+              <CardContent className="flex-1 flex flex-col justify-between">
+                <p className="text-muted-foreground mb-4">
+                  Choose your continent's city — Mexico City, Sydney, Johannesburg, Seoul, or London — and feel the energy of the crowd. Regional champions qualify for Dubai.
+                </p>
+                <Button className="w-full" asChild>
+                  <Link to="/events">Register for Live Event</Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Submit Online */}
+            <Card className="group hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden h-[400px] flex flex-col">
+              <div className="relative h-48 overflow-hidden bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
+                <VideoIcon className="h-24 w-24 text-primary/30" />
+              </div>
+              <CardHeader>
+                <CardTitle className="text-2xl font-poppins">Submit Online</CardTitle>
+              </CardHeader>
+              <CardContent className="flex-1 flex flex-col justify-between">
+                <p className="text-muted-foreground mb-4">
+                  Upload your routine from anywhere in the world. Top online scores earn Golden Tickets.
+                </p>
+                <Button className="w-full" asChild>
+                  <Link to="/performance-review-form">Submit Video Online</Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Learn & Improve */}
+            <Card className="group hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden h-[400px] flex flex-col">
+              <div className="relative h-48 overflow-hidden">
+                <img 
+                  src="/lovable-uploads/47a64dda-9083-4c59-962a-605d69645979.png" 
+                  alt="Dance class" 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                />
+              </div>
+              <CardHeader>
+                <CardTitle className="text-2xl font-poppins">Learn & Improve</CardTitle>
+              </CardHeader>
+              <CardContent className="flex-1 flex flex-col justify-between">
+                <p className="text-muted-foreground mb-4">
+                  Train with leading instructors in regional Workshops and Online Classes.
+                </p>
+                <div className="space-y-2">
+                  <Button className="w-full" variant="secondary" asChild>
+                    <Link to="/workshops">View Workshops</Link>
+                  </Button>
+                  <Button className="w-full" variant="outline" asChild>
+                    <Link to="/online-classes">Browse Classes</Link>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
           </div>
-          <p className="text-center text-sm md:text-base text-muted-foreground mt-8 max-w-3xl mx-auto">
+        </div>
+      </section>
+
+      {/* Upcoming Events Carousel - 5 Regional Cities */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl sm:text-5xl font-poppins font-bold text-foreground mb-4">
+              Upcoming Events
+            </h2>
+            <div className="h-1.5 w-32 bg-gradient-to-r from-primary via-accent to-primary rounded-full mx-auto"></div>
+          </div>
+          
+          <div className="max-w-6xl mx-auto px-12">
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent>
+                {[
+                  { city: 'Mexico City, Mexico', date: '29 Febrero', venue: 'Teatro de la Ciudad', icon: '🇲🇽' },
+                  { city: 'Sydney, Australia', date: '27 Jullano', venue: 'Opera House', icon: '🇦🇺' },
+                  { city: 'Johannesburg, South Africa', date: '30 Arausto', venue: 'The Teatro', icon: '🇿🇦' },
+                  { city: 'Seoul, South Korea', date: '24 Joubon', venue: 'COEX Artium', icon: '🇰🇷' },
+                  { city: 'London, United Kingdom', date: '24 Leaine', venue: 'Sadler\'s Wells', icon: '🇬🇧' },
+                ].map((event, index) => (
+                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                    <div className="p-1">
+                      <Card className="hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 h-[500px] flex flex-col">
+                        <div className="relative h-64 overflow-hidden rounded-t-lg">
+                          <img 
+                            src="/lovable-uploads/47a64dda-9083-4c59-962a-605d69645979.png" 
+                            alt={event.city}
+                            className="w-full h-full object-cover"
+                          />
+                          <div className="absolute top-4 left-4 text-6xl">{event.icon}</div>
+                        </div>
+                        <CardHeader>
+                          <CardTitle className="text-xl font-poppins">{event.city}</CardTitle>
+                        </CardHeader>
+                        <CardContent className="flex-1 flex flex-col justify-between">
+                          <div className="space-y-3 mb-4">
+                            <div className="flex items-center space-x-2 text-muted-foreground">
+                              <Calendar className="h-4 w-4 text-primary" />
+                              <span className="text-sm font-medium">{event.date}</span>
+                            </div>
+                            <p className="text-sm text-muted-foreground">{event.venue}</p>
+                          </div>
+                          <Button className="w-full bg-neon-pink hover:bg-neon-pink/90 text-white" asChild>
+                            <Link to="/registration">Register Now</Link>
+                          </Button>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="hidden sm:flex" />
+              <CarouselNext className="hidden sm:flex" />
+            </Carousel>
+          </div>
+
+          <p className="text-center text-muted-foreground mt-8 max-w-3xl mx-auto">
             These locations rotate each season, so every continent hosts fresh opportunities for local talent.
           </p>
         </div>
       </section>
 
-      {/* Three Columns: Enter Online + Workshops + Online Classes */}
-      <section className="bg-background border-b border-border">
-        <div className="container mx-auto px-0">
-          <div className="grid md:grid-cols-3">
-            {/* Enter Online */}
-            <div className="bg-white p-8 md:p-12 flex items-center justify-center border-r border-border min-h-[500px]">
-              <div className="max-w-md text-center space-y-6">
-                <h2 className="text-2xl md:text-3xl font-poppins font-bold text-foreground">
-                  ENTER ONLINE
-                </h2>
-                <div className="w-32 h-32 bg-muted rounded-lg mx-auto flex items-center justify-center">
-                  <VideoIcon className="h-16 w-16 text-muted-foreground" />
-                </div>
-                <p className="text-sm md:text-base text-muted-foreground">
-                  Can't attend a regional event in person? Submit your dance video online for a chance to qualify. Open to all dancers worldwide.
-                </p>
-                <Button size="lg" className="bg-neon-pink hover:bg-neon-pink/90 text-white" asChild>
-                  <Link to="/performance-review-form">SUBMIT YOUR DANCE VIDEO</Link>
-                </Button>
-              </div>
-            </div>
-
-            {/* Workshops */}
-            <div className="bg-muted/30 p-8 md:p-12 flex items-center justify-center border-r border-border min-h-[500px]">
-              <div className="max-w-md text-center space-y-6">
-                <h2 className="text-2xl md:text-3xl font-poppins font-bold text-foreground">
-                  WORKSHOPS
-                </h2>
-                <div className="w-full h-48 bg-turquoise rounded-lg"></div>
-                <Button size="lg" className="bg-neon-pink hover:bg-neon-pink/90 text-white" asChild>
-                  <Link to="/workshops">REGISTER FOR WORKSHOPS</Link>
-                </Button>
-              </div>
-            </div>
-
-            {/* Online Classes */}
-            <div className="bg-white p-8 md:p-12 flex items-center justify-center min-h-[500px]">
-              <div className="max-w-md text-center space-y-6">
-                <h2 className="text-2xl md:text-3xl font-poppins font-bold text-foreground">
-                  ONLINE CLASSES
-                </h2>
-                <div className="w-full h-48 bg-turquoise rounded-lg"></div>
-                <Button size="lg" className="bg-turquoise hover:bg-turquoise/90 text-white" asChild>
-                  <Link to="/online-classes">BROWSE CLASSES</Link>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Official Updates & Highlights */}
-      <section className="py-16 bg-background border-b border-border">
+      {/* How It Works - Icon Strip */}
+      <section className="py-20 bg-gradient-to-br from-primary/5 via-turquoise/5 to-accent/5">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-poppins font-bold text-foreground mb-4">
-              OFFICIAL UPDATES & HIGHLIGHTS
-            </h2>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-8">
-            {[1, 2, 3].map((item) => (
-              <div key={item} className="aspect-video bg-muted rounded-lg border border-border"></div>
-            ))}
-          </div>
-
-          <div className="text-center">
-            <Button size="lg" className="bg-turquoise hover:bg-turquoise/90 text-white" asChild>
-              <Link to="/news">SEE LATEST UPDATES</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Sponsors + Shop - 2 Columns */}
-      <section className="bg-background border-b border-border">
-        <div className="container mx-auto px-0">
-          <div className="grid md:grid-cols-2">
-            {/* Sponsors - Left */}
-            <div className="bg-white p-8 md:p-16 flex items-center border-r border-border min-h-[400px]">
-              <div className="max-w-2xl mx-auto w-full space-y-8">
-                <h2 className="text-3xl md:text-4xl font-poppins font-bold text-foreground">
-                  SPONSORS
-                </h2>
-                <div className="space-y-4">
-                  <div className="h-3 bg-muted rounded-full w-full"></div>
-                  <div className="h-3 bg-muted rounded-full w-5/6"></div>
-                  <div className="h-3 bg-muted rounded-full w-2/3"></div>
-                </div>
-                <Button size="lg" className="bg-turquoise hover:bg-turquoise/90 text-white" asChild>
-                  <Link to="/sponsors">BECOME A SPONSOR</Link>
-                </Button>
-              </div>
-            </div>
-
-            {/* Shop - Right */}
-            <div className="bg-muted/30 p-8 md:p-16 flex items-center min-h-[400px]">
-              <div className="max-w-2xl mx-auto w-full space-y-8">
-                <h2 className="text-3xl md:text-4xl font-poppins font-bold text-foreground">
-                  SHOP
-                </h2>
-                <div className="grid grid-cols-3 gap-4">
-                  {[1, 2, 3].map((item) => (
-                    <div key={item} className="space-y-2">
-                      <div className="aspect-square bg-muted rounded-lg border border-border"></div>
-                      <div className="h-2 bg-muted rounded-full w-3/4"></div>
-                    </div>
-                  ))}
-                </div>
-                <Button size="lg" className="bg-turquoise hover:bg-turquoise/90 text-white" asChild>
-                  <Link to="/shop">SHOP THE COLLECTION</Link>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works */}
-      <section className="py-16 bg-gradient-to-br from-primary/5 via-turquoise/5 to-accent/5 border-b border-border">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-poppins font-bold text-foreground mb-4">
+            <h2 className="text-4xl sm:text-5xl font-poppins font-bold text-foreground mb-4">
               How It Works
             </h2>
             <div className="h-1.5 w-32 bg-gradient-to-r from-primary to-accent rounded-full mx-auto"></div>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-6 md:gap-8 mb-12 max-w-5xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-8 mb-12 max-w-5xl mx-auto">
             {[
               { icon: '1️⃣', label: 'Choose Live or Online' },
               { icon: '2️⃣', label: 'Prepare Routine' },
@@ -287,16 +269,16 @@ const Home = () => {
               { icon: '4️⃣', label: 'Get Results' },
               { icon: '5️⃣', label: 'Qualify for Dubai' },
             ].map((step, index) => (
-              <div key={index} className="flex flex-col items-center text-center w-28">
-                <div className="text-5xl md:text-6xl mb-3">{step.icon}</div>
-                <p className="text-xs md:text-sm font-semibold text-foreground">{step.label}</p>
+              <div key={index} className="flex flex-col items-center text-center w-32">
+                <div className="text-6xl mb-3">{step.icon}</div>
+                <p className="text-sm font-semibold text-foreground">{step.label}</p>
               </div>
             ))}
           </div>
 
           <div className="max-w-[900px] mx-auto space-y-6">
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed text-center">
-              Golden Ticket winners from each continent — whether they performed at this year's regionals in Mexico City, Sydney, Johannesburg, Seoul, or London, or qualified online — attend the three-day Dubai Final with their registered chaperones in private resort suites. Workshops fill Days 1 and 2; the Final Showcase and Awards ignite Day 3.
+            <p className="text-lg text-muted-foreground leading-relaxed text-center">
+              Golden Ticket winners from each continent — whether they performed at this year's regionals in Mexico City, Sydney, Johannesburg, Seoul, or London, or qualified online — attend the three-day Dubai Final with their registered chaperones in private resort suites. Workshops fill Days 1 and 2; the Final Showcase and Awards ignite Day 3. Full details for chaperones and guardians are on our Dubai page.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
@@ -317,20 +299,90 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Workshops & Classes Preview - 2 Columns Reversed */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <div className="order-2 md:order-1">
+              <img 
+                src="/lovable-uploads/47a64dda-9083-4c59-962a-605d69645979.png" 
+                alt="Dance instructor" 
+                className="rounded-2xl shadow-2xl w-full aspect-[7/5] object-cover"
+              />
+            </div>
+            <div className="order-1 md:order-2 space-y-6">
+              <h2 className="text-3xl sm:text-4xl font-poppins font-bold text-foreground">
+                Workshops & Classes Preview
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Learn from top teachers at each regional event — Mexico City, Sydney, Johannesburg, Seoul, London — and keep training online all year. At the Dubai Final, Days 1 and 2 feature exclusive masterclasses for finalists and optional guest sessions for chaperones.
+              </p>
+              <div className="space-y-3">
+                <Button size="lg" className="w-full" asChild>
+                  <Link to="/workshops">View Workshop Schedule</Link>
+                </Button>
+                <Button size="lg" className="w-full" variant="outline" asChild>
+                  <Link to="/online-classes">Browse Online Classes</Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Official Updates Area - Light Blue Background */}
+      <section className="py-20 bg-light-blue/20">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <div>
+              <img 
+                src="/lovable-uploads/47a64dda-9083-4c59-962a-605d69645979.png" 
+                alt="LoveDanceLive team backstage" 
+                className="rounded-2xl shadow-2xl w-full aspect-video object-cover"
+              />
+            </div>
+            <div className="space-y-6">
+              <div>
+                <h2 className="text-3xl sm:text-4xl font-poppins font-bold text-foreground mb-4">
+                  Official Updates & Behind the Scenes
+                </h2>
+                <div className="h-1 w-24 bg-gradient-to-r from-primary to-turquoise rounded-full"></div>
+              </div>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Follow our coverage throughout the season for photos, videos and stories from each regional city — Mexico City, Sydney, Johannesburg, Seoul, London — plus exclusive clips as we count down to Dubai.
+              </p>
+              <div className="space-y-3">
+                <Button size="lg" className="w-full" asChild>
+                  <Link to="/news">See Latest Updates</Link>
+                </Button>
+                <Button size="lg" className="w-full bg-gradient-to-r from-accent to-neon-pink hover:from-accent/90 hover:to-neon-pink/90" asChild>
+                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                    Follow Us on Instagram
+                  </a>
+                </Button>
+              </div>
+              <p className="text-base text-muted-foreground italic">
+                Get inspired, stay motivated and see the magic unfold each week around the world.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Results & Videos Preview */}
-      <section className="py-16 bg-background border-b border-border">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-poppins font-bold text-foreground mb-4">
+            <h2 className="text-4xl sm:text-5xl font-poppins font-bold text-foreground mb-4">
               Celebrate the Journey
             </h2>
             <div className="h-1.5 w-32 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mb-6"></div>
-            <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Watch highlights from past finals and see what awaits in Dubai. Download your performance or order a Premium Critique for expert feedback.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto mb-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-8">
             {[1, 2, 3, 4, 5, 6].map((item) => (
               <div key={item} className="relative aspect-video rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow group cursor-pointer">
                 <img 
@@ -356,20 +408,79 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Series Board Preview */}
-      <section className="py-16 bg-gradient-to-br from-[#FFD700]/20 to-[#FFA500]/10 border-b border-border">
+      {/* Sponsors Strip */}
+      <section className="py-16 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-poppins font-bold text-foreground mb-4">
+              Presented with Our Global Partners
+            </h2>
+            <div className="h-1 w-24 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-8 mb-8">
+            {[1, 2, 3, 4, 5].map((sponsor) => (
+              <div key={sponsor} className="w-48 h-20 bg-white rounded-lg shadow-lg flex items-center justify-center hover:shadow-xl transition-shadow">
+                <span className="text-sm text-muted-foreground font-semibold">Sponsor {sponsor}</span>
+              </div>
+            ))}
+          </div>
+          <div className="text-center">
+            <Button size="lg" variant="outline" asChild>
+              <Link to="/sponsors">Become a Sponsor</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Dubai Finale Strip - Full Width */}
+      <section className="relative h-[600px] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src="/lovable-uploads/47a64dda-9083-4c59-962a-605d69645979.png" 
+            alt="Dubai stage and resort skyline" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-turquoise/80 to-accent/90"></div>
+        </div>
+        
+        <div className="relative z-10 container mx-auto px-4 text-center">
+          <div className="max-w-4xl mx-auto space-y-6">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-poppins font-bold text-white drop-shadow-2xl">
+              Grand Final · Dubai
+            </h2>
+            <p className="text-2xl sm:text-3xl font-poppins font-bold text-white/95 drop-shadow-lg">
+              Three Days of Dance and Celebration
+            </p>
+            <p className="text-lg sm:text-xl text-white/90 max-w-3xl mx-auto">
+              Regional and online winners from Mexico City, Sydney, Johannesburg, Seoul, and London unite for three days of workshops, performances and awards at our official resort.
+            </p>
+            <Button size="lg" className="bg-white text-primary hover:bg-white/90 text-lg px-8 py-6" asChild>
+              <Link to="/about">
+                Explore Dubai Finals
+                <ArrowRight className="h-5 w-5 ml-2" />
+              </Link>
+            </Button>
+            <p className="text-sm text-white/80">
+              Includes Chaperones & Guardians Area
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Series Board Preview - Gold Background */}
+      <section className="py-20 bg-gradient-to-br from-[#FFD700]/20 to-[#FFA500]/10">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center space-y-6">
-            <h2 className="text-3xl md:text-4xl font-poppins font-bold text-foreground">
+            <h2 className="text-4xl sm:text-5xl font-poppins font-bold text-foreground">
               Series Board
             </h2>
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+            <p className="text-lg text-muted-foreground leading-relaxed">
               Follow your continent's ranking as regional results arrive. Top ten countries glitter gold until Reveal Day — then names and flags unveil live.
             </p>
             <Button size="lg" className="shadow-lg" asChild>
               <Link to="/competitions">View Series Board</Link>
             </Button>
-            <p className="text-sm md:text-base text-muted-foreground max-w-3xl mx-auto pt-4">
+            <p className="text-base text-muted-foreground max-w-3xl mx-auto pt-4">
               Reveal Days activate as each continent completes its regional final — starting with the Americas (Mexico City) and ending with Europe (London). Regional locations change each season so every continent enjoys new host cities and fresh opportunities.
             </p>
           </div>
@@ -377,13 +488,13 @@ const Home = () => {
       </section>
 
       {/* Newsletter Sign-Up */}
-      <section className="py-16 bg-background border-b border-border">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center space-y-6">
-            <h2 className="text-2xl md:text-3xl font-poppins font-bold text-foreground">
+            <h2 className="text-3xl sm:text-4xl font-poppins font-bold text-foreground">
               Stay Updated
             </h2>
-            <p className="text-base md:text-lg text-muted-foreground">
+            <p className="text-lg text-muted-foreground">
               Get updates on this season's regional events in Mexico City, Sydney, Johannesburg, Seoul, London, and future host-city announcements.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
@@ -403,22 +514,22 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Final CTA Band */}
-      <section className="py-16 bg-gradient-to-r from-baby-pink/40 via-neon-pink/30 to-baby-pink/40">
+      {/* Final CTA Band - Pink Background */}
+      <section className="py-20 bg-gradient-to-r from-baby-pink/40 via-neon-pink/30 to-baby-pink/40">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center space-y-8">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-poppins font-bold text-foreground">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold text-foreground">
               Your journey starts today — Enter your regional competition or submit your dance video online.
             </h2>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="px-6 md:px-8 py-6 text-base md:text-lg" asChild>
+              <Button size="lg" className="px-8 py-6 text-lg" asChild>
                 <Link to="/events">Register for Live Event</Link>
               </Button>
-              <Button size="lg" className="px-6 md:px-8 py-6 text-base md:text-lg bg-neon-pink hover:bg-neon-pink/90 text-white" asChild>
+              <Button size="lg" className="px-8 py-6 text-lg bg-neon-pink hover:bg-neon-pink/90 text-white" asChild>
                 <Link to="/performance-review-form">Submit Video Online</Link>
               </Button>
-              <Button size="lg" variant="outline" className="px-6 md:px-8 py-6 text-base md:text-lg" asChild>
+              <Button size="lg" variant="outline" className="px-8 py-6 text-lg" asChild>
                 <Link to="/how-to-enter">How to Enter</Link>
               </Button>
             </div>
