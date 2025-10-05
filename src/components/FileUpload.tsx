@@ -35,7 +35,7 @@ const FileUpload: React.FC<FileUploadProps> = ({
     // Validate file type
     const isVideo = file.type.startsWith('video/');
     if (!isVideo) {
-      setError('Please upload a video file only (MP4, MOV, AVI, WMV, WebM, MPEG)');
+      setError('Make sure your video is MP4, MOV or AVI and under 500 MB.');
       event.target.value = '';
       return;
     }
@@ -43,7 +43,7 @@ const FileUpload: React.FC<FileUploadProps> = ({
     // Validate file size (100MB max)
     if (file.size > MAX_FILE_SIZE) {
       const sizeMB = (file.size / (1024 * 1024)).toFixed(2);
-      setError(`File size (${sizeMB}MB) exceeds the maximum limit of 100MB`);
+      setError(`File size exceeds 500 MB limit.`);
       event.target.value = '';
       return;
     }
@@ -56,7 +56,7 @@ const FileUpload: React.FC<FileUploadProps> = ({
       }
     } catch (error) {
       console.error('Upload failed:', error);
-      setError('Upload failed. Please try again.');
+      setError('Something went wrong — please try again.');
     } finally {
       setIsUploading(false);
     }
@@ -129,7 +129,7 @@ const FileUpload: React.FC<FileUploadProps> = ({
         <div className="flex items-center gap-2 p-3 bg-green-50 border border-green-200 rounded-lg">
           <Video className="h-4 w-4 text-green-600" />
           <div className="flex-1 min-w-0">
-            <p className="text-sm font-medium text-green-900">Video uploaded successfully!</p>
+            <p className="text-sm font-medium text-green-900">Upload successful! Judges will review your video shortly.</p>
             <p className="text-xs text-green-700 truncate">{currentUrl.split('/').pop()}</p>
           </div>
         </div>

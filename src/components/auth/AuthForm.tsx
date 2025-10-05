@@ -47,14 +47,14 @@ export const AuthForm: React.FC<AuthFormProps> = ({ mode = 'performer', onSucces
         const { error } = await signIn(email, password);
         if (error) {
           toast({
-            title: 'Login Failed',
-            description: error.message,
+            title: 'Oops!',
+            description: 'Please enter a valid email address and password.',
             variant: 'destructive'
           });
         } else {
           toast({
             title: 'Welcome back!',
-            description: 'You have successfully logged in.'
+            description: 'Check your dashboard for entries, feedback, and upcoming workshops.'
           });
           onSuccess?.();
         }
@@ -62,14 +62,14 @@ export const AuthForm: React.FC<AuthFormProps> = ({ mode = 'performer', onSucces
         const { error } = await signUp(email, password, activeTab, name);
         if (error) {
           toast({
-            title: 'Registration Failed',
-            description: error.message,
+            title: 'Oops!',
+            description: 'Please complete all required fields.',
             variant: 'destructive'
           });
         } else {
           toast({
-            title: 'Registration Successful!',
-            description: 'Please check your email to confirm your account.'
+            title: 'Thanks for registering!',
+            description: 'Check your email for confirmation.'
           });
           setIsLogin(true);
         }
@@ -169,7 +169,7 @@ export const AuthForm: React.FC<AuthFormProps> = ({ mode = 'performer', onSucces
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              placeholder="Enter your email"
+              placeholder="Email Address"
             />
           </div>
 
@@ -182,7 +182,7 @@ export const AuthForm: React.FC<AuthFormProps> = ({ mode = 'performer', onSucces
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                placeholder="Enter your password (min. 6 characters)"
+                placeholder="Password (8+ characters)"
                 className="pr-10"
                 minLength={6}
               />
@@ -202,7 +202,7 @@ export const AuthForm: React.FC<AuthFormProps> = ({ mode = 'performer', onSucces
             </div>
             {!isLogin && (
               <p className="text-xs text-muted-foreground mt-1">
-                Password must be at least 6 characters long
+                Password must be at least 8 characters
               </p>
             )}
           </div>
@@ -216,7 +216,7 @@ export const AuthForm: React.FC<AuthFormProps> = ({ mode = 'performer', onSucces
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
-                placeholder="Enter your full name"
+                placeholder="Full Name"
               />
             </div>
           )}
