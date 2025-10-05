@@ -81,7 +81,7 @@ const Home = () => {
       </section>
 
       {/* Dubai Finale + About Section - 2 Columns */}
-      <section className="py-8 md:py-16 bg-background">
+      <section className="py-12 md:py-24 bg-background">
         <div className="w-full px-4">
           <div className="grid md:grid-cols-[60fr_40fr] gap-12 items-center max-w-6xl mx-auto">
             <div className="space-y-6 max-w-[700px]">
@@ -122,7 +122,7 @@ const Home = () => {
       </section>
 
       {/* Enter Online + Workshops + Online Classes - 3 Columns */}
-      <section className="py-8 md:py-16 bg-gradient-to-br from-turquoise/5 to-baby-pink/5">
+      <section className="py-12 md:py-24 bg-gradient-to-br from-turquoise/5 to-baby-pink/5">
         <div className="w-full px-4">
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             
@@ -202,7 +202,7 @@ const Home = () => {
       </section>
 
       {/* Regional Events - 5 Cities */}
-      <section className="py-8 md:py-16 bg-background">
+      <section className="py-12 md:py-24 bg-background">
         <div className="w-full px-4">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-poppins font-bold text-foreground mb-4">
@@ -257,7 +257,7 @@ const Home = () => {
       </section>
 
       {/* How It Works - Icon Strip */}
-      <section className="py-8 md:py-16 bg-gradient-to-br from-primary/5 via-turquoise/5 to-accent/5">
+      <section className="py-12 md:py-24 bg-gradient-to-br from-primary/10 via-turquoise/15 to-accent/10">
         <div className="w-full px-4">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-poppins font-bold text-foreground mb-4">
@@ -292,8 +292,8 @@ const Home = () => {
             })}
           </div>
 
-          <div className="max-w-[900px] mx-auto space-y-6">
-            <p className="text-lg text-foreground leading-relaxed text-center">
+          <div className="max-w-6xl mx-auto space-y-6">
+            <p className="text-lg text-foreground leading-relaxed text-center px-4">
               Golden Ticket winners from each continent — whether they performed at this year's regionals in Mexico City, Sydney, Johannesburg, Seoul, or London, or qualified online — attend the three-day Dubai Final with their registered chaperones in private resort suites. Workshops fill Days 1 and 2; the Final Showcase and Awards ignite Day 3. Full details for chaperones and guardians are on our Dubai page.
             </p>
             
@@ -316,7 +316,7 @@ const Home = () => {
       </section>
 
       {/* Workshops & Classes Preview - 2 Columns Reversed */}
-      <section className="py-8 md:py-16 bg-background">
+      <section className="py-12 md:py-24 bg-background">
         <div className="w-full px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div className="order-2 md:order-1">
@@ -347,7 +347,7 @@ const Home = () => {
       </section>
 
       {/* Official Updates & Highlights */}
-      <section className="py-8 md:py-16 bg-light-blue/20">
+      <section className="py-12 md:py-24 bg-light-blue/20">
         <div className="w-full px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div>
@@ -386,7 +386,7 @@ const Home = () => {
       </section>
 
       {/* Results & Videos Preview */}
-      <section className="py-8 md:py-16 bg-background">
+      <section className="py-12 md:py-24 bg-background">
         <div className="w-full px-4">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-poppins font-bold text-foreground mb-4">
@@ -432,7 +432,7 @@ const Home = () => {
       </section>
 
       {/* Sponsors + Shop - 2 Columns */}
-      <section className="py-8 md:py-16 bg-muted/30">
+      <section className="py-12 md:py-24 bg-muted/30">
         <div className="w-full px-4">
           <div className="grid md:grid-cols-2 gap-12 max-w-7xl mx-auto">
             
@@ -513,7 +513,7 @@ const Home = () => {
       </section>
 
       {/* Series Board Preview - Gold Background */}
-      <section className="py-8 md:py-16 bg-gradient-to-br from-[#FFD700]/20 to-[#FFA500]/10">
+      <section className="py-12 md:py-24 bg-gradient-to-br from-[#FFD700]/20 to-[#FFA500]/10">
         <div className="w-full px-4">
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <h2 className="text-4xl sm:text-5xl font-poppins font-bold text-foreground">
@@ -533,7 +533,7 @@ const Home = () => {
       </section>
 
       {/* Newsletter Sign-Up */}
-      <section className="py-8 md:py-16 bg-background">
+      <section className="py-12 md:py-24 bg-background">
         <div className="w-full px-4">
           <div className="max-w-2xl mx-auto text-center space-y-6">
             <h2 className="text-3xl sm:text-4xl font-poppins font-bold text-foreground">
@@ -560,7 +560,7 @@ const Home = () => {
       </section>
 
       {/* Final CTA Band - Pink Background */}
-      <section className="py-8 md:py-16 bg-gradient-to-r from-baby-pink/40 via-neon-pink/30 to-baby-pink/40">
+      <section className="py-12 md:py-24 bg-gradient-to-r from-baby-pink/40 via-neon-pink/30 to-baby-pink/40">
         <div className="w-full px-4">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold text-foreground">
