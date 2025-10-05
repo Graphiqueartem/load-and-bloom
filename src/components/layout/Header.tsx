@@ -79,15 +79,15 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation - Two Row Layout */}
-          <nav className="hidden lg:block flex-1 min-w-0">
+          <nav className="hidden lg:block flex-1 min-w-0 max-w-[900px] xl:max-w-[1100px]">
             {/* First Row */}
-            <div className="flex items-center justify-center space-x-2 lg:space-x-4 xl:space-x-6 mb-1">
+            <div className="flex items-center justify-center space-x-1 lg:space-x-2 xl:space-x-4 mb-1">
               {navigationLinks.slice(0, 7).map((link) => (
                 link.hasDropdown ? (
                   <div key={link.path} className="relative" ref={dropdownRef}>
                     <button
                       onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                      className={`flex items-center px-2 lg:px-3 py-1 lg:py-1.5 text-xs lg:text-sm font-medium transition-colors hover:text-accent rounded-md whitespace-nowrap ${
+                      className={`flex items-center px-1.5 lg:px-2 py-1 lg:py-1.5 text-xs font-medium transition-colors hover:text-accent rounded-md whitespace-nowrap ${
                         location.pathname === link.path || location.pathname.startsWith('/competitions/')
                           ? 'bg-accent text-accent-foreground'
                           : 'text-muted-foreground hover:bg-accent/10'
@@ -117,7 +117,7 @@ const Header = () => {
                   <Link
                     key={link.path}
                     to={link.path}
-                    className={`px-2 lg:px-3 py-1 lg:py-1.5 text-xs lg:text-sm font-medium transition-colors hover:text-accent rounded-md whitespace-nowrap ${
+                    className={`px-1.5 lg:px-2 py-1 lg:py-1.5 text-xs font-medium transition-colors hover:text-accent rounded-md whitespace-nowrap ${
                       location.pathname === link.path
                         ? 'bg-accent text-accent-foreground'
                         : 'text-muted-foreground hover:bg-accent/10'
@@ -130,12 +130,12 @@ const Header = () => {
             </div>
             
             {/* Second Row */}
-            <div className="flex items-center justify-center space-x-2 lg:space-x-4 xl:space-x-6">
+            <div className="flex items-center justify-center space-x-1 lg:space-x-2 xl:space-x-4">
               {navigationLinks.slice(7).map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`px-2 lg:px-3 py-1 lg:py-1.5 text-xs lg:text-sm font-medium transition-colors hover:text-accent rounded-md whitespace-nowrap ${
+                  className={`px-1.5 lg:px-2 py-1 lg:py-1.5 text-xs font-medium transition-colors hover:text-accent rounded-md whitespace-nowrap ${
                     location.pathname === link.path
                       ? 'bg-accent text-accent-foreground'
                       : 'text-muted-foreground hover:bg-accent/10'
