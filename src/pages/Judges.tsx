@@ -1,336 +1,288 @@
-import React, { useState, useEffect } from 'react';
-import { supabase } from '@/integrations/supabase/client';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Badge } from '@/components/ui/badge';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Star, MapPin, Globe, Award, Users, Search, LogIn, Scale } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import JudgeProfile from '@/components/JudgeProfile';
-import heroImage from '@/assets/competition-stage.jpg';
-import { Judge } from '@/types/performance';
-import { useToast } from '@/hooks/use-toast';
+import { Award, Target, Lightbulb, Zap, User, Download, LogIn, ChevronDown } from 'lucide-react';
+import judgesHero from '@/assets/judges-hero.jpg';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 const Judges: React.FC = () => {
-  const { toast } = useToast();
-  const [judges, setJudges] = useState<Judge[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [selectedJudge, setSelectedJudge] = useState<Judge | null>(null);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [genreFilter, setGenreFilter] = useState('all');
-  const [countryFilter, setCountryFilter] = useState('all');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   useEffect(() => {
-    loadJudges();
+    document.title = "Meet the Judges - Expert Panel | LoveDanceLive";
   }, []);
 
-  const loadJudges = async () => {
-    try {
-      const { data, error } = await supabase
-        .from('judges')
-        .select('*')
-        .eq('is_active', true)
-        .order('name');
-
-      if (error) throw error;
-      setJudges((data as Judge[]) || []);
-    } catch (error) {
-      console.error('Error loading judges:', error);
-      toast({
-        title: 'Error',
-        description: 'Failed to load judges',
-        variant: 'destructive'
-      });
-    } finally {
-      setLoading(false);
+  const judgesBios = [
+    {
+      name: "Maria Rodriguez",
+      country: "🇲🇽 Mexico",
+      specialty: "Latin Fusion",
+      bio: "International champion with 15 years experience in Latin dance and contemporary fusion styles across three continents.",
+      avatar: ""
+    },
+    {
+      name: "James Chen",
+      country: "🇦🇺 Australia",
+      specialty: "Hip Hop",
+      bio: "Award-winning choreographer and street dance pioneer featured in global competitions and masterclass circuits worldwide.",
+      avatar: ""
+    },
+    {
+      name: "Thandiwe Nkosi",
+      country: "🇿🇦 South Africa",
+      specialty: "Contemporary",
+      bio: "Principal dancer and artistic director blending African movement with contemporary technique in innovative performance works.",
+      avatar: ""
+    },
+    {
+      name: "Min-Jun Park",
+      country: "🇰🇷 South Korea",
+      specialty: "Ballet & K-Pop",
+      bio: "Former principal ballet dancer now bridging classical technique with modern K-pop choreography for international stages.",
+      avatar: ""
+    },
+    {
+      name: "Sophie Williams",
+      country: "🇬🇧 United Kingdom",
+      specialty: "Freestyle",
+      bio: "Versatile performer and judge specializing in improvisation, musical theatre and contemporary styles with global teaching experience.",
+      avatar: ""
+    },
+    {
+      name: "Carlos Silva",
+      country: "🇧🇷 Brazil",
+      specialty: "Samba & Ballroom",
+      bio: "World champion ballroom dancer and samba specialist bringing passion and precision to every performance he evaluates.",
+      avatar: ""
     }
-  };
-
-  const getInitials = (name: string) => {
-    return name.split(' ').map(n => n[0]).join('').toUpperCase();
-  };
-
-  const filteredJudges = judges.filter(judge => {
-    const matchesSearch = judge.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         judge.bio?.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesGenre = genreFilter === 'all' || judge.dance_genres?.includes(genreFilter);
-    const matchesCountry = countryFilter === 'all' || judge.country === countryFilter;
-    
-    return matchesSearch && matchesGenre && matchesCountry;
-  });
-
-  const availableGenres = [...new Set(judges.flatMap(judge => judge.dance_genres || []))];
-  const availableCountries = [...new Set(judges.map(judge => judge.country).filter(Boolean))];
-
-  if (selectedJudge) {
-    return (
-      <div className="container mx-auto px-4 py-8">
-        <Button 
-          variant="outline" 
-          onClick={() => setSelectedJudge(null)}
-          className="mb-6"
-        >
-          ← Back to Judges
-        </Button>
-        <JudgeProfile judge={selectedJudge} />
-      </div>
-    );
-  }
+  ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div>
       {/* Hero Section */}
-      <section className="relative h-[40vh] sm:h-[50vh] lg:h-[60vh] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[50vh] md:h-[55vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            src={heroImage} 
-            alt="Expert Judges" 
+            src={judgesHero} 
+            alt="International judges panel at judging table" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-neon-pink/80 to-accent/90"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/80 via-turquoise/70 to-accent/80"></div>
         </div>
-        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-poppins font-bold mb-4 sm:mb-6 text-white drop-shadow-lg">
-            The Experts Behind the Score
-          </h1>
-          <p className="text-lg sm:text-xl lg:text-2xl text-white/95 font-light">
-            Fair, inspiring, and world-class.
-          </p>
+        
+        <div className="relative z-10 container mx-auto px-4 text-center">
+          <div className="max-w-4xl mx-auto space-y-6 animate-fade-in">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold text-white drop-shadow-2xl">
+              Meet the Judges — Expert Panel
+            </h1>
+          </div>
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="py-12 sm:py-16 lg:py-20 pb-0 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-poppins font-bold mb-4">
-              <span className="gradient-text">Meet the Judges</span>
-              <span className="gradient-underline"></span>
+      {/* Section 1 - Intro */}
+      <section className="py-8 md:py-16 bg-background">
+        <div className="w-full px-4">
+          <div className="max-w-5xl mx-auto text-center space-y-6">
+            <p className="text-lg md:text-xl text-foreground leading-relaxed">
+              LoveDanceLive's judges represent the world's leading choreographers, educators and performers.
+            </p>
+            <p className="text-lg md:text-xl text-foreground leading-relaxed">
+              Each regional event and the Dubai Final is judged by an international panel selected to reflect diversity of style and experience.
+            </p>
+            
+            <div className="pt-6">
+              <Button size="lg" asChild>
+                <Link to="/judge-registration">Become a Judge</Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 2 - Criteria Explained */}
+      <section className="py-8 md:py-16 bg-gradient-to-br from-turquoise/5 to-baby-pink/5">
+        <div className="w-full px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-poppins font-bold text-foreground mb-4">
+              Judging Criteria
             </h2>
-            <div className="content-card">
-              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-                Our judges are professional dancers, choreographers, and industry leaders dedicated to fair evaluation and constructive feedback.
-              </p>
-            </div>
+            <div className="h-1.5 w-32 bg-gradient-to-r from-primary via-accent to-primary rounded-full mx-auto"></div>
           </div>
 
-          {/* New Judge CTA */}
-          <Card className="mb-8 border-2 border-primary/20 bg-gradient-to-r from-primary/5 to-accent/5 content-card">
-            <CardContent className="p-6">
-              <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-                <div className="text-center md:text-left flex-1">
-                  <div className="flex items-center gap-3 justify-center md:justify-start mb-2">
-                    <div className="gradient-icon-bg p-2 rounded-lg">
-                      <Award className="h-6 w-6 text-white" />
-                    </div>
-                    <h3 className="text-xl font-bold">Are you a dance professional?</h3>
-                  </div>
-                  <p className="text-muted-foreground">Join our panel of expert judges and help shape the future of dance</p>
+          <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <Card className="hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center mx-auto mb-6">
+                  <Award className="h-8 w-8 text-white" />
                 </div>
-                <Button asChild variant="default">
-                  <Link to="/judge-registration">
-                    Become a Judge
-                  </Link>
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Search and Filters */}
-          <div className="flex flex-col md:flex-row gap-4 mb-8">
-            <div className="flex-1 relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
-              <Input
-                type="text"
-                placeholder="Search judges by name..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10"
-              />
-            </div>
-
-            <Select value={genreFilter} onValueChange={setGenreFilter}>
-              <SelectTrigger className="w-full md:w-48">
-                <SelectValue placeholder="Filter by genre" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All Genres</SelectItem>
-                {availableGenres.map(genre => (
-                  <SelectItem key={genre} value={genre}>{genre}</SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-
-            <Select value={countryFilter} onValueChange={setCountryFilter}>
-              <SelectTrigger className="w-full md:w-48">
-                <SelectValue placeholder="Filter by country" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All Countries</SelectItem>
-                {availableCountries.map(country => (
-                  <SelectItem key={country} value={country}>{country}</SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-
-          {/* Judges Grid */}
-          {loading ? (
-            <div className="text-center py-12">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
-              <p className="text-muted-foreground">Loading judges...</p>
-            </div>
-          ) : filteredJudges.length === 0 ? (
-            <Card className="content-card">
-              <CardContent className="text-center py-12">
-                <Users className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-                <p className="text-muted-foreground">No judges found matching your criteria</p>
+                <h3 className="text-2xl font-poppins font-bold text-foreground mb-2">Technique</h3>
+                <p className="text-3xl font-bold text-primary mb-3">30%</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Precision, control, clarity of movement.
+                </p>
               </CardContent>
             </Card>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredJudges.map((judge) => (
-                <Card key={judge.id} className="content-card hover:shadow-lg transition-all cursor-pointer hover:-translate-y-1" onClick={() => setSelectedJudge(judge)}>
-                  <CardHeader>
-                    <div className="flex items-start space-x-4">
-                      <Avatar className="h-16 w-16 border-2 border-primary/20">
-                        <AvatarImage src={judge.profile_image || undefined} />
-                        <AvatarFallback className="bg-gradient-to-br from-primary to-accent text-white font-bold">
-                          {getInitials(judge.name)}
-                        </AvatarFallback>
-                      </Avatar>
-                      <div className="flex-1">
-                        <CardTitle className="text-lg">{judge.name}</CardTitle>
-                        <div className="flex items-center mt-1">
-                          <Star className="h-4 w-4 text-yellow-500 fill-yellow-500 mr-1" />
-                          <span className="text-sm font-medium">{judge.rating || 'New'}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-3">
-                      <div className="flex items-center text-sm text-muted-foreground">
-                        <MapPin className="h-4 w-4 mr-2" />
-                        {judge.country}
-                      </div>
-                      
-                      <div className="flex items-center text-sm">
-                        <Badge variant={judge.available_for_hire ? "default" : "secondary"} className="mr-2">
-                          {judge.available_for_hire ? 'Available' : 'Busy'}
-                        </Badge>
-                      </div>
 
-                      <div className="flex flex-wrap gap-2">
-                        {judge.languages?.map((lang, idx) => (
-                          <Badge key={idx} variant="outline" className="text-xs">
-                            {lang}
-                          </Badge>
-                        ))}
-                      </div>
-
-                      {judge.dance_genres && judge.dance_genres.length > 0 && (
-                        <div>
-                          <p className="text-xs font-medium mb-1">Specialties:</p>
-                          <div className="flex flex-wrap gap-1">
-                            {judge.dance_genres.map((specialty, idx) => (
-                              <Badge key={idx} variant="secondary" className="text-xs">
-                                {specialty}
-                              </Badge>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-
-                      {judge.bio && (
-                        <p className="text-sm text-muted-foreground line-clamp-3 mt-2">
-                          {judge.bio}
-                        </p>
-                      )}
-
-                      <Button variant="outline" className="w-full mt-4" size="sm">
-                        View Profile
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          )}
-
-          {/* Judging Criteria Section */}
-          <div className="mt-16 max-w-4xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl font-poppins font-bold mb-8 text-center">
-              <span className="gradient-text">Judging Criteria</span>
-              <span className="gradient-underline"></span>
-            </h2>
-            <Card className="content-card bg-gradient-to-br from-primary/5 to-accent/5">
-              <CardContent className="p-8">
-                <div className="grid sm:grid-cols-2 gap-6">
-                  <div className="flex gap-4">
-                    <div className="gradient-icon-bg p-3 rounded-lg flex-shrink-0 h-fit">
-                      <Scale className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-lg mb-2">Fair Standards</h4>
-                      <p className="text-sm text-muted-foreground">Clear, consistent criteria applied equally to all performers</p>
-                    </div>
-                  </div>
-                  <div className="flex gap-4">
-                    <div className="gradient-icon-bg p-3 rounded-lg flex-shrink-0 h-fit">
-                      <Star className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-lg mb-2">Quality Feedback</h4>
-                      <p className="text-sm text-muted-foreground">Constructive, detailed feedback to help you grow</p>
-                    </div>
-                  </div>
-                  <div className="flex gap-4">
-                    <div className="gradient-icon-bg p-3 rounded-lg flex-shrink-0 h-fit">
-                      <Award className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-lg mb-2">Expert Evaluation</h4>
-                      <p className="text-sm text-muted-foreground">Assessed by professional industry leaders</p>
-                    </div>
-                  </div>
-                  <div className="flex gap-4">
-                    <div className="gradient-icon-bg p-3 rounded-lg flex-shrink-0 h-fit">
-                      <Globe className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-lg mb-2">Global Transparency</h4>
-                      <p className="text-sm text-muted-foreground">Open process that's accessible worldwide</p>
-                    </div>
-                  </div>
+            <Card className="hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-turquoise to-accent flex items-center justify-center mx-auto mb-6">
+                  <Target className="h-8 w-8 text-white" />
                 </div>
+                <h3 className="text-2xl font-poppins font-bold text-foreground mb-2">Performance</h3>
+                <p className="text-3xl font-bold text-turquoise mb-3">30%</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Expression, presence, connection with music.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-neon-pink to-accent flex items-center justify-center mx-auto mb-6">
+                  <Lightbulb className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-poppins font-bold text-foreground mb-2">Creativity</h3>
+                <p className="text-3xl font-bold text-neon-pink mb-3">20%</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Original choreography and interpretation.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center mx-auto mb-6">
+                  <Zap className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-poppins font-bold text-foreground mb-2">Impact</h3>
+                <p className="text-3xl font-bold text-accent mb-3">20%</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Overall impression and audience response.
+                </p>
               </CardContent>
             </Card>
           </div>
 
-          {/* Judge Login CTA */}
-          <Card className="mt-12 border-2 border-accent/20 bg-gradient-to-r from-accent/5 to-primary/5 content-card">
-            <CardContent className="p-6">
-              <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-                <div className="text-center md:text-left flex-1">
-                  <div className="flex items-center gap-3 justify-center md:justify-start mb-2">
-                    <div className="gradient-icon-bg p-2 rounded-lg">
-                      <LogIn className="h-6 w-6 text-white" />
-                    </div>
-                    <h3 className="text-xl font-bold">Already a Judge?</h3>
+          <div className="text-center mt-8">
+            <Button size="lg" variant="outline" asChild>
+              <Link to="/coming-soon" state={{ pageTitle: "Scoring Guide PDF" }}>
+                <Download className="h-5 w-5 mr-2" />
+                View Full Scoring Guide PDF
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 3 - Judge Bios Grid */}
+      <section className="py-8 md:py-16 bg-background">
+        <div className="w-full px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-poppins font-bold text-foreground mb-4">
+              Our International Panel
+            </h2>
+            <div className="h-1.5 w-32 bg-gradient-to-r from-primary via-accent to-primary rounded-full mx-auto"></div>
+          </div>
+
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {judgesBios.map((judge, index) => (
+              <Card key={index} className="hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                <CardContent className="p-8 text-center">
+                  <Avatar className="h-32 w-32 mx-auto mb-6 border-4 border-primary/20">
+                    <AvatarImage src={judge.avatar} />
+                    <AvatarFallback className="bg-gradient-to-br from-primary to-accent text-white text-3xl font-bold">
+                      {judge.name.split(' ').map(n => n[0]).join('')}
+                    </AvatarFallback>
+                  </Avatar>
+                  <h3 className="text-2xl font-poppins font-bold text-foreground mb-2">{judge.name}</h3>
+                  <p className="text-lg text-muted-foreground mb-2">{judge.country}</p>
+                  <p className="text-sm font-semibold text-primary mb-4">{judge.specialty}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {judge.bio}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Button size="lg" asChild>
+              <Link to="/coming-soon" state={{ pageTitle: "All Judges" }}>Meet All Judges</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 4 - Judge Portal Login */}
+      <section className="py-16 md:py-20 bg-gradient-to-r from-light-blue/20 via-turquoise/10 to-light-blue/20">
+        <div className="w-full px-4">
+          <div className="max-w-2xl mx-auto">
+            <Card className="shadow-2xl">
+              <CardContent className="p-8 sm:p-12">
+                <div className="text-center mb-8">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-turquoise to-accent flex items-center justify-center mx-auto mb-6">
+                    <LogIn className="h-8 w-8 text-white" />
                   </div>
-                  <p className="text-muted-foreground">Access your dashboard to review performances and manage your profile</p>
+                  <h2 className="text-3xl md:text-4xl font-poppins font-bold text-foreground mb-4">
+                    Judge Portal Login
+                  </h2>
+                  <p className="text-lg text-muted-foreground">
+                    Registered judges log in here to access scoring sheets, review videos and submit feedback securely.
+                  </p>
                 </div>
-                <Button asChild variant="default">
-                  <Link to="/judge-login">
-                    Judge Login
-                  </Link>
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
+
+                <div className="space-y-4">
+                  <div>
+                    <Input
+                      type="email"
+                      placeholder="Email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="h-12"
+                    />
+                  </div>
+                  <div>
+                    <Input
+                      type="password"
+                      placeholder="Password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      className="h-12"
+                    />
+                  </div>
+                  <Button size="lg" className="w-full h-12" asChild>
+                    <Link to="/judge-login">Judge Login</Link>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 5 - CTA Band */}
+      <section className="py-8 md:py-16 bg-gradient-to-r from-baby-pink/40 via-neon-pink/30 to-baby-pink/40">
+        <div className="w-full px-4">
+          <div className="max-w-4xl mx-auto text-center space-y-8">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold text-foreground">
+              Interested in joining our panel?
+            </h2>
+            <p className="text-lg md:text-xl text-foreground">
+              We welcome experienced dance professionals worldwide.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" className="px-8 py-6 text-lg" asChild>
+                <Link to="/judge-registration">Apply to Judge</Link>
+              </Button>
+              <Button size="lg" variant="outline" className="px-8 py-6 text-lg" asChild>
+                <Link to="/contact">Contact Team</Link>
+              </Button>
+            </div>
+          </div>
         </div>
       </section>
     </div>
