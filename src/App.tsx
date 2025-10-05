@@ -14,8 +14,7 @@ import ResultsVideos from '@/pages/ResultsVideos';
 import News from '@/pages/News';
 import Contact from '@/pages/Contact';
 import Community from '@/pages/Community';
-import LiveChat from '@/pages/LiveChat';
-import Challenges from '@/pages/Challenges';
+import SeriesBoard from '@/pages/SeriesBoard';
 import Gallery from '@/pages/Gallery';
 import PerformanceReviewForm from '@/pages/PerformanceReviewForm';
 import PerformerRegistration from '@/components/PerformerRegistration';
@@ -47,7 +46,6 @@ import LoveDanceSummerCamp2022 from '@/pages/competitions/LoveDanceSummerCamp202
 import ConventionSummerPicnic2022 from '@/pages/competitions/ConventionSummerPicnic2022';
 import UpcomingCompetitions from '@/pages/competitions/UpcomingCompetitions';
 import DubaiFinalsPage from '@/pages/DubaiFinalsPage';
-import SeriesBoardPage from '@/pages/SeriesBoardPage';
 
 const queryClient = new QueryClient();
 
@@ -63,9 +61,8 @@ const pageTitles: { [key: string]: string } = {
   '/judges': 'Meet the Judges - Expert Panel',
   '/sponsors': 'Sponsors - Partner with LoveDanceLive',
   '/shop': 'Shop - Merchandise & Downloads',
-  '/community': 'Community - Forums & Challenges',
-  '/live-chat': 'Live Event Chat - Join the Conversation',
-  '/challenges': 'Dance Challenges - Win Prizes',
+  '/community': 'Grand Final Dubai - The Ultimate Stage',
+  '/series-board': 'Series Board - Global Standings',
   '/gallery': 'User Gallery - Share Your Moves',
   '/contact': 'Contact Us - Help & Support',
   '/account': 'Your Dashboard - Manage Entries & Purchases',
@@ -129,8 +126,8 @@ function App() {
               <Route path="/sponsors" element={<Layout><Sponsors /></Layout>} />
               <Route path="/shop" element={<Layout><Shop /></Layout>} />
               <Route path="/community" element={<Layout><Community /></Layout>} />
-              <Route path="/live-chat" element={<Layout><LiveChat /></Layout>} />
-              <Route path="/challenges" element={<Layout><Challenges /></Layout>} />
+              <Route path="/dubai-finals" element={<Layout><Community /></Layout>} />
+              <Route path="/series-board" element={<Layout><SeriesBoard /></Layout>} />
               <Route path="/gallery" element={<Layout><Gallery /></Layout>} />
               <Route path="/news" element={<Layout><News /></Layout>} />
               <Route path="/contact" element={<Layout><Contact /></Layout>} />
@@ -152,8 +149,7 @@ function App() {
               <Route path="/competitions/lovedance-summer-camp-2022" element={<Layout><LoveDanceSummerCamp2022 /></Layout>} />
               <Route path="/competitions/convention-summer-picnic-2022" element={<Layout><ConventionSummerPicnic2022 /></Layout>} />
               <Route path="/competitions/upcoming" element={<Layout><UpcomingCompetitions /></Layout>} />
-              <Route path="/dubai-finals" element={<Layout><DubaiFinalsPage /></Layout>} />
-              <Route path="/series-board" element={<Layout><SeriesBoardPage /></Layout>} />
+              <Route path="/dubai-finals-legacy" element={<Layout><DubaiFinalsPage /></Layout>} />
               
               <Route path="*" element={<Layout><NotFound /></Layout>} />
             </Routes>
