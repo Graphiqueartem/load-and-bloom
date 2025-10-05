@@ -12,14 +12,21 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-const heroImage = '/lovable-uploads/47a64dda-9083-4c59-962a-605d69645979.png';
+import heroImage from '@/assets/hero-dance.jpg';
 import eventPoster1 from '@/assets/event-poster-1.jpg';
 import eventPoster2 from '@/assets/event-poster-2.jpg';
 import eventPoster3 from '@/assets/event-poster-3.jpg';
 import eventPosterCompetition from '@/assets/event-poster-competition-1.jpg';
 import eventPosterMasterclass from '@/assets/event-poster-masterclass-1.jpg';
+import eventPosterWorkshop from '@/assets/event-poster-workshop-1.jpg';
 import competitionStage from '@/assets/competition-stage.jpg';
 import workshopScene from '@/assets/workshop-scene.jpg';
+import communityDance from '@/assets/community-dance.jpg';
+import onlineClass from '@/assets/online-class.jpg';
+import ballroomDance from '@/assets/ballroom-dance.jpg';
+import contemporaryDance from '@/assets/contemporary-dance.jpg';
+import hipHopDance from '@/assets/hip-hop-dance.jpg';
+import dubaiFinale from '@/assets/dubai-finale.jpg';
 
 const Home = () => {
   return (
@@ -105,7 +112,7 @@ const Home = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl blur-xl"></div>
               <img 
-                src="/lovable-uploads/47a64dda-9083-4c59-962a-605d69645979.png" 
+                src={communityDance} 
                 alt="Diverse teen dancers" 
                 className="relative rounded-2xl shadow-2xl w-full aspect-[3/4] object-cover"
               />
@@ -143,8 +150,12 @@ const Home = () => {
 
             {/* Submit Online */}
             <Card className="group hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden h-[400px] flex flex-col">
-              <div className="relative h-48 overflow-hidden bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
-                <VideoIcon className="h-24 w-24 text-primary/30" />
+              <div className="relative h-48 overflow-hidden">
+                <img 
+                  src={onlineClass}
+                  alt="Online dance submission" 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                />
               </div>
               <CardHeader>
                 <CardTitle className="text-2xl font-poppins">Submit Online</CardTitle>
@@ -310,7 +321,7 @@ const Home = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div className="order-2 md:order-1">
               <img 
-                src="/lovable-uploads/47a64dda-9083-4c59-962a-605d69645979.png" 
+                src={ballroomDance}
                 alt="Dance instructor" 
                 className="rounded-2xl shadow-2xl w-full aspect-[7/5] object-cover"
               />
@@ -341,7 +352,7 @@ const Home = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div>
               <img 
-                src="/lovable-uploads/47a64dda-9083-4c59-962a-605d69645979.png" 
+                src={contemporaryDance}
                 alt="LoveDanceLive team backstage" 
                 className="rounded-2xl shadow-2xl w-full aspect-video object-cover"
               />
@@ -388,11 +399,18 @@ const Home = () => {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-8">
-            {[1, 2, 3, 4, 5, 6].map((item) => (
-              <div key={item} className="relative aspect-video rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow group cursor-pointer">
+            {[
+              { id: 1, img: eventPosterWorkshop },
+              { id: 2, img: hipHopDance },
+              { id: 3, img: ballroomDance },
+              { id: 4, img: contemporaryDance },
+              { id: 5, img: competitionStage },
+              { id: 6, img: workshopScene }
+            ].map((item) => (
+              <div key={item.id} className="relative aspect-video rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow group cursor-pointer">
                 <img 
-                  src="/lovable-uploads/47a64dda-9083-4c59-962a-605d69645979.png" 
-                  alt={`Video ${item}`}
+                  src={item.img}
+                  alt={`Video ${item.id}`}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
@@ -463,7 +481,7 @@ const Home = () => {
       <section className="relative h-[600px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            src="/lovable-uploads/47a64dda-9083-4c59-962a-605d69645979.png" 
+            src={dubaiFinale}
             alt="Dubai stage and resort skyline" 
             className="w-full h-full object-cover"
           />
