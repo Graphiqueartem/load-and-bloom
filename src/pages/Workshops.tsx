@@ -69,6 +69,13 @@ const Workshops = () => {
 
   return (
     <div className="page-gradient-bg">
+      {/* Global Banner */}
+      <section className="bg-gradient-to-r from-primary via-turquoise to-accent py-3 text-center">
+        <p className="text-white text-sm md:text-base font-open-sans px-4">
+          Workshops run alongside each regional event in Mexico City, Sydney, Johannesburg, Seoul, and London, plus exclusive sessions in Dubai.
+        </p>
+      </section>
+
       {/* Hero Section */}
       <section className="relative min-h-[700px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
@@ -82,11 +89,6 @@ const Workshops = () => {
         
         <div className="relative z-10 container mx-auto px-3 sm:px-4 lg:px-6 text-center">
           <div className="max-w-5xl mx-auto space-y-4 sm:space-y-6 animate-fade-in">
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg px-6 py-3 inline-block mb-4">
-              <p className="text-white text-sm sm:text-base font-open-sans">
-                Workshops run alongside each regional event in Mexico City, Sydney, Johannesburg, Seoul, and London, plus exclusive sessions in Dubai.
-              </p>
-            </div>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-poppins font-bold text-white drop-shadow-lg">
               Workshops — Learn From the Best
             </h1>
