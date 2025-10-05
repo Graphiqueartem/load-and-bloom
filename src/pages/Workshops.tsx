@@ -1,216 +1,287 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Calendar, Users, Star, Clock } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { MapPin, Calendar, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import workshopsHero from '@/assets/workshops-hero.jpg';
+import dubaiStudio from '@/assets/dubai-studio.jpg';
 
 const Workshops = () => {
-  const workshops = [
+  const citySchedules = [
     {
-      genre: 'Hip Hop',
+      city: 'Mexico City',
+      date: 'March 15-16, 2025',
+      venue: 'Teatro de la Ciudad',
+      styles: 'Hip Hop, Contemporary, Ballet',
       instructor: 'Carlos Rodriguez',
-      level: 'Beginner to Advanced',
-      duration: '2 hours',
-      color: 'turquoise'
     },
     {
-      genre: 'Contemporary',
+      city: 'Sydney',
+      date: 'April 20-21, 2025',
+      venue: 'Sydney Opera House Studios',
+      styles: 'Latin Fusion, Contemporary, Freestyle',
       instructor: 'Sarah Chen',
-      level: 'Intermediate',
-      duration: '1.5 hours',
-      color: 'baby-pink'
     },
     {
-      genre: 'Latin',
-      instructor: 'Maria Santos',
-      level: 'All Levels',
-      duration: '2 hours',
-      color: 'accent'
-    },
-    {
-      genre: 'Jazz',
-      instructor: 'David Kim',
-      level: 'Beginner',
-      duration: '1.5 hours',
-      color: 'light-blue'
-    },
-    {
-      genre: 'Street Dance',
+      city: 'Johannesburg',
+      date: 'May 10-11, 2025',
+      venue: 'Joburg Theatre Complex',
+      styles: 'Hip Hop, Ballet, Freestyle',
       instructor: 'Thabo Mthembu',
-      level: 'Advanced',
-      duration: '2 hours',
-      color: 'primary'
-    }
+    },
+    {
+      city: 'Seoul',
+      date: 'June 5-6, 2025',
+      venue: 'Seoul Arts Center',
+      styles: 'Contemporary, Hip Hop, Latin Fusion',
+      instructor: 'Min-Ji Park',
+    },
+    {
+      city: 'London',
+      date: 'July 15-16, 2025',
+      venue: 'Sadler\'s Wells Theatre',
+      styles: 'Ballet, Contemporary, Freestyle',
+      instructor: 'Emma Thompson',
+    },
+  ];
+
+  const instructors = [
+    {
+      name: 'Carlos Rodriguez',
+      country: 'Mexico',
+      bio: 'Award-winning Hip Hop choreographer with 15 years experience teaching internationally and creating viral dance content.',
+      image: '/lovable-uploads/team-1.jpg',
+    },
+    {
+      name: 'Sarah Chen',
+      country: 'Australia',
+      bio: 'Contemporary dance specialist and former principal dancer with Sydney Dance Company, now mentoring rising talent.',
+      image: '/lovable-uploads/team-2.jpg',
+    },
+    {
+      name: 'Thabo Mthembu',
+      country: 'South Africa',
+      bio: 'Street dance pioneer blending African traditional movement with modern urban styles, inspiring dancers across continents.',
+      image: '/lovable-uploads/team-3.jpg',
+    },
   ];
 
   return (
     <div className="page-gradient-bg">
       {/* Hero Section */}
-      <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[700px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            src="/lovable-uploads/b0860258-46f0-4e90-abc6-5f88cb2d3f46.png" 
-            alt="Dance workshops" 
+            src={workshopsHero}
+            alt="Dance workshops with professional instructors" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-neon-pink/90 via-primary/85 to-turquoise/90"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/80 to-accent/90"></div>
         </div>
         
         <div className="relative z-10 container mx-auto px-3 sm:px-4 lg:px-6 text-center">
-          <div className="max-w-4xl mx-auto space-y-4 sm:space-y-6 animate-fade-in">
-            <div className="flex justify-center mb-4">
-              <div className="bg-white/10 backdrop-blur-sm rounded-full p-4 animate-scale-in">
-                <Users className="h-12 w-12 text-white" />
-              </div>
+          <div className="max-w-5xl mx-auto space-y-4 sm:space-y-6 animate-fade-in">
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg px-6 py-3 inline-block mb-4">
+              <p className="text-white text-sm sm:text-base font-open-sans">
+                Workshops run alongside each regional event in Mexico City, Sydney, Johannesburg, Seoul, and London, plus exclusive sessions in Dubai.
+              </p>
             </div>
-            <h1 className="text-3xl sm:text-4xl md:text-6xl font-poppins font-bold text-white drop-shadow-lg">
-              Learn. Grow. Dance.
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-poppins font-bold text-white drop-shadow-lg">
+              Workshops — Learn From the Best
             </h1>
-            <p className="text-lg sm:text-xl font-open-sans text-white/95 max-w-2xl mx-auto">
-              Workshops with world-class instructors.
-            </p>
           </div>
         </div>
       </section>
 
       {/* Main Content */}
-      <div className="container mx-auto px-3 sm:px-4 lg:px-6 py-5 pb-0">
-        {/* Main Copy */}
-        <div className="max-w-4xl mx-auto mb-8 sm:mb-10">
-          <Card className="bg-gradient-to-br from-white to-muted/30 border-0 shadow-xl hover:shadow-2xl transition-all duration-300 animate-fade-in">
-            <CardContent className="p-6 sm:p-10">
-              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed text-center">
-                LoveDanceLive workshops bring dancers face-to-face with industry professionals. Explore different styles, sharpen your technique, and expand your artistry.
+      <div className="container mx-auto px-3 sm:px-4 lg:px-6 py-12 sm:py-16">
+        
+        {/* Section 1: Overview */}
+        <div className="max-w-4xl mx-auto mb-16">
+          <Card className="bg-gradient-to-br from-white to-muted/30 border-0 shadow-xl">
+            <CardContent className="p-8 sm:p-12">
+              <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed text-center mb-8">
+                LoveDanceLive Workshops bring together world-class instructors to share technique and inspiration with young performers. Sessions cover Hip Hop, Contemporary, Ballet, Latin Fusion and Freestyle Performance.
               </p>
+              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed text-center">
+                Every regional city hosts a two-day series leading up to competition day, open to registered participants and their chaperones.
+              </p>
+              <div className="text-center mt-8">
+                <Button size="lg" asChild className="hover:shadow-lg transform hover:-translate-y-0.5 transition-all">
+                  <Link to="#schedules">View Schedules</Link>
+                </Button>
+              </div>
             </CardContent>
           </Card>
         </div>
 
-        {/* Schedule */}
-        <div className="mb-8 sm:mb-10">
-          <div className="text-center mb-8">
-            <div className="inline-block">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold gradient-text-hero mb-4">
-                Schedule
-              </h2>
-              <div className="h-1.5 w-32 bg-gradient-to-r from-turquoise to-neon-pink mx-auto rounded-full"></div>
-            </div>
-            <p className="text-base sm:text-lg text-muted-foreground mt-6 max-w-3xl mx-auto">
-              View workshops by city and genre.
+        {/* Section 2: City Schedules */}
+        <div id="schedules" className="mb-16">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold gradient-text-hero mb-4">
+              City Schedules
+            </h2>
+            <div className="h-1.5 w-32 bg-gradient-to-r from-turquoise to-neon-pink mx-auto rounded-full mb-6"></div>
+            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
+              Choose your city and book your workshop experience
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto">
-            <Card className="bg-gradient-to-br from-primary/10 via-background to-accent/10 border-0 shadow-xl hover:shadow-2xl transition-all duration-300">
-              <CardContent className="p-8 sm:p-10 text-center">
-                <Calendar className="h-12 w-12 text-primary mx-auto mb-6" />
-                <h3 className="text-2xl font-poppins font-bold text-foreground mb-4">
-                  Workshops Across 5 Cities
-                </h3>
-                <p className="text-base sm:text-lg text-muted-foreground">
-                  Workshops are available at all regional events in Mexico City, Sydney, Johannesburg, Seoul, and London.
-                </p>
-              </CardContent>
-            </Card>
+          <div className="max-w-5xl mx-auto">
+            <Tabs defaultValue="mexico" className="w-full">
+              <TabsList className="grid w-full grid-cols-2 lg:grid-cols-5 mb-8">
+                {citySchedules.map((schedule) => (
+                  <TabsTrigger 
+                    key={schedule.city.toLowerCase().replace(' ', '')} 
+                    value={schedule.city.toLowerCase().replace(' ', '')}
+                    className="text-xs sm:text-sm"
+                  >
+                    {schedule.city}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+              
+              {citySchedules.map((schedule) => (
+                <TabsContent 
+                  key={schedule.city.toLowerCase().replace(' ', '')} 
+                  value={schedule.city.toLowerCase().replace(' ', '')}
+                >
+                  <Card className="bg-gradient-to-br from-primary/5 to-accent/5 border-0 shadow-xl">
+                    <CardContent className="p-8 sm:p-10">
+                      <h3 className="text-2xl sm:text-3xl font-poppins font-bold text-foreground mb-6">
+                        {schedule.city}
+                      </h3>
+                      <div className="space-y-4 mb-8">
+                        <div className="flex items-start gap-3">
+                          <Calendar className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
+                          <div>
+                            <p className="font-semibold text-foreground">Date</p>
+                            <p className="text-muted-foreground">{schedule.date}</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <MapPin className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
+                          <div>
+                            <p className="font-semibold text-foreground">Venue</p>
+                            <p className="text-muted-foreground">{schedule.venue}</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <User className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
+                          <div>
+                            <p className="font-semibold text-foreground">Lead Instructor</p>
+                            <p className="text-muted-foreground">{schedule.instructor}</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <div className="h-5 w-5 flex items-center justify-center text-primary mt-1 flex-shrink-0">
+                            <div className="h-2 w-2 rounded-full bg-primary"></div>
+                          </div>
+                          <div>
+                            <p className="font-semibold text-foreground">Styles</p>
+                            <p className="text-muted-foreground">{schedule.styles}</p>
+                          </div>
+                        </div>
+                      </div>
+                      <Button size="lg" className="w-full hover:shadow-lg transform hover:-translate-y-0.5 transition-all">
+                        Book Your Workshop
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </TabsContent>
+              ))}
+            </Tabs>
+
+            <p className="text-center text-sm text-muted-foreground mt-6 italic">
+              Host cities rotate each season — check the next announcement for your continent.
+            </p>
           </div>
         </div>
 
-        {/* Genres */}
-        <div className="mb-8 sm:mb-10">
-          <div className="text-center mb-8">
-            <div className="inline-block">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold gradient-text-hero mb-4">
-                Genres
-              </h2>
-              <div className="h-1.5 w-32 bg-gradient-to-r from-turquoise to-neon-pink mx-auto rounded-full"></div>
-            </div>
-            <p className="text-base sm:text-lg text-muted-foreground mt-6 max-w-3xl mx-auto">
-              Hip-Hop, Contemporary, Jazz, Ballet, Fusion.
+        {/* Section 3: Instructor Highlights */}
+        <div className="mb-16">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold gradient-text-hero mb-4">
+              Instructor Highlights
+            </h2>
+            <div className="h-1.5 w-32 bg-gradient-to-r from-turquoise to-neon-pink mx-auto rounded-full mb-6"></div>
+            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
+              Learn from world-renowned dancers and choreographers
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-5xl mx-auto">
-            {['Hip-Hop', 'Contemporary', 'Jazz', 'Ballet', 'Fusion'].map((genre, index) => (
-              <Card key={index} className="bg-gradient-to-br from-turquoise/10 to-turquoise/5 border-0 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto mb-8">
+            {instructors.map((instructor, index) => (
+              <Card key={index} className="bg-gradient-to-br from-white to-muted/20 border-0 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                 <CardContent className="p-6 text-center">
-                  <h3 className="text-lg font-poppins font-bold text-foreground">{genre}</h3>
+                  <div className="w-[250px] h-[250px] mx-auto mb-4 rounded-full overflow-hidden">
+                    <img 
+                      src={instructor.image} 
+                      alt={instructor.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h3 className="text-xl font-poppins font-bold text-foreground mb-2">
+                    {instructor.name}
+                  </h3>
+                  <p className="text-sm text-primary font-semibold mb-3">
+                    {instructor.country}
+                  </p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {instructor.bio}
+                  </p>
                 </CardContent>
               </Card>
             ))}
           </div>
+
+          <div className="text-center">
+            <Button size="lg" variant="outline" asChild className="hover:shadow-lg transform hover:-translate-y-0.5 transition-all">
+              <Link to="/judges">See Full Instructor List</Link>
+            </Button>
+          </div>
         </div>
 
-        {/* Instructors */}
-        <div className="mb-8 sm:mb-10">
-          <div className="text-center mb-8">
-            <div className="inline-block">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold gradient-text-hero mb-4">
-                Instructors
-              </h2>
-              <div className="h-1.5 w-32 bg-gradient-to-r from-turquoise to-neon-pink mx-auto rounded-full"></div>
-            </div>
-            <p className="text-base sm:text-lg text-muted-foreground mt-6 max-w-3xl mx-auto">
-              World-renowned teachers and choreographers sharing their craft.
-            </p>
-          </div>
-
-          <div className="max-w-3xl mx-auto">
-            <Card className="bg-gradient-to-br from-baby-pink/10 via-background to-light-blue/10 border-0 shadow-xl hover:shadow-2xl transition-all duration-300">
-              <CardContent className="p-8 sm:p-10 text-center">
-                <Star className="h-12 w-12 text-baby-pink mx-auto mb-6" />
-                <h3 className="text-2xl font-poppins font-bold text-foreground mb-4">
-                  Learn from Industry Leaders
-                </h3>
-                <p className="text-base sm:text-lg text-muted-foreground">
-                  Our instructors are award-winning dancers, choreographers, and industry leaders with decades of combined experience.
+        {/* Section 4: Dubai Masterclasses */}
+        <div className="mb-16">
+          <Card className="bg-gradient-to-br from-primary/5 via-accent/5 to-secondary/5 border-0 shadow-2xl overflow-hidden">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+              <div className="relative h-64 lg:h-auto">
+                <img 
+                  src={dubaiStudio}
+                  alt="Dubai masterclass studio"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <CardContent className="p-8 sm:p-12 flex flex-col justify-center">
+                <h2 className="text-3xl sm:text-4xl font-poppins font-bold gradient-text-hero mb-6">
+                  Dubai Masterclasses
+                </h2>
+                <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8">
+                  At the Grand Final in Dubai, Days 1 and 2 feature exclusive masterclasses for finalists plus optional guest sessions for chaperones. These sessions are held onsite in the official resort studios and open for advance booking once Golden Ticket results are announced.
                 </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-
-        {/* Registration */}
-        <div className="mb-8 sm:mb-10">
-          <div className="text-center mb-8">
-            <div className="inline-block">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold gradient-text-hero mb-4">
-                Registration
-              </h2>
-              <div className="h-1.5 w-32 bg-gradient-to-r from-turquoise to-neon-pink mx-auto rounded-full"></div>
-            </div>
-            <p className="text-base sm:text-lg text-muted-foreground mt-6 max-w-3xl mx-auto">
-              Limited slots — sign up early to secure your place.
-            </p>
-          </div>
-
-          <div className="max-w-3xl mx-auto">
-            <Card className="bg-gradient-to-br from-turquoise/10 via-background to-neon-pink/10 border-0 shadow-xl hover:shadow-2xl transition-all duration-300">
-              <CardContent className="p-8 sm:p-10 text-center">
-                <Clock className="h-12 w-12 text-turquoise mx-auto mb-6" />
-                <h3 className="text-2xl font-poppins font-bold text-foreground mb-4">
-                  Don't Miss Out
-                </h3>
-                <p className="text-base sm:text-lg text-muted-foreground">
-                  Workshop spaces fill quickly. Register early to guarantee your spot with the instructors you want to learn from.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-
-        {/* CTA Section */}
-        <div className="text-center">
-          <Card className="bg-gradient-to-br from-primary/10 via-primary/5 to-secondary/10 border-primary/20 max-w-2xl mx-auto shadow-lg hover:shadow-xl transition-shadow animate-scale-in">
-            <CardContent className="p-6 sm:p-10">
-              <h3 className="text-2xl sm:text-3xl font-poppins font-bold text-foreground mb-6">
-                Ready to Learn?
-              </h3>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <Button size="lg" asChild className="hover:shadow-lg transform hover:-translate-y-0.5 transition-all">
-                  <Link to="/events">View Workshop Schedule</Link>
+                <Button size="lg" asChild className="w-full sm:w-auto hover:shadow-lg transform hover:-translate-y-0.5 transition-all">
+                  <Link to="/dubai-finals">Explore Dubai Finals</Link>
                 </Button>
-                <Button size="lg" variant="outline" asChild className="hover:shadow-lg transform hover:-translate-y-0.5 transition-all">
-                  <Link to="/registration">Register for Workshops</Link>
+              </CardContent>
+            </div>
+          </Card>
+        </div>
+
+        {/* Section 5: CTA Band */}
+        <div className="max-w-4xl mx-auto">
+          <Card className="bg-gradient-to-r from-baby-pink to-neon-pink border-0 shadow-2xl">
+            <CardContent className="p-10 sm:p-14 text-center">
+              <h3 className="text-2xl sm:text-3xl font-poppins font-bold text-white mb-8">
+                Learn, train and shine — book your LoveDanceLive workshops today.
+              </h3>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button size="lg" variant="secondary" className="hover:shadow-lg transform hover:-translate-y-0.5 transition-all">
+                  Register Now
+                </Button>
+                <Button size="lg" variant="outline" asChild className="bg-white/10 text-white border-white hover:bg-white hover:text-primary hover:shadow-lg transform hover:-translate-y-0.5 transition-all">
+                  <Link to="/online-classes">Browse Online Classes</Link>
                 </Button>
               </div>
             </CardContent>
