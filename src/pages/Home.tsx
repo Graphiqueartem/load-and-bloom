@@ -13,6 +13,13 @@ import {
 } from "@/components/ui/carousel";
 
 const heroImage = '/lovable-uploads/47a64dda-9083-4c59-962a-605d69645979.png';
+import eventPoster1 from '@/assets/event-poster-1.jpg';
+import eventPoster2 from '@/assets/event-poster-2.jpg';
+import eventPoster3 from '@/assets/event-poster-3.jpg';
+import eventPosterCompetition from '@/assets/event-poster-competition-1.jpg';
+import eventPosterMasterclass from '@/assets/event-poster-masterclass-1.jpg';
+import competitionStage from '@/assets/competition-stage.jpg';
+import workshopScene from '@/assets/workshop-scene.jpg';
 
 const Home = () => {
   return (
@@ -116,7 +123,7 @@ const Home = () => {
             <Card className="group hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden h-[400px] flex flex-col">
               <div className="relative h-48 overflow-hidden">
                 <img 
-                  src="/lovable-uploads/47a64dda-9083-4c59-962a-605d69645979.png" 
+                  src={competitionStage}
                   alt="Live stage performance" 
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                 />
@@ -156,7 +163,7 @@ const Home = () => {
             <Card className="group hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden h-[400px] flex flex-col">
               <div className="relative h-48 overflow-hidden">
                 <img 
-                  src="/lovable-uploads/47a64dda-9083-4c59-962a-605d69645979.png" 
+                  src={workshopScene}
                   alt="Dance class" 
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                 />
@@ -193,73 +200,20 @@ const Home = () => {
             <div className="h-1.5 w-32 bg-gradient-to-r from-primary via-accent to-primary rounded-full mx-auto"></div>
           </div>
           
-          {/* Mobile Carousel */}
-          <div className="lg:hidden max-w-7xl mx-auto">
-            <Carousel
-              opts={{
-                align: "start",
-                loop: true,
-              }}
-              className="w-full"
-            >
-              <CarouselContent>
-                {[
-                  { city: 'Mexico City, Mexico', date: '29 Febrero', venue: 'Teatro de la Ciudad', icon: '🇲🇽' },
-                  { city: 'Sydney, Australia', date: '27 Jullano', venue: 'Opera House', icon: '🇦🇺' },
-                  { city: 'Johannesburg, South Africa', date: '30 Arausto', venue: 'The Teatro', icon: '🇿🇦' },
-                  { city: 'Seoul, South Korea', date: '24 Joubon', venue: 'COEX Artium', icon: '🇰🇷' },
-                  { city: 'London, United Kingdom', date: '24 Leaine', venue: 'Sadler\'s Wells', icon: '🇬🇧' },
-                ].map((event, index) => (
-                  <CarouselItem key={index}>
-                    <div className="p-2">
-                      <Card className="hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
-                        <div className="relative h-48 overflow-hidden rounded-t-lg">
-                          <img 
-                            src="/lovable-uploads/47a64dda-9083-4c59-962a-605d69645979.png" 
-                            alt={event.city}
-                            className="w-full h-full object-cover"
-                          />
-                          <div className="absolute top-4 left-4 text-5xl">{event.icon}</div>
-                        </div>
-                        <CardHeader className="pb-3">
-                          <CardTitle className="text-lg font-poppins">{event.city}</CardTitle>
-                        </CardHeader>
-                        <CardContent className="flex-1 flex flex-col justify-between pt-0">
-                          <div className="space-y-2 mb-4">
-                            <div className="flex items-center space-x-2 text-muted-foreground">
-                              <Calendar className="h-4 w-4 text-primary" />
-                              <span className="text-sm font-medium">{event.date}</span>
-                            </div>
-                            <p className="text-sm text-muted-foreground">{event.venue}</p>
-                          </div>
-                          <Button className="w-full bg-neon-pink hover:bg-neon-pink/90 text-white" asChild>
-                            <Link to="/registration">Register Now</Link>
-                          </Button>
-                        </CardContent>
-                      </Card>
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
-            </Carousel>
-          </div>
-
-          {/* Desktop Grid */}
-          <div className="hidden lg:block max-w-7xl mx-auto">
-            <div className="grid grid-cols-5 gap-6">
+          {/* Events Grid */}
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
               {[
-                { city: 'Mexico City, Mexico', date: '29 Febrero', venue: 'Teatro de la Ciudad', icon: '🇲🇽' },
-                { city: 'Sydney, Australia', date: '27 Jullano', venue: 'Opera House', icon: '🇦🇺' },
-                { city: 'Johannesburg, South Africa', date: '30 Arausto', venue: 'The Teatro', icon: '🇿🇦' },
-                { city: 'Seoul, South Korea', date: '24 Joubon', venue: 'COEX Artium', icon: '🇰🇷' },
-                { city: 'London, United Kingdom', date: '24 Leaine', venue: 'Sadler\'s Wells', icon: '🇬🇧' },
+                { city: 'Mexico City, Mexico', date: '29 Febrero', venue: 'Teatro de la Ciudad', icon: '🇲🇽', image: eventPoster1 },
+                { city: 'Sydney, Australia', date: '27 Jullano', venue: 'Opera House', icon: '🇦🇺', image: eventPoster2 },
+                { city: 'Johannesburg, South Africa', date: '30 Arausto', venue: 'The Teatro', icon: '🇿🇦', image: eventPoster3 },
+                { city: 'Seoul, South Korea', date: '24 Joubon', venue: 'COEX Artium', icon: '🇰🇷', image: eventPosterCompetition },
+                { city: 'London, United Kingdom', date: '24 Leaine', venue: 'Sadler\'s Wells', icon: '🇬🇧', image: eventPosterMasterclass },
               ].map((event, index) => (
                 <Card key={index} className="hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 h-full flex flex-col">
                   <div className="relative h-48 overflow-hidden rounded-t-lg">
                     <img 
-                      src="/lovable-uploads/47a64dda-9083-4c59-962a-605d69645979.png" 
+                      src={event.image}
                       alt={event.city}
                       className="w-full h-full object-cover"
                     />
