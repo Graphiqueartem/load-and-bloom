@@ -68,8 +68,8 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border shadow-sm">
-      <div className="container mx-auto px-2 sm:px-4 lg:px-6">
-        <div className="flex items-center justify-between py-2 lg:py-3 gap-2 lg:gap-4">
+      <div className="container mx-auto px-2 sm:px-4 lg:px-8 xl:px-12">
+        <div className="flex items-center justify-between py-2 lg:py-3 gap-2 lg:gap-6 xl:gap-8">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-1 lg:space-x-2 font-poppins font-bold text-base lg:text-lg flex-shrink-0">
             <Heart className="h-5 w-5 lg:h-6 lg:w-6 text-neon-pink" />
