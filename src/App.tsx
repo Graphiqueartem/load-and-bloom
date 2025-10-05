@@ -29,6 +29,9 @@ import Judges from '@/pages/Judges';
 import Events from '@/pages/Events';
 import PaymentSuccess from '@/pages/PaymentSuccess';
 import ComingSoon from '@/pages/ComingSoon';
+import Sponsors from '@/pages/Sponsors';
+import Shop from '@/pages/Shop';
+import AccountDashboard from '@/pages/AccountDashboard';
 import { AuthProvider } from '@/contexts/AuthContext';
 import { initializeDemoData } from '@/services/demoData';
 
@@ -123,8 +126,8 @@ function App() {
               <Route path="/online-classes" element={<Layout><OnlineClasses /></Layout>} />
               <Route path="/results-videos" element={<Layout><ResultsVideos /></Layout>} />
               <Route path="/judges" element={<Layout><Judges /></Layout>} />
-              <Route path="/sponsors" element={<Layout><div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16"><h1 className="text-3xl sm:text-4xl font-poppins font-bold mb-4 sm:mb-6">Sponsors</h1><p className="text-base sm:text-lg text-muted-foreground">Partner with LoveDanceLive - Coming Soon!</p></div></Layout>} />
-              <Route path="/shop" element={<Layout><div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16"><h1 className="text-3xl sm:text-4xl font-poppins font-bold mb-4 sm:mb-6">Shop</h1><p className="text-base sm:text-lg text-muted-foreground">Merchandise & Downloads - Coming Soon!</p></div></Layout>} />
+              <Route path="/sponsors" element={<Layout><Sponsors /></Layout>} />
+              <Route path="/shop" element={<Layout><Shop /></Layout>} />
               <Route path="/community" element={<Layout><Community /></Layout>} />
               <Route path="/live-chat" element={<Layout><LiveChat /></Layout>} />
               <Route path="/challenges" element={<Layout><Challenges /></Layout>} />
@@ -134,7 +137,7 @@ function App() {
               <Route path="/events" element={<Layout><Events /></Layout>} />
               <Route path="/payment-success" element={<PaymentSuccess />} />
               <Route path="/coming-soon" element={<Layout><ComingSoon /></Layout>} />
-              <Route path="/account" element={<Layout><UserDashboard /></Layout>} />
+              <Route path="/account" element={<Layout><AccountDashboard /></Layout>} />
               <Route path="/user-dashboard" element={<Layout><UserDashboard /></Layout>} />
               <Route path="/performance-review-form" element={<Layout><PerformanceReviewForm /></Layout>} />
               <Route path="/submit-performance" element={<Layout><PerformanceReviewForm /></Layout>} />

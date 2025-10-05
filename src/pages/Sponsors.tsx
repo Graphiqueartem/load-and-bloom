@@ -1,45 +1,60 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Handshake, Users, Globe, TrendingUp } from 'lucide-react';
-
-const heroImage = '/lovable-uploads/47a64dda-9083-4c59-962a-605d69645979.png';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Label } from '@/components/ui/label';
+import { Handshake, Building2, Award, Crown } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
+import sponsorsHero from '@/assets/sponsors-hero.jpg';
 
 const Sponsors = () => {
+  const { toast } = useToast();
+  const [formData, setFormData] = useState({ name: '', company: '', email: '', message: '' });
+
   React.useEffect(() => {
     document.title = "Sponsors - Partner with LoveDanceLive";
   }, []);
 
-  const benefits = [
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    toast({
+      title: "Message Sent!",
+      description: "Thanks for your interest — our Partnership Team will contact you soon."
+    });
+    setFormData({ name: '', company: '', email: '', message: '' });
+  };
+
+  const packages = [
     {
-      icon: Globe,
-      title: 'Global Reach',
-      description: 'Connect with thousands of dancers across 5 continents',
-      gradient: 'from-turquoise/10 to-turquoise/5'
+      icon: Award,
+      title: 'Bronze Partner',
+      description: 'Logo placement + website link.',
+      gradient: 'from-amber-700/10 to-amber-600/5'
     },
     {
-      icon: Users,
-      title: 'Engaged Audience',
-      description: 'Passionate community of performers and dance enthusiasts',
-      gradient: 'from-neon-pink/10 to-baby-pink/5'
+      icon: Building2,
+      title: 'Silver Partner',
+      description: 'Event branding + social mentions.',
+      gradient: 'from-gray-400/10 to-gray-300/5'
     },
     {
-      icon: TrendingUp,
-      title: 'Brand Visibility',
-      description: 'Featured placement at live events and digital platforms',
-      gradient: 'from-light-blue/10 to-turquoise/5'
-    },
+      icon: Crown,
+      title: 'Gold Partner',
+      description: 'Premium branding + Dubai Final stage exposure.',
+      gradient: 'from-yellow-500/10 to-yellow-400/5'
+    }
   ];
 
   return (
     <div className="page-gradient-bg">
       {/* Hero Section */}
-      <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            src={heroImage} 
-            alt="Corporate partnership and sponsorship opportunities" 
+            src={sponsorsHero} 
+            alt="Brand banners around stage" 
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-neon-pink/90 via-primary/85 to-turquoise/90"></div>
@@ -52,171 +67,185 @@ const Sponsors = () => {
                 <Handshake className="h-12 w-12 text-white" />
               </div>
             </div>
-            <h1 className="text-3xl sm:text-4xl md:text-6xl font-poppins font-bold text-white drop-shadow-lg">
-              Partner With Passion
-            </h1>
-            <p className="text-lg sm:text-xl font-open-sans text-white/95 max-w-2xl mx-auto">
-              Reach a global audience of dancers & fans.
+            <p className="text-base sm:text-lg font-open-sans text-white/95">
+              Join a global platform uniting five continents of young talent.
             </p>
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-poppins font-bold text-white drop-shadow-lg">
+              Sponsors — Partner with LoveDanceLive
+            </h1>
           </div>
         </div>
       </section>
 
-      {/* Main Content */}
-      <div className="container mx-auto px-3 sm:px-4 lg:px-6 py-5 pb-0">
-        {/* Main Copy */}
-        <div className="max-w-4xl mx-auto mb-8 sm:mb-10">
-          <Card className="bg-gradient-to-br from-white to-muted/30 border-0 shadow-xl hover:shadow-2xl transition-all duration-300 animate-fade-in">
-            <CardContent className="p-6 sm:p-10">
-              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed text-center">
-                Sponsorship with LoveDanceLive connects your brand with thousands of dancers worldwide. From live events to digital platforms, partners gain exposure, loyalty, and meaningful engagement.
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Benefits Grid */}
-        <div className="mb-8 sm:mb-10">
-          <div className="text-center mb-8">
-            <div className="inline-block">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold gradient-text-hero mb-4">
-                Why Partner With Us
-              </h2>
-              <div className="h-1.5 w-32 bg-gradient-to-r from-turquoise to-neon-pink mx-auto rounded-full"></div>
+      {/* Section 1 - Intro */}
+      <section className="py-8 md:py-16 bg-background">
+        <div className="w-full px-4">
+          <div className="max-w-5xl mx-auto text-center space-y-6">
+            <p className="text-lg md:text-xl text-foreground leading-relaxed">
+              LoveDanceLive partners with brands, foundations and education groups to support dance as a positive global force.
+            </p>
+            <p className="text-lg md:text-xl text-foreground leading-relaxed">
+              Our audience spans five continents and thousands of families each season through live and online events.
+            </p>
+            
+            <div className="pt-6">
+              <Button size="lg" asChild>
+                <Link to="#contact-form">Request Sponsorship Pack</Link>
+              </Button>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
-            {benefits.map((benefit, index) => (
-              <Card key={index} className={`bg-gradient-to-br ${benefit.gradient} border-0 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-fade-in`} style={{ animationDelay: `${index * 0.1}s` }}>
+      {/* Section 2 - Current Sponsors Grid */}
+      <section className="py-8 md:py-16 bg-gradient-to-br from-turquoise/5 to-baby-pink/5">
+        <div className="w-full px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-poppins font-bold text-foreground mb-4">
+              Current Sponsors
+            </h2>
+            <div className="h-1.5 w-32 bg-gradient-to-r from-primary via-accent to-primary rounded-full mx-auto"></div>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <Card className="bg-gradient-to-br from-white to-background">
+              <CardContent className="p-12 text-center">
+                <p className="text-lg text-muted-foreground mb-8">
+                  Logo grid — 4 columns desktop
+                </p>
+                <p className="text-base text-muted-foreground">
+                  Join our family of trusted partners and showcase your brand to a global dance audience.
+                </p>
+              </CardContent>
+            </Card>
+            <div className="text-center mt-8">
+              <Button size="lg" asChild>
+                <Link to="#contact-form">Become a Sponsor</Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 3 - Package Levels */}
+      <section className="py-8 md:py-16 bg-background">
+        <div className="w-full px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-poppins font-bold text-foreground mb-4">
+              Sponsorship Packages
+            </h2>
+            <div className="h-1.5 w-32 bg-gradient-to-r from-turquoise to-neon-pink rounded-full mx-auto"></div>
+          </div>
+
+          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+            {packages.map((pkg, index) => (
+              <Card key={index} className={`bg-gradient-to-br ${pkg.gradient} border-0 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-fade-in`} style={{ animationDelay: `${index * 0.1}s` }}>
                 <CardContent className="p-8 text-center">
                   <div className="gradient-icon-bg w-fit mx-auto mb-6">
-                    <benefit.icon className="h-12 w-12 text-white" />
+                    <pkg.icon className="h-12 w-12 text-white" />
                   </div>
-                  <h3 className="text-xl font-poppins font-bold text-foreground mb-3">{benefit.title}</h3>
+                  <h3 className="text-xl font-poppins font-bold text-foreground mb-3">{pkg.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
-                    {benefit.description}
+                    {pkg.description}
                   </p>
                 </CardContent>
               </Card>
             ))}
           </div>
-        </div>
 
-        {/* Sponsorship Packages */}
-        <div className="mb-8 sm:mb-10">
-          <div className="text-center mb-8">
-            <div className="inline-block">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold gradient-text-hero mb-4">
-                Sponsorship Packages
-              </h2>
-              <div className="h-1.5 w-32 bg-gradient-to-r from-turquoise to-neon-pink mx-auto rounded-full"></div>
-            </div>
-            <p className="text-base sm:text-lg text-muted-foreground mt-6 max-w-3xl mx-auto">
-              Tailored for brands of all sizes.
-            </p>
+          <div className="text-center mt-10">
+            <Button size="lg" variant="outline" asChild>
+              <Link to="/coming-soon" state={{ pageTitle: "Sponsorship Guide" }}>Download Sponsorship Guide PDF</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 4 - Contact Form */}
+      <section id="contact-form" className="py-8 md:py-16 bg-gradient-to-br from-turquoise/5 to-baby-pink/5">
+        <div className="w-full px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-poppins font-bold text-foreground mb-4">
+              Get In Touch
+            </h2>
+            <div className="h-1.5 w-32 bg-gradient-to-r from-primary to-accent rounded-full mx-auto"></div>
           </div>
 
-          <div className="max-w-4xl mx-auto">
-            <Card className="bg-gradient-to-br from-primary/10 via-background to-accent/10 border-0 shadow-xl hover:shadow-2xl transition-all duration-300">
-              <CardContent className="p-8 sm:p-10">
-                <div className="space-y-6">
-                  <div className="text-center mb-8">
-                    <h3 className="text-2xl font-poppins font-bold text-foreground mb-4">
-                      Custom Partnership Opportunities
-                    </h3>
-                    <p className="text-base sm:text-lg text-muted-foreground">
-                      We offer flexible sponsorship packages designed to meet your brand's unique goals and budget.
-                    </p>
+          <div className="max-w-2xl mx-auto">
+            <Card className="bg-gradient-to-br from-white to-background">
+              <CardContent className="p-8">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="space-y-2">
+                    <Label htmlFor="name">Name</Label>
+                    <Input 
+                      id="name" 
+                      value={formData.name}
+                      onChange={(e) => setFormData({...formData, name: e.target.value})}
+                      placeholder="Your name" 
+                      required
+                    />
                   </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-3">
-                      <h4 className="font-semibold text-foreground text-lg">Event Sponsorship</h4>
-                      <ul className="space-y-2 text-sm text-muted-foreground">
-                        <li className="flex items-start gap-2">
-                          <div className="h-2 w-2 rounded-full bg-primary mt-1.5 flex-shrink-0"></div>
-                          <span>Logo placement at regional events</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <div className="h-2 w-2 rounded-full bg-primary mt-1.5 flex-shrink-0"></div>
-                          <span>Stage and venue branding</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <div className="h-2 w-2 rounded-full bg-primary mt-1.5 flex-shrink-0"></div>
-                          <span>VIP hospitality packages</span>
-                        </li>
-                      </ul>
-                    </div>
-
-                    <div className="space-y-3">
-                      <h4 className="font-semibold text-foreground text-lg">Digital Sponsorship</h4>
-                      <ul className="space-y-2 text-sm text-muted-foreground">
-                        <li className="flex items-start gap-2">
-                          <div className="h-2 w-2 rounded-full bg-accent mt-1.5 flex-shrink-0"></div>
-                          <span>Website and social media features</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <div className="h-2 w-2 rounded-full bg-accent mt-1.5 flex-shrink-0"></div>
-                          <span>Live stream ad placements</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <div className="h-2 w-2 rounded-full bg-accent mt-1.5 flex-shrink-0"></div>
-                          <span>Email marketing campaigns</span>
-                        </li>
-                      </ul>
-                    </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="company">Company</Label>
+                    <Input 
+                      id="company" 
+                      value={formData.company}
+                      onChange={(e) => setFormData({...formData, company: e.target.value})}
+                      placeholder="Company name" 
+                      required
+                    />
                   </div>
-                </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Email</Label>
+                    <Input 
+                      id="email" 
+                      type="email"
+                      value={formData.email}
+                      onChange={(e) => setFormData({...formData, email: e.target.value})}
+                      placeholder="your@email.com" 
+                      required
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="message">Message</Label>
+                    <Textarea 
+                      id="message" 
+                      value={formData.message}
+                      onChange={(e) => setFormData({...formData, message: e.target.value})}
+                      placeholder="Tell us about your sponsorship interest..."
+                      className="min-h-[120px]"
+                      required
+                    />
+                  </div>
+                  <Button type="submit" size="lg" className="w-full">
+                    Send Enquiry
+                  </Button>
+                </form>
               </CardContent>
             </Card>
           </div>
         </div>
+      </section>
 
-        {/* Current Sponsors */}
-        <div className="mb-8 sm:mb-10">
-          <div className="text-center mb-8">
-            <div className="inline-block">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold gradient-text-hero mb-4">
-                Current Sponsors
-              </h2>
-              <div className="h-1.5 w-32 bg-gradient-to-r from-turquoise to-neon-pink mx-auto rounded-full"></div>
+      {/* Section 5 - CTA Band */}
+      <section className="py-8 md:py-16 bg-gradient-to-r from-turquoise/40 via-light-blue/30 to-turquoise/40">
+        <div className="w-full px-4">
+          <div className="max-w-4xl mx-auto text-center space-y-8">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold text-foreground">
+              Partner with LoveDanceLive and share the stage with the world's young talent.
+            </h2>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" className="px-8 py-6 text-lg" asChild>
+                <Link to="#contact-form">Become a Sponsor</Link>
+              </Button>
+              <Button size="lg" variant="outline" className="px-8 py-6 text-lg" asChild>
+                <Link to="/contact">Contact Team</Link>
+              </Button>
             </div>
-            <p className="text-base sm:text-lg text-muted-foreground mt-6 max-w-3xl mx-auto">
-              Join our family of trusted partners.
-            </p>
-          </div>
-
-          <div className="max-w-3xl mx-auto">
-            <Card className="bg-gradient-to-br from-turquoise/10 via-background to-baby-pink/10 border-0 shadow-xl hover:shadow-2xl transition-all duration-300">
-              <CardContent className="p-8 sm:p-10 text-center">
-                <p className="text-base sm:text-lg text-muted-foreground">
-                  Sponsorship opportunities are available for the upcoming season. Contact us to learn more about how your brand can be part of our global dance movement.
-                </p>
-              </CardContent>
-            </Card>
           </div>
         </div>
-
-        {/* CTA Section */}
-        <div className="text-center">
-          <Card className="bg-gradient-to-br from-primary/10 via-primary/5 to-secondary/10 border-primary/20 max-w-2xl mx-auto shadow-lg hover:shadow-xl transition-shadow animate-scale-in">
-            <CardContent className="p-6 sm:p-10">
-              <h3 className="text-2xl sm:text-3xl font-poppins font-bold text-foreground mb-6">
-                Interested in Partnership?
-              </h3>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <Button size="lg" asChild className="hover:shadow-lg transform hover:-translate-y-0.5 transition-all">
-                  <Link to="/contact">Explore Sponsorship Opportunities</Link>
-                </Button>
-                <Button size="lg" asChild variant="outline" className="hover:shadow-lg transform hover:-translate-y-0.5 transition-all">
-                  <Link to="/contact">Partner With Us</Link>
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </div>
+      </section>
     </div>
   );
 };

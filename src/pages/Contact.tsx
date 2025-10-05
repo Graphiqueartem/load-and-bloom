@@ -7,7 +7,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Mail, Phone, MapPin, MessageSquare } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import contactHero from '@/assets/contact-hero.jpg';
+import contactHero from '@/assets/contact-support-hero.jpg';
 
 const Contact = () => {
   return (
@@ -17,7 +17,7 @@ const Contact = () => {
         <div className="absolute inset-0">
           <img 
             src={contactHero} 
-            alt="Smiling support staff ready to help" 
+            alt="Smiling backstage staff with laptops" 
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-primary/80 via-turquoise/70 to-accent/80"></div>
@@ -25,6 +25,9 @@ const Contact = () => {
         
         <div className="relative z-10 container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto space-y-6 animate-fade-in">
+            <p className="text-base sm:text-lg font-open-sans text-white/95">
+              We're here to help — contact the LoveDanceLive team anytime.
+            </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold text-white drop-shadow-2xl">
               Contact Us — Help & Support
             </h1>
