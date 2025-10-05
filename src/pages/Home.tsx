@@ -30,7 +30,7 @@ import dubaiFinale from '@/assets/dubai-finale.jpg';
 
 const Home = () => {
   return (
-    <div className="pb-4 md:pb-8">
+    <div>
       {/* Hero Video Header - Full Width 100vh */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
