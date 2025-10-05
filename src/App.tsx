@@ -43,6 +43,8 @@ import SadlersWellsNov from '@/pages/competitions/SadlersWellsNov';
 import LoveDanceSummerCamp2022 from '@/pages/competitions/LoveDanceSummerCamp2022';
 import ConventionSummerPicnic2022 from '@/pages/competitions/ConventionSummerPicnic2022';
 import UpcomingCompetitions from '@/pages/competitions/UpcomingCompetitions';
+import DubaiFinalsPage from '@/pages/DubaiFinalsPage';
+import SeriesBoardPage from '@/pages/SeriesBoardPage';
 
 const queryClient = new QueryClient();
 
@@ -147,6 +149,8 @@ function App() {
               <Route path="/competitions/lovedance-summer-camp-2022" element={<Layout><LoveDanceSummerCamp2022 /></Layout>} />
               <Route path="/competitions/convention-summer-picnic-2022" element={<Layout><ConventionSummerPicnic2022 /></Layout>} />
               <Route path="/competitions/upcoming" element={<Layout><UpcomingCompetitions /></Layout>} />
+              <Route path="/dubai-finals" element={<Layout><DubaiFinalsPage /></Layout>} />
+              <Route path="/series-board" element={<Layout><SeriesBoardPage /></Layout>} />
               
               <Route path="*" element={<Layout><NotFound /></Layout>} />
             </Routes>
