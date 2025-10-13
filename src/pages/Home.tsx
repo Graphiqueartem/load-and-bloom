@@ -113,7 +113,7 @@ const Home = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl blur-xl"></div>
               <img 
-                src={communityDance} 
+                src={placeholderImage} 
                 alt="Diverse teen dancers" 
                 className="relative rounded-2xl shadow-2xl w-full aspect-[3/4] object-cover"
               />
@@ -131,7 +131,7 @@ const Home = () => {
             <Card className="group hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden h-[400px] flex flex-col">
               <div className="relative h-48 overflow-hidden">
                 <img 
-                  src={competitionStage}
+                  src={placeholderImage}
                   alt="Live stage performance" 
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                 />
@@ -153,7 +153,7 @@ const Home = () => {
             <Card className="group hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden h-[400px] flex flex-col">
               <div className="relative h-48 overflow-hidden">
                 <img 
-                  src={onlineClass}
+                  src={placeholderImage}
                   alt="Online dance submission" 
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                 />
@@ -175,7 +175,7 @@ const Home = () => {
             <Card className="group hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden h-[400px] flex flex-col">
               <div className="relative h-48 overflow-hidden">
                 <img 
-                  src={workshopScene}
+                  src={placeholderImage}
                   alt="Dance class" 
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                 />
@@ -222,11 +222,11 @@ const Home = () => {
             >
               <CarouselContent className="-ml-2 md:-ml-4">
                 {[
-                  { city: 'Mexico City, Mexico', date: 'Lorem ipsum', venue: 'Lorem ipsum dolor', icon: '🇲🇽', image: eventPoster1 },
-                  { city: 'Sydney, Australia', date: 'Lorem ipsum', venue: 'Lorem ipsum dolor', icon: '🇦🇺', image: eventPoster2 },
-                  { city: 'Johannesburg, South Africa', date: 'Lorem ipsum', venue: 'Lorem ipsum dolor', icon: '🇿🇦', image: eventPoster3 },
-                  { city: 'Seoul, South Korea', date: 'Lorem ipsum', venue: 'Lorem ipsum dolor', icon: '🇰🇷', image: eventPosterCompetition },
-                  { city: 'London, United Kingdom', date: 'Lorem ipsum', venue: 'Lorem ipsum dolor', icon: '🇬🇧', image: eventPosterMasterclass },
+                  { city: 'Mexico City, Mexico', date: 'Lorem ipsum', venue: 'Lorem ipsum dolor', icon: '🇲🇽', image: placeholderImage },
+                  { city: 'Sydney, Australia', date: 'Lorem ipsum', venue: 'Lorem ipsum dolor', icon: '🇦🇺', image: placeholderImage },
+                  { city: 'Johannesburg, South Africa', date: 'Lorem ipsum', venue: 'Lorem ipsum dolor', icon: '🇿🇦', image: placeholderImage },
+                  { city: 'Seoul, South Korea', date: 'Lorem ipsum', venue: 'Lorem ipsum dolor', icon: '🇰🇷', image: placeholderImage },
+                  { city: 'London, United Kingdom', date: 'Lorem ipsum', venue: 'Lorem ipsum dolor', icon: '🇬🇧', image: placeholderImage },
                 ].map((event, index) => (
                   <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
                     <Card className="hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 h-[500px] flex flex-col">
@@ -333,7 +333,7 @@ const Home = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div className="order-2 md:order-1">
               <img 
-                src={ballroomDance}
+                src={placeholderImage}
                 alt="Dance instructor" 
                 className="rounded-2xl shadow-2xl w-full aspect-[7/5] object-cover"
               />
@@ -364,7 +364,7 @@ const Home = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div>
               <img 
-                src={contemporaryDance}
+                src={placeholderImage}
                 alt="LoveDanceLive team backstage" 
                 className="rounded-2xl shadow-2xl w-full aspect-video object-cover"
               />
@@ -412,12 +412,12 @@ const Home = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-8">
             {[
-              { id: 1, img: eventPosterWorkshop },
-              { id: 2, img: hipHopDance },
-              { id: 3, img: ballroomDance },
-              { id: 4, img: contemporaryDance },
-              { id: 5, img: competitionStage },
-              { id: 6, img: workshopScene }
+              { id: 1, img: placeholderImage },
+              { id: 2, img: placeholderImage },
+              { id: 3, img: placeholderImage },
+              { id: 4, img: placeholderImage },
+              { id: 5, img: placeholderImage },
+              { id: 6, img: placeholderImage }
             ].map((item) => (
               <div key={item.id} className="relative aspect-video rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow group cursor-pointer">
                 <img 
@@ -473,7 +473,7 @@ const Home = () => {
       <section className="relative h-[600px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            src={dubaiFinale}
+            src={placeholderImage}
             alt="Dubai stage and resort skyline" 
             className="w-full h-full object-cover"
           />
