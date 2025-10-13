@@ -77,7 +77,7 @@ const Workshops = () => {
       </section>
 
       {/* Hero Section */}
-      <section className="relative min-h-[700px] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[800px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img 
             src={workshopsHero}
@@ -87,9 +87,9 @@ const Workshops = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/80 to-accent/90"></div>
         </div>
         
-        <div className="relative z-10 container mx-auto px-3 sm:px-4 lg:px-6 text-center">
-          <div className="max-w-5xl mx-auto space-y-4 sm:space-y-6 animate-fade-in">
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-poppins font-bold text-white drop-shadow-lg">
+        <div className="relative z-10 container mx-auto px-4 text-center">
+          <div className="max-w-4xl mx-auto space-y-6 animate-fade-in">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold text-white drop-shadow-2xl">
               Learn From the Best
             </h1>
           </div>
