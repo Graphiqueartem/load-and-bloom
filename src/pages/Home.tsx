@@ -213,53 +213,95 @@ const Home = () => {
           </div>
           
           <div className="max-w-7xl mx-auto">
-            <Carousel
-              opts={{
-                align: "start",
-                loop: true,
-              }}
-              className="w-full"
-            >
-              <CarouselContent className="-ml-2 md:-ml-4">
-                {[
-                  { city: 'Mexico City, Mexico', date: 'To be announced', venue: 'To be announced', icon: '🇲🇽', image: placeholderImage },
-                  { city: 'Sydney, Australia', date: 'To be announced', venue: 'To be announced', icon: '🇦🇺', image: placeholderImage },
-                  { city: 'Johannesburg, South Africa', date: 'To be announced', venue: 'To be announced', icon: '🇿🇦', image: placeholderImage },
-                  { city: 'Seoul, South Korea', date: 'To be announced', venue: 'To be announced', icon: '🇰🇷', image: placeholderImage },
-                  { city: 'London, United Kingdom', date: 'To be announced', venue: 'To be announced', icon: '🇬🇧', image: placeholderImage },
-                ].map((event, index) => (
-                  <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                    <Card className="hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 h-[500px] flex flex-col">
-                      <div className="relative h-64 overflow-hidden rounded-t-lg">
-                        <img 
-                          src={event.image}
-                          alt={event.city}
-                          className="w-full h-full object-cover"
-                        />
-                        <div className="absolute top-4 left-4 text-5xl">{event.icon}</div>
-                      </div>
-                      <CardHeader className="pb-3">
-                        <CardTitle className="text-xl font-poppins">{event.city}</CardTitle>
-                      </CardHeader>
-                      <CardContent className="flex-1 flex flex-col justify-between pt-0">
-                        <div className="space-y-2 mb-4">
-                          <div className="flex items-center space-x-2 text-muted-foreground">
-                            <Calendar className="h-4 w-4 text-primary" />
-                            <span className="text-sm font-medium">{event.date}</span>
-                          </div>
-                          <p className="text-sm text-muted-foreground">{event.venue}</p>
+            {/* Desktop Carousel */}
+            <div className="hidden md:block">
+              <Carousel
+                opts={{
+                  align: "start",
+                  loop: true,
+                }}
+                className="w-full"
+              >
+                <CarouselContent className="-ml-2 md:-ml-4">
+                  {[
+                    { city: 'Mexico City, Mexico', date: 'To be announced', venue: 'To be announced', icon: '🇲🇽', image: placeholderImage },
+                    { city: 'Sydney, Australia', date: 'To be announced', venue: 'To be announced', icon: '🇦🇺', image: placeholderImage },
+                    { city: 'Johannesburg, South Africa', date: 'To be announced', venue: 'To be announced', icon: '🇿🇦', image: placeholderImage },
+                    { city: 'Seoul, South Korea', date: 'To be announced', venue: 'To be announced', icon: '🇰🇷', image: placeholderImage },
+                    { city: 'London, United Kingdom', date: 'To be announced', venue: 'To be announced', icon: '🇬🇧', image: placeholderImage },
+                  ].map((event, index) => (
+                    <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                      <Card className="hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 h-[500px] flex flex-col">
+                        <div className="relative h-64 overflow-hidden rounded-t-lg">
+                          <img 
+                            src={event.image}
+                            alt={event.city}
+                            className="w-full h-full object-cover"
+                          />
+                          <div className="absolute top-4 left-4 text-5xl">{event.icon}</div>
                         </div>
-                        <Button className="w-full" asChild>
-                          <Link to="/registration">Register Now</Link>
-                        </Button>
-                      </CardContent>
-                    </Card>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious className="-left-12 md:-left-16" />
-              <CarouselNext className="-right-12 md:-right-16" />
-            </Carousel>
+                        <CardHeader className="pb-3">
+                          <CardTitle className="text-xl font-poppins">{event.city}</CardTitle>
+                        </CardHeader>
+                        <CardContent className="flex-1 flex flex-col justify-between pt-0">
+                          <div className="space-y-2 mb-4">
+                            <div className="flex items-center space-x-2 text-muted-foreground">
+                              <Calendar className="h-4 w-4 text-primary" />
+                              <span className="text-sm font-medium">{event.date}</span>
+                            </div>
+                            <p className="text-sm text-muted-foreground">{event.venue}</p>
+                          </div>
+                          <Button className="w-full" asChild>
+                            <Link to="/registration">Register Now</Link>
+                          </Button>
+                        </CardContent>
+                      </Card>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <div className="relative">
+                  <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2" />
+                  <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2" />
+                </div>
+              </Carousel>
+            </div>
+
+            {/* Mobile Grid */}
+            <div className="md:hidden grid gap-6">
+              {[
+                { city: 'Mexico City, Mexico', date: 'To be announced', venue: 'To be announced', icon: '🇲🇽', image: placeholderImage },
+                { city: 'Sydney, Australia', date: 'To be announced', venue: 'To be announced', icon: '🇦🇺', image: placeholderImage },
+                { city: 'Johannesburg, South Africa', date: 'To be announced', venue: 'To be announced', icon: '🇿🇦', image: placeholderImage },
+                { city: 'Seoul, South Korea', date: 'To be announced', venue: 'To be announced', icon: '🇰🇷', image: placeholderImage },
+                { city: 'London, United Kingdom', date: 'To be announced', venue: 'To be announced', icon: '🇬🇧', image: placeholderImage },
+              ].map((event, index) => (
+                <Card key={index} className="hover:shadow-2xl transition-all duration-300 flex flex-col">
+                  <div className="relative h-48 overflow-hidden rounded-t-lg">
+                    <img 
+                      src={event.image}
+                      alt={event.city}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute top-4 left-4 text-5xl">{event.icon}</div>
+                  </div>
+                  <CardHeader className="pb-3">
+                    <CardTitle className="text-xl font-poppins">{event.city}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="flex-1 flex flex-col justify-between pt-0">
+                    <div className="space-y-2 mb-4">
+                      <div className="flex items-center space-x-2 text-muted-foreground">
+                        <Calendar className="h-4 w-4 text-primary" />
+                        <span className="text-sm font-medium">{event.date}</span>
+                      </div>
+                      <p className="text-sm text-muted-foreground">{event.venue}</p>
+                    </div>
+                    <Button className="w-full" asChild>
+                      <Link to="/registration">Register Now</Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
 
           <p className="text-center text-foreground mt-6 md:mt-8 max-w-3xl mx-auto text-sm md:text-base">
