@@ -90,7 +90,7 @@ const Workshops = () => {
         <div className="relative z-10 container mx-auto px-3 sm:px-4 lg:px-6 text-center">
           <div className="max-w-5xl mx-auto space-y-4 sm:space-y-6 animate-fade-in">
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-poppins font-bold text-white drop-shadow-lg">
-              Workshops — Learn From the Best
+              Learn From the Best
             </h1>
           </div>
         </div>
