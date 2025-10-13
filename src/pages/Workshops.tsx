@@ -77,14 +77,14 @@ const Workshops = () => {
       </section>
 
       {/* Hero Section */}
-      <section className="relative min-h-[800px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[50vh] md:h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img 
             src={workshopsHero}
             alt="Dance workshops with professional instructors" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/80 to-accent/90"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/80 via-turquoise/70 to-accent/80"></div>
         </div>
         
         <div className="relative z-10 container mx-auto px-4 text-center">
