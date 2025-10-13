@@ -7,6 +7,7 @@ import { Play, Clock, BarChart, User, Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import onlineClassesHero from '@/assets/online-classes-hero.jpg';
 import videoCallImage from '@/assets/online-class-video-call.jpg';
+import placeholderImage from '@/assets/placeholder.png';
 
 const OnlineClasses = () => {
   const [filterGenre, setFilterGenre] = useState('all');
@@ -17,48 +18,48 @@ const OnlineClasses = () => {
       title: 'Hip Hop Fundamentals',
       level: 'Beginner',
       duration: '45 min',
-      instructor: 'Carlos Rodriguez',
-      thumbnail: '/lovable-uploads/hip-hop-dance.jpg',
+      instructor: 'To be announced',
+      thumbnail: placeholderImage,
       genre: 'hip-hop',
     },
     {
       title: 'Contemporary Flow',
       level: 'Intermediate',
       duration: '60 min',
-      instructor: 'Sarah Chen',
-      thumbnail: '/lovable-uploads/contemporary-dance.jpg',
+      instructor: 'To be announced',
+      thumbnail: placeholderImage,
       genre: 'contemporary',
     },
     {
       title: 'Ballet Technique',
       level: 'Advanced',
       duration: '55 min',
-      instructor: 'Emma Thompson',
-      thumbnail: '/lovable-uploads/ballroom-dance.jpg',
+      instructor: 'To be announced',
+      thumbnail: placeholderImage,
       genre: 'ballet',
     },
     {
       title: 'Latin Fusion Energy',
       level: 'All Levels',
       duration: '50 min',
-      instructor: 'Maria Santos',
-      thumbnail: '/lovable-uploads/community-dance.jpg',
+      instructor: 'To be announced',
+      thumbnail: placeholderImage,
       genre: 'latin',
     },
     {
       title: 'Freestyle Workshop',
       level: 'Intermediate',
       duration: '40 min',
-      instructor: 'Thabo Mthembu',
-      thumbnail: '/lovable-uploads/workshop-scene.jpg',
+      instructor: 'To be announced',
+      thumbnail: placeholderImage,
       genre: 'freestyle',
     },
     {
       title: 'Jazz Performance',
       level: 'Beginner',
       duration: '45 min',
-      instructor: 'David Kim',
-      thumbnail: '/lovable-uploads/competition-stage.jpg',
+      instructor: 'To be announced',
+      thumbnail: placeholderImage,
       genre: 'jazz',
     },
   ];
@@ -97,19 +98,19 @@ const OnlineClasses = () => {
       </section>
 
       {/* Hero Section */}
-      <section className="relative min-h-[700px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[50vh] md:h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            src={onlineClassesHero}
+            src={placeholderImage}
             alt="Online dance classes" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-turquoise/90 via-primary/80 to-accent/90"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/80 via-turquoise/70 to-accent/80"></div>
         </div>
         
-        <div className="relative z-10 container mx-auto px-3 sm:px-4 lg:px-6 text-center">
-          <div className="max-w-5xl mx-auto space-y-4 sm:space-y-6 animate-fade-in">
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-poppins font-bold text-white drop-shadow-lg">
+        <div className="relative z-10 container mx-auto px-4 text-center">
+          <div className="max-w-4xl mx-auto space-y-6 animate-fade-in">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold text-white drop-shadow-2xl">
               Online Classes Portal — Dance Anytime
             </h1>
           </div>
@@ -325,7 +326,7 @@ const OnlineClasses = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
               <div className="relative h-64 lg:h-auto">
                 <img 
-                  src={videoCallImage}
+                  src={placeholderImage}
                   alt="Student on video call with instructor"
                   className="w-full h-full object-cover"
                 />
