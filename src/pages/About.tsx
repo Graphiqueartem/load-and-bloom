@@ -68,7 +68,7 @@ const About = () => {
         <div className="relative z-10 container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto space-y-6 animate-fade-in">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold text-white drop-shadow-2xl">
-              About LoveDanceLive — Our Story & Mission
+              Our Story & Mission
             </h1>
           </div>
         </div>
