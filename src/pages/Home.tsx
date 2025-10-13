@@ -222,11 +222,11 @@ const Home = () => {
             >
               <CarouselContent className="-ml-2 md:-ml-4">
                 {[
-                  { city: 'Mexico City, Mexico', date: 'Lorem ipsum', venue: 'Lorem ipsum dolor', icon: '🇲🇽', image: placeholderImage },
-                  { city: 'Sydney, Australia', date: 'Lorem ipsum', venue: 'Lorem ipsum dolor', icon: '🇦🇺', image: placeholderImage },
-                  { city: 'Johannesburg, South Africa', date: 'Lorem ipsum', venue: 'Lorem ipsum dolor', icon: '🇿🇦', image: placeholderImage },
-                  { city: 'Seoul, South Korea', date: 'Lorem ipsum', venue: 'Lorem ipsum dolor', icon: '🇰🇷', image: placeholderImage },
-                  { city: 'London, United Kingdom', date: 'Lorem ipsum', venue: 'Lorem ipsum dolor', icon: '🇬🇧', image: placeholderImage },
+                  { city: 'Mexico City, Mexico', date: 'To be announced', venue: 'To be announced', icon: '🇲🇽', image: placeholderImage },
+                  { city: 'Sydney, Australia', date: 'To be announced', venue: 'To be announced', icon: '🇦🇺', image: placeholderImage },
+                  { city: 'Johannesburg, South Africa', date: 'To be announced', venue: 'To be announced', icon: '🇿🇦', image: placeholderImage },
+                  { city: 'Seoul, South Korea', date: 'To be announced', venue: 'To be announced', icon: '🇰🇷', image: placeholderImage },
+                  { city: 'London, United Kingdom', date: 'To be announced', venue: 'To be announced', icon: '🇬🇧', image: placeholderImage },
                 ].map((event, index) => (
                   <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
                     <Card className="hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 h-[500px] flex flex-col">
@@ -257,8 +257,8 @@ const Home = () => {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="hidden md:flex" />
-              <CarouselNext className="hidden md:flex" />
+              <CarouselPrevious className="-left-12 md:-left-16" />
+              <CarouselNext className="-right-12 md:-right-16" />
             </Carousel>
           </div>
 
