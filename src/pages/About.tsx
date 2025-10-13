@@ -3,52 +3,45 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Users, Target, Heart, Trophy, Mail } from 'lucide-react';
-import aboutHero from '@/assets/about-hero.jpg';
-import foundersPhoto from '@/assets/founders-photo.jpg';
-import team1 from '@/assets/team-1.jpg';
-import team2 from '@/assets/team-2.jpg';
-import team3 from '@/assets/team-3.jpg';
-import team4 from '@/assets/team-4.jpg';
-import team5 from '@/assets/team-5.jpg';
-import team6 from '@/assets/team-6.jpg';
+import placeholderImage from '@/assets/placeholder.png';
 
 const About = () => {
   const teamMembers = [
     {
-      name: 'Sarah Mitchell',
+      name: 'Lorem Ipsum',
       title: 'Founder & CEO',
-      bio: 'Former principal dancer with 20+ years experience building platforms that connect global dance communities and nurture young talent.',
-      image: team1
+      bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      image: placeholderImage
     },
     {
-      name: 'Marcus Chen',
+      name: 'Lorem Ipsum',
       title: 'Artistic Director',
-      bio: 'Award-winning choreographer and educator dedicated to creating inclusive spaces where every dancer can shine on the world stage.',
-      image: team2
+      bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      image: placeholderImage
     },
     {
-      name: 'Priya Patel',
+      name: 'Lorem Ipsum',
       title: 'Competition Coordinator',
-      bio: 'Oversees five continental regionals, ensuring fair judging, smooth logistics, and unforgettable experiences for dancers and families.',
-      image: team3
+      bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      image: placeholderImage
     },
     {
-      name: 'James Rodriguez',
+      name: 'Lorem Ipsum',
       title: 'Education Director',
-      bio: 'Curates workshops and masterclasses with leading instructors, bringing world-class training to every regional and online platform.',
-      image: team4
+      bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      image: placeholderImage
     },
     {
-      name: 'Yuki Tanaka',
+      name: 'Lorem Ipsum',
       title: 'Regional Events Manager',
-      bio: 'Coordinates live events across Mexico City, Sydney, Johannesburg, Seoul, and London, creating magic at every venue.',
-      image: team5
+      bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      image: placeholderImage
     },
     {
-      name: 'Amara Williams',
+      name: 'Lorem Ipsum',
       title: 'Community Engagement Lead',
-      bio: 'Champions dancer stories, manages social media, and ensures every voice is heard in the LoveDanceLive family.',
-      image: team6
+      bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      image: placeholderImage
     }
   ];
 
@@ -65,8 +58,8 @@ const About = () => {
       <section className="relative h-[50vh] md:h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            src={aboutHero} 
-            alt="Diverse dancers from multiple continents performing together" 
+            src={placeholderImage} 
+            alt="Mixed-continent dancers mid-performance" 
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-primary/80 via-turquoise/70 to-accent/80"></div>
@@ -127,7 +120,7 @@ const About = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl blur-xl"></div>
               <img 
-                src={foundersPhoto} 
+                src={placeholderImage} 
                 alt="Founders with dancers" 
                 className="relative rounded-2xl shadow-2xl w-full aspect-[3/4] object-cover"
               />
