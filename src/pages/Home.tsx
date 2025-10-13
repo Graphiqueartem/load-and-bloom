@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/carousel";
 
 import heroImage from '@/assets/hero-dance.jpg';
+import placeholderImage from '@/assets/placeholder.png';
 import eventPoster1 from '@/assets/event-poster-1.jpg';
 import eventPoster2 from '@/assets/event-poster-2.jpg';
 import eventPoster3 from '@/assets/event-poster-3.jpg';
