@@ -24,8 +24,8 @@ const SeriesBoard = () => {
   ];
 
   const topCountries = [
-    { rank: 1, country: 'United States', score: 95, revealed: true },
-    { rank: 2, country: 'United Kingdom', score: 92, revealed: true },
+    { rank: 1, country: 'United States', score: 95, revealed: false },
+    { rank: 2, country: 'United Kingdom', score: 92, revealed: false },
     { rank: 3, country: 'Australia', score: 89, revealed: false },
     { rank: 4, country: 'Canada', score: 87, revealed: false },
     { rank: 5, country: 'South Africa', score: 85, revealed: false },
@@ -118,7 +118,7 @@ const SeriesBoard = () => {
                       <div className="flex items-center justify-center gap-2 mb-8">
                         <MapPin className="h-5 w-5 text-primary" />
                         <p className="text-lg font-semibold text-foreground">
-                          Host City: <span className="text-primary">{continent.city}</span>
+                          Host City: <span className="text-primary">To be announced</span>
                         </p>
                       </div>
 
