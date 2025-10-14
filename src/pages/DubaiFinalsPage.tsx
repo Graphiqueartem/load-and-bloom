@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Calendar, Home, Award, Users, GraduationCap, Download, Video } from 'lucide-react';
-import dubaiHero from '@/assets/dubai-finals-hero.jpg';
+import placeholderImage from '@/assets/placeholder.png';
 
 const DubaiFinalsPage = () => {
   const schedule = [
@@ -35,11 +35,18 @@ const DubaiFinalsPage = () => {
 
   return (
     <div>
+      {/* Banner Section */}
+      <section className="bg-gradient-to-r from-primary via-turquoise to-accent py-3 text-center">
+        <p className="text-white text-sm md:text-base font-medium px-4">
+          Regional and online champions unite in Dubai for three unforgettable days of dance, learning and celebration.
+        </p>
+      </section>
+
       {/* Hero Section */}
       <section className="relative h-[50vh] md:h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            src={dubaiHero} 
+            src={placeholderImage} 
             alt="Dubai Grand Final resort and stage at night" 
             className="w-full h-full object-cover"
           />
@@ -131,7 +138,7 @@ const DubaiFinalsPage = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl blur-xl"></div>
               <img 
-                src={dubaiHero} 
+                src={placeholderImage} 
                 alt="Luxury resort suite interior" 
                 className="relative rounded-2xl shadow-2xl w-full aspect-[4/3] object-cover"
               />
@@ -218,7 +225,7 @@ const DubaiFinalsPage = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-light-blue/20 to-turquoise/20 rounded-2xl blur-xl"></div>
               <img 
-                src={dubaiHero} 
+                src={placeholderImage} 
                 alt="Press photographer at stage" 
                 className="relative rounded-2xl shadow-2xl w-full aspect-[4/3] object-cover"
               />

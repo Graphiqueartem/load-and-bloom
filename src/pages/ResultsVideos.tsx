@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Trophy, Video, Download, Star, ChevronDown, Play } from 'lucide-react';
-import resultsHero from '@/assets/results-hero.jpg';
+import placeholderImage from '@/assets/placeholder.png';
 import {
   Collapsible,
   CollapsibleContent,
@@ -56,11 +56,18 @@ const ResultsVideos = () => {
 
   return (
     <div>
+      {/* Banner Section */}
+      <section className="bg-gradient-to-r from-primary via-turquoise to-accent py-3 text-center">
+        <p className="text-white text-sm md:text-base font-medium px-4">
+          Celebrate our dancers — from regional champions to Dubai finalists.
+        </p>
+      </section>
+
       {/* Hero Section */}
-      <section className="relative h-[50vh] md:h-[55vh] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[50vh] md:h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            src={resultsHero} 
+            src={placeholderImage} 
             alt="Confetti and trophies celebration" 
             className="w-full h-full object-cover"
           />

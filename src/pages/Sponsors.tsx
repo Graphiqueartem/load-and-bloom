@@ -7,7 +7,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Handshake, Building2, Award, Crown } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import sponsorsHero from '@/assets/sponsors-hero.jpg';
+import placeholderImage from '@/assets/placeholder.png';
 
 const Sponsors = () => {
   const { toast } = useToast();
@@ -49,28 +49,27 @@ const Sponsors = () => {
 
   return (
     <div className="page-gradient-bg">
+      {/* Banner Section */}
+      <section className="bg-gradient-to-r from-primary via-turquoise to-accent py-3 text-center">
+        <p className="text-white text-sm md:text-base font-medium px-4">
+          Join a global platform uniting five continents of young talent.
+        </p>
+      </section>
+
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[50vh] md:h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            src={sponsorsHero} 
+            src={placeholderImage} 
             alt="Brand banners around stage" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-neon-pink/90 via-primary/85 to-turquoise/90"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/80 via-turquoise/70 to-accent/80"></div>
         </div>
         
-        <div className="relative z-10 container mx-auto px-3 sm:px-4 lg:px-6 text-center">
-          <div className="max-w-4xl mx-auto space-y-4 sm:space-y-6 animate-fade-in">
-            <div className="flex justify-center mb-4">
-              <div className="bg-white/10 backdrop-blur-sm rounded-full p-4 animate-scale-in">
-                <Handshake className="h-12 w-12 text-white" />
-              </div>
-            </div>
-            <p className="text-base sm:text-lg font-open-sans text-white/95">
-              Join a global platform uniting five continents of young talent.
-            </p>
-            <h1 className="text-3xl sm:text-4xl md:text-6xl font-poppins font-bold text-white drop-shadow-lg">
+        <div className="relative z-10 container mx-auto px-4 text-center">
+          <div className="max-w-4xl mx-auto space-y-6 animate-fade-in">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold text-white drop-shadow-2xl">
               Sponsors — Partner with LoveDanceLive
             </h1>
           </div>

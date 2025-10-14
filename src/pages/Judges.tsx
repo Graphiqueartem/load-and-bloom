@@ -4,7 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Award, Target, Lightbulb, Zap, User, Download, LogIn, ChevronDown } from 'lucide-react';
-import judgesHero from '@/assets/judges-hero.jpg';
+import placeholderImage from '@/assets/placeholder.png';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 const Judges: React.FC = () => {
@@ -62,11 +62,18 @@ const Judges: React.FC = () => {
 
   return (
     <div>
+      {/* Banner Section */}
+      <section className="bg-gradient-to-r from-primary via-turquoise to-accent py-3 text-center">
+        <p className="text-white text-sm md:text-base font-medium px-4">
+          Our international judging panel brings expertise from every continent — technique, artistry and passion united.
+        </p>
+      </section>
+
       {/* Hero Section */}
-      <section className="relative h-[50vh] md:h-[55vh] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[50vh] md:h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            src={judgesHero} 
+            src={placeholderImage} 
             alt="International judges panel at judging table" 
             className="w-full h-full object-cover"
           />
