@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { MapPin, Calendar, Trophy, Star, Award } from 'lucide-react';
-import competitionsHero from '@/assets/competitions-hero.jpg';
+import placeholderImage from '@/assets/placeholder.png';
 
 const Competitions = () => {
   const regionalEvents = [
@@ -46,11 +46,20 @@ const Competitions = () => {
 
   return (
     <div>
+      {/* Banner */}
+      <section className="bg-gradient-to-r from-primary via-turquoise to-accent text-white py-4">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-sm md:text-base font-medium">
+            Compete live in Mexico City, Sydney, Johannesburg, Seoul or London — or submit your dance video from anywhere to qualify for the Grand Final in Dubai.
+          </p>
+        </div>
+      </section>
+
       {/* Hero Section */}
       <section className="relative h-[50vh] md:h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            src={competitionsHero} 
+            src={placeholderImage} 
             alt="Five continental dance competition stages converging" 
             className="w-full h-full object-cover"
           />
@@ -188,7 +197,7 @@ const Competitions = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl blur-xl"></div>
               <img 
-                src={competitionsHero} 
+                src={placeholderImage} 
                 alt="Judges evaluating performances" 
                 className="relative rounded-2xl shadow-2xl w-full aspect-[4/3] object-cover"
               />
