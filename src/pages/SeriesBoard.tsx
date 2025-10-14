@@ -6,7 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { Trophy, MapPin, Download, Eye, ChevronDown, Flag, Award } from 'lucide-react';
-import seriesBoardHero from '@/assets/series-board-hero.jpg';
+import placeholderImage from '@/assets/placeholder.png';
 
 const SeriesBoard = () => {
   const [openArchive, setOpenArchive] = useState(false);
@@ -38,28 +38,29 @@ const SeriesBoard = () => {
 
   return (
     <div className="page-gradient-bg">
+      {/* Banner */}
+      <section className="bg-gradient-to-r from-primary via-turquoise to-accent text-white py-4">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-sm md:text-base font-medium">
+            Follow the global journey from regional stages to Dubai.
+          </p>
+        </div>
+      </section>
+
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[50vh] md:h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            src={seriesBoardHero} 
+            src={placeholderImage} 
             alt="Glowing world map with gold points" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-neon-pink/90 via-primary/85 to-turquoise/90"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/80 via-turquoise/70 to-accent/80"></div>
         </div>
         
-        <div className="relative z-10 container mx-auto px-3 sm:px-4 lg:px-6 text-center">
-          <div className="max-w-4xl mx-auto space-y-4 sm:space-y-6 animate-fade-in">
-            <div className="flex justify-center mb-4">
-              <div className="bg-white/10 backdrop-blur-sm rounded-full p-4 animate-scale-in">
-                <Trophy className="h-12 w-12 text-white" />
-              </div>
-            </div>
-            <p className="text-base sm:text-lg font-open-sans text-white/95">
-              Follow the global journey from regional stages to Dubai.
-            </p>
-            <h1 className="text-3xl sm:text-4xl md:text-6xl font-poppins font-bold text-white drop-shadow-lg">
+        <div className="relative z-10 container mx-auto px-4 text-center">
+          <div className="max-w-4xl mx-auto space-y-6 animate-fade-in">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold text-white drop-shadow-2xl">
               Series Board — Global Standings
             </h1>
           </div>
